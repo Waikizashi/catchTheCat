@@ -1,0 +1,16 @@
+    @font-face {
+    font-family: "Silkscreen";
+    font-style: normal;
+
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("Silkscreen"),
+        /* Если не получилось, загрузит woff2 */
+    url("../fonts/Silkscreen/Silkscreen-Regular.woff") format("woff"),
+    url("../fonts/Silkscreen/Silkscreen-Regular.woff2") format("woff2")
+}
+
+
+html{
+    font-family: "Silkscreen", "Arial", sans-serif;
+    background: none;
+}

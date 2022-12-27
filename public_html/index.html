@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/menu.css">
+    <link rel="stylesheet" href="./src/css/button.css">
+    <link rel="stylesheet" href="./src/css/font.css">
+    <title>Document</title>
+</head>
+<body class="wrap">
+    <div class="info">
+        <div id="scoreInfo">score: <p id="score">0</p></div>
+        <div id="lvlMode">mode_level: <p id="mode">easy</p></div>
+        <div id="timeInfo">Now: <p id="time"></p></div>
+        <div id="timerInfo">timer: <p id="timer">0:0:0</p></div>
+        <section class="guls">
+            <div class="gul1"></div>
+            <div class="gul2"></div>
+            <div class="gul3"></div>
+        </section>
+    </div>
+    <div class="main-area">
+    <!--#----------------------------------render area-------------------------------------->
+    <div class="play-area">
+        <div class="hiScreen">
+            <p id="welcome">Welcome to "Press the button" game</p>
+            <div id="settings">
+                <ul id="choseMode">
+                    <li><p id="very easy">very_easy</p></li>
+                    <li><p id="easy">easy</p></li>
+                    <li><p id="medium">medium</p></li>
+                    <li><p id="hard">hard</p></li>
+                    <li><p id="Extreme">Extreme</p></li>
+                </ul>
+                <input name="extraOption" id="extraOption" value="0" min="0" max="99" type="number">
+            </div>
+            <p id="start" > << click here to start game >> </p>
+        </div>
+
+    </div>
+    
+    <!--#----------------------------------------------------------------------------------->
+    <marquee id="newsLine"><p id="news"></p></marquee>
+    <div class="logs">
+        <p>Just click to increase the score</p>
+    </div>
+    <div class="buttons">
+        <div id="reboot"><p>...</p></div>
+        <div id="fuck"><p>fuck somebody</p></div>
+        <div id="pause"><p>...</p></div>
+    </div>
+
+    </div>
+    <script src="./src/js/hiScreen.js"></script>
+    <script src="./src/js/info.js"></script>
+    <script src="./src/js/init.js"></script>
+    <script src="./src/js/game.js"></script>
+    <script src="./src/js/mechanic.js"></script>
+    <footer style="
+    margin-bottom: -30px;
+    padding: 5px;
+    background-color: #002b86;
+    text-align: center;
+    color: white;
+    font-size: 14px;">
+
+    <p style="
+    margin: auto;
+    text-shadow: 0 0 5px white;">
+        Dream team, &copy; 2022 December...</p>
+    </footer>
+</body>
+</html>
