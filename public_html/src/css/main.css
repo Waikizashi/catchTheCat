@@ -73,7 +73,7 @@ html{
 }
 
 .hiScreen{
-    z-index: -99;
+    z-index: 9;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,10 +86,11 @@ html{
                     rgb(77, 0, 100),
                     rgb(0, 23, 100),
                     rgb(77, 0, 100));
-    transition: 0.3s ease;
+    transition: .3s ease;
     outline: 10px outset rgb(255, 166, 0);
-    outline-offset: -14px;
+    outline-offset: -16px;
 }
+
 #settings{
     display: flex;
     flex-direction: column;
@@ -100,6 +101,8 @@ html{
 #choseMode{
     list-style: none;
     padding: 0;
+    border-top: 6px ridge rgb(255, 196, 0); 
+    border-bottom: 6px ridge rgb(255, 196, 0); 
     margin-bottom: 2rem;
 }
 
@@ -122,8 +125,8 @@ html{
     box-shadow: inset 0 0 0px 1px rgb(255, 255, 31);
 }
 
-#choseMode li p:active{
-    color:rgb(255, 23, 23);
+.chosen{
+    color:rgb(255, 23, 23) !important;
     border-left: 6px ridge rgb(255, 255, 31);
     border-right: 6px ridge rgb(255, 255, 31);
     box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
@@ -150,11 +153,11 @@ html{
     color: rgb(255, 255, 31);
 }
 
-.closeHiScreen{
-    font-size: 0;
+.close{
+    visibility: collapse;
     height: 0%;
-    visibility: hidden;
 }
+
 
 #newsLine{
     background-color: #260058;
