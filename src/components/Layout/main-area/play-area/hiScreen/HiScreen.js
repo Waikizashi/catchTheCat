@@ -1,6 +1,6 @@
 import cn from  'classnames';
 
-import s from './HiScreen.module.css';
+import s from './hiScreen.module.css';
 
 function HiScreen() {
   return (
