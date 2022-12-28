@@ -10,6 +10,12 @@
     background-color:rgb(61, 0, 77);
 }
 
+.mainBtns{
+    display: inline-flex;
+    column-gap: 10px;
+    margin-bottom: 5px;
+}
+
 .btn{
     display: flex;
     flex-direction: column;
@@ -25,4 +31,37 @@
 
 .btn:active{
     border: 20px groove rgb(199, 38, 126);
+}
+
+@media (max-width:768px){
+    .menu{
+        font-size: 8pt;
+    }
+    .btn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 5px 0 5px 0;
+        border: 10px ridge rgb(175, 14, 103);
+        height: 20px;
+    }
+    
+    .btn:hover{
+        border: 10px ridge rgb(199, 38, 126);
+    }
+    
+    .btn:active{
+        border: 10px groove rgb(199, 38, 126);
+    }    
+}
+
+@media (max-width:468px){
+    .menu{
+        column-gap: 5px;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; */
+        font-size: 6pt;
+    }
 }

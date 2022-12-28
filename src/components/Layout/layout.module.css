@@ -17,7 +17,6 @@
 
 .footer{
     margin-bottom: -30px;
-    padding: 5px;
     text-align: center;
     color: white;
     font-size: 14px;
@@ -31,14 +30,22 @@
 
 @media (max-width:768px) {
     .wrap{
-        border-top: 80px solid #000135;
+        border-top: 40px solid #000135;
+        border-right: 10px solid #000135;
+        border-left: 10px solid #000135;
+        border-bottom: 20px solid #000135;
+    }
+    .footer{
+        font-size: 8pt;
+        margin-bottom: -20px;
     }
 }
 @media (max-width:350px) {
     .wrap{
-        border-bottom: 60px solid #000135;
+        border-bottom: 40px solid #000135;
     }
     .footer{
-        margin-bottom: -60px;
+        font-size: 6pt;
+        margin-bottom: -40px;
     }
 }
