@@ -1,0 +1,96 @@
+
+.hiScreen{
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    /* background-color:rgb(77, 0, 100); */
+    background: linear-gradient(180deg, 
+                    rgb(77, 0, 100),
+                    rgb(0, 23, 100),
+                    rgb(77, 0, 100));
+    transition: .3s ease;
+    outline: 10px outset rgb(255, 166, 0);
+    outline-offset: -16px;
+}
+
+.p{
+    color: rgb(94, 255, 0)
+}
+
+.settings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choseMode{
+    list-style: none;
+    padding: 0;
+    border-top: 6px ridge rgb(255, 196, 0); 
+    border-bottom: 6px ridge rgb(255, 196, 0); 
+    margin-bottom: 2rem;
+}
+
+
+
+.menuBtn{
+    text-align: center;
+    font-size: 12pt;
+    color: rgb(255, 196, 0);
+    transition: 0.1s;
+    border-left: 6px ridge rgb(255, 196, 0);
+    border-right: 6px ridge rgb(255, 196, 0);
+    padding: 6px;
+    margin: 0;
+}
+.menuBtn:hover{
+    color: rgb(255, 255, 31);
+    border-left: 6px ridge rgb(255, 255, 31);
+    border-right: 6px ridge rgb(255, 255, 31);
+    box-shadow: inset 0 0 0px 1px rgb(255, 255, 31);
+}
+
+.menuBtn:active{
+    color:rgb(255, 23, 23) !important;
+    border-left: 6px ridge rgb(255, 255, 31);
+    border-right: 6px ridge rgb(255, 255, 31);
+    box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+}
+.chosen{
+    color:rgb(255, 23, 23) !important;
+    border-left: 6px ridge rgb(255, 255, 31);
+    border-right: 6px ridge rgb(255, 255, 31);
+    box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+}
+
+.extraOption{
+    width: 100px;
+    color: white;
+    text-align: center;
+    border: 6px ridge rgb(252, 143, 0);
+    background: linear-gradient(90deg, blue, magenta);
+    font-family: "Silkscreen", "Arial", sans-serif;
+    outline: none;
+}
+
+.welcome{
+    font-size: 18pt;
+}
+
+.start{
+    color: rgb(255, 196, 0);
+}
+.start:hover{
+    color: rgb(255, 255, 31);
+}
+
+.close{
+    visibility: collapse;
+    height: 0%;
+}
