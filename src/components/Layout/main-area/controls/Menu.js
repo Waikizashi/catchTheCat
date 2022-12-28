@@ -9,10 +9,10 @@ function Menu() {
       
     <div className={cn(s.btn)}><p>fuck somebody</p></div>
 
-      <div className={cn(s.mainBtns)}>
-        <div className={cn(s.btn)}><p>...</p></div>
-        <div className={cn(s.btn)}><p>...</p></div>
-      </div>
+      {/* <div className={cn(s.mainBtns)}> */}
+        <div className={cn(s.btn)}><p>reboot</p></div>
+        <div className={cn(s.btn)}><p>pause</p></div>
+      {/* </div> */}
 
     </div>
   );

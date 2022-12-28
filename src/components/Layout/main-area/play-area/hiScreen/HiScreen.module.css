@@ -34,7 +34,7 @@
     padding: 0;
     border-top: 6px ridge rgb(255, 196, 0); 
     border-bottom: 6px ridge rgb(255, 196, 0); 
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -81,6 +81,7 @@
 
 .welcome{
     font-size: 18pt;
+    text-align: center;
 }
 
 .start{
@@ -93,4 +94,100 @@
 .close{
     visibility: collapse;
     height: 0%;
+}
+
+@media (max-width:768px){
+    
+    .extraOption{
+        font-size: 6pt;
+        width: 60px;
+        border: 4px ridge rgb(252, 143, 0);
+    }
+
+
+    .hiScreen{
+        outline: 6px outset rgb(255, 166, 0);
+        outline-offset: -12px;
+    }
+    .welcome{
+        font-size: 12pt;
+    }
+    .menuBtn{
+        font-size: 8pt;
+        border-left: 4px ridge rgb(255, 196, 0);
+        border-right: 4px ridge rgb(255, 196, 0);
+        padding: 4px;
+    }
+
+    .menuBtn:hover{
+        color: rgb(255, 255, 31);
+        border-left: 4px ridge rgb(255, 255, 31);
+        border-right: 4px ridge rgb(255, 255, 31);
+        box-shadow: inset 0 0 0px 1px rgb(255, 255, 31);
+    }
+    
+    .menuBtn:active{
+        color:rgb(255, 23, 23) !important;
+        border-left: 4px ridge rgb(255, 255, 31);
+        border-right: 4px ridge rgb(255, 255, 31);
+        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+    }
+    .chosen{
+        color:rgb(255, 23, 23) !important;
+        border-left: 4px ridge rgb(255, 255, 31);
+        border-right: 4px ridge rgb(255, 255, 31);
+        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+    }
+    .start,p{
+        font-size: 10pt;
+    }
+    .choseMode{
+        margin: 5px;
+    }
+}
+
+@media (max-width:468px){
+    .extraOption{
+        font-size: 4pt;
+        width: 40px;
+        border: 3px ridge rgb(252, 143, 0);
+    }
+
+    .hiScreen{
+        outline: 4px outset rgb(255, 166, 0);
+        outline-offset: -10px;
+    }
+    .welcome{
+        font-size: 6pt;
+        margin: 0 15px 0px 15px;
+    }
+    .menuBtn{
+        font-size: 6pt;
+        border-left: 2px ridge rgb(255, 196, 0);
+        border-right: 2px ridge rgb(255, 196, 0);
+        padding: 2px;
+    }
+
+    .menuBtn:hover{
+        color: rgb(255, 255, 31);
+        border-left: 2px ridge rgb(255, 255, 31);
+        border-right: 2px ridge rgb(255, 255, 31);
+        box-shadow: inset 0 0 0px 1px rgb(255, 255, 31);
+    }
+    
+    .menuBtn:active{
+        color:rgb(255, 23, 23) !important;
+        border-left: 2px ridge rgb(255, 255, 31);
+        border-right: 2px ridge rgb(255, 255, 31);
+        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+    }
+    .chosen{
+        color:rgb(255, 23, 23) !important;
+        border-left: 2px ridge rgb(255, 255, 31);
+        border-right: 2px ridge rgb(255, 255, 31);
+        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+    }
+    .start,p{
+        font-size: 5pt;
+    }
 }
