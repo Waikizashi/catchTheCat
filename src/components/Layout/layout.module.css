@@ -17,7 +17,6 @@
 
 .footer{
     margin-bottom: -30px;
-    padding: 5px;
     text-align: center;
     color: white;
     font-size: 14px;
@@ -38,15 +37,15 @@
     }
     .footer{
         font-size: 8pt;
-        margin-bottom: -25px;
+        margin-bottom: -20px;
     }
 }
 @media (max-width:350px) {
     .wrap{
-        border-bottom: 20px solid #000135;
+        border-bottom: 40px solid #000135;
     }
     .footer{
         font-size: 6pt;
-        margin-bottom: -60px;
+        margin-bottom: -40px;
     }
 }

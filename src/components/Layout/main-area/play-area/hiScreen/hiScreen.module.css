@@ -19,6 +19,8 @@
 }
 
 .p{
+    text-align: center;
+    margin: 10px 15px 10px 15px;
     color: rgb(94, 255, 0)
 }
 
@@ -41,7 +43,7 @@
 
 .menuBtn{
     text-align: center;
-    font-size: 12pt;
+    font-size: 18pt;
     color: rgb(255, 196, 0);
     transition: 0.1s;
     border-left: 6px ridge rgb(255, 196, 0);
@@ -82,9 +84,12 @@
 .welcome{
     font-size: 18pt;
     text-align: center;
+    margin: 0 15px 0 15px;
 }
 
 .start{
+    text-align: center;
+    margin: 20px 15px 0 15px;
     color: rgb(255, 196, 0);
 }
 .start:hover{
@@ -97,7 +102,7 @@
 }
 
 
-@media (max-width:768px){
+@media (max-width:468px){
     
     .extraOption{
         font-size: 6pt;
@@ -114,7 +119,7 @@
         font-size: 12pt;
     }
     .menuBtn{
-        font-size: 8pt;
+        font-size: 16pt;
         border-left: 4px ridge rgb(255, 196, 0);
         border-right: 4px ridge rgb(255, 196, 0);
         padding: 4px;
@@ -147,7 +152,7 @@
     }
 }
 
-@media (max-width:468px){
+@media (max-width:350px){
     .extraOption{
         font-size: 4pt;
         width: 40px;
@@ -163,7 +168,7 @@
         margin: 0 15px 0px 15px;
     }
     .menuBtn{
-        font-size: 6pt;
+        font-size: 14pt;
         border-left: 2px ridge rgb(255, 196, 0);
         border-right: 2px ridge rgb(255, 196, 0);
         padding: 2px;
