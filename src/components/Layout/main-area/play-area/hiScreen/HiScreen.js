@@ -5,7 +5,7 @@ import s from './HiScreen.module.css';
 function HiScreen() {
   return (
     <div class={s.hiScreen}>
-            <p className={s.welcome}>Welcome to "Press the button" game</p>
+            <p className={s.welcome}>Welcome to "Catch tha cat" game</p>
             <div className={s.settings}>
                 <p className={s.p}>Choose game mode:</p>
                 <ul className={s.choseMode}>
