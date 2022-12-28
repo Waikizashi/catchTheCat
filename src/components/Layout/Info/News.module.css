@@ -1,0 +1,22 @@
+.newsLine{
+    display: block;
+    position: relative;
+    background-color: #260058;
+    overflow: hidden;
+    width: 100%;
+}
+
+.marquee {
+    font-size: 16px;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+}
+  
+  .newsLine:hover .marquee{
+    animation-play-state: paused
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }

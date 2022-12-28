@@ -1,0 +1,8 @@
+.playArea{
+    z-index: 10;
+    margin: 0;
+    background-color:rgb(2, 1, 41);
+    outline-offset: -8px;
+    width: inherit;
+    height: 100%;
+}

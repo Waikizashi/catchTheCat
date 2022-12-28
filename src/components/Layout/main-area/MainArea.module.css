@@ -1,0 +1,10 @@
+.mainArea{
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    overflow: hidden;
+    /* box-shadow: inset 0px 0px 10px 2px black; */
+}

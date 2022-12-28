@@ -1,0 +1,105 @@
+.textColors{
+    animation-name: Colors1;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+.textColors2{
+    animation-name: Colors2;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+.bordercolors1{
+    animation-name: borders1;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+.bordercolors2{
+    animation-name: borders2;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+.bc2{
+    animation-name: Colors2, borders2;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes Colors1 {
+    0%{
+        color: red;
+    }
+    33%{
+        color: magenta;
+    }
+    66%{
+        color: lawngreen;
+    }
+    100%{
+        color: red;
+    }
+}
+@keyframes Colors2 {
+    0%{
+        color: rgb(255, 210, 112);
+    }
+    33%{
+        color: rgb(208, 255, 121);
+    }
+    66%{
+        color: rgb(255, 180, 110);
+    }
+    100%{
+        color: rgb(255, 210, 112);
+    }
+}
+
+@keyframes borders1 {
+    0%{
+        border-top: 4px dashed red;
+        border-right: 4px dashed red;
+        border-left: 4px dashed red;
+        border-bottom: 4px solid red;
+        outline: 4px double red;
+    }
+    33%{
+        border-top: 4px dashed magenta;
+        border-right: 4px dashed magenta;
+        border-left: 4px dashed magenta;
+        border-bottom: 4px solid magenta;
+        outline: 4px double magenta;
+    }
+    66%{
+        border-top: 4px dashed lawngreen;
+        border-right: 4px dashed lawngreen;
+        border-left: 4px dashed lawngreen;
+        border-bottom: 4px solid lawngreen;
+        outline: 4px double lawngreen;
+    }
+    100%{
+        border-top: 4px dashed red;
+        border-right: 4px dashed red;
+        border-left: 4px dashed red;
+        border-bottom: 4px solid red;
+        outline: 4px double red;
+    }
+}
+
+@keyframes borders2 {
+    0%{
+        border: 4px outset red;
+    }
+    33%{
+        border: 4px outset magenta;
+    }
+    66%{
+        border: 4px outset lawngreen;
+    }
+    100%{
+        
+        border: 4px outset red;
+    }
+}

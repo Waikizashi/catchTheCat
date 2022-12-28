@@ -1,0 +1,11 @@
+.Logs{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 4px outset rgb(255, 0, 140);
+    background-color:#6300c0;
+    height: 100px;
+    width: 100%;
+}

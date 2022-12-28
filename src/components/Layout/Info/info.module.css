@@ -1,0 +1,94 @@
+*,::after,::before{
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -30px;
+    height: 30px;
+    width: inherit;
+    text-align: center;
+    align-items:center;
+    color: white;
+}
+
+.guls{
+    display: inline-flex;
+}
+
+.scoreInfo, .lvlMode, .timeInfo, .timerInfo{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12pt;
+    text-shadow: 1px 1px 0px rgb(12, 99, 156),
+                 2px 2px 0px white;
+    /* textColor */
+    margin: 0 15px 0 0;
+}
+
+.score, .mode, .time, .timer{
+    margin: 0 0 0 10%;
+}
+
+
+.gul1, .gul2, .gul3{
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+    border-radius:50%;
+}
+
+.gul1{
+    background-color: red;
+    border: 1px solid white;
+    animation-name: gul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.gul2{
+    background-color: greenyellow;
+    border: 1px solid white;
+    animation-name: gul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    
+}
+.gul3{
+    background-color: magenta;
+    border: 1px solid white;
+    animation-name: gul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+}
+
+@media (max-width:768px) {
+    .info{
+        margin-top: -80px;
+    }
+}
+
+
+@keyframes gul {
+    0%{
+        background-color: red;
+    }
+    33%{
+        background-color: magenta;
+    }
+    66%{
+        background-color: lawngreen;
+    }
+    100%{
+        background-color: red;
+    }
+}
+
