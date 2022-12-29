@@ -1,6 +1,6 @@
 import cn from  'classnames';
 import HiScreen from './hiScreen/HiScreen';
-import { useRef, useEffect, useContext } from 'react';
+import { useRef, useContext } from 'react';
 import Pussy from '../../../turboPussy/Pussy';
 import PussyConf from '../../../../mechanic/Cat';
 
