@@ -13,13 +13,18 @@ function HiScreen() {
 
   
 
-  const {onSetHisState, hiScreenState, onSetMode, gameMode} = useContext(StateContext)
+  const {
+      onSetHisState,
+      hiScreenState,
+      onSetMode,
+      gameMode,
+      onPussyHandle} = useContext(StateContext)
 
   const [modifier, setModifier] = useState(0)
   
 
   const clickToStart = () => {
-
+    onPussyHandle()
     onSetHisState()
   };
 

@@ -5,11 +5,12 @@ import { StateContext } from '../../../../context/stateContext';
 import s from './Menu.module.css';
 
 function Menu() {
-  const {onSetHisState, hiScreenState} = useContext(StateContext)
+  const {onSetHisState, hiScreenState,onPussyHandle} = useContext(StateContext)
 
   const onPause = ()=>{
     console.log("####: ", hiScreenState)
     onSetHisState()
+    onPussyHandle()
   }
 
   return (
