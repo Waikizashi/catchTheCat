@@ -22,7 +22,7 @@ function App() {
     <StateContext.Provider value={{
       hiScreenState:hisState,
       gameMode:mode,
-      onSetMode:setMode,
+      onSetMode:modeHandle,
       onSetHisState: hisHandle
     }}>
       <div className={s.App}>
