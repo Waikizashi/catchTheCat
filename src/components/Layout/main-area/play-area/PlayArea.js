@@ -2,7 +2,7 @@ import cn from  'classnames';
 import HiScreen from './hiScreen/HiScreen';
 import { useRef, useEffect, useContext } from 'react';
 import Pussy from '../../../turboPussy/Pussy';
-import PussyConf from '../../../../mechanic/Pussy';
+import PussyConf from '../../../../mechanic/Cat';
 
 import anm from '../../../../css/Animations.module.css'
 import s from './PlayArea.module.css';
@@ -14,7 +14,11 @@ function PlayArea() {
   const {render, onSetAreaPlace, area} = useContext(StateContext)
 
   
-
+  const top = area.height*0.5 + 'px'
+  const right = area.width*0.5 + 'px'
+  const size = area.width*0.1 + 'px'
+  
+  const pussyConfig = new PussyConf([top,right,size])
 
 
   useEffect(() => {
@@ -43,13 +47,6 @@ function PlayArea() {
     };
   }, []);
 
-
-  const top = area.height*0.5 + 'px'
-  const right = area.width*0.5 + 'px'
-  const height = area.height*0.1 + 'px'
-  const width = area.width*0.1 + 'px'
-  
-  const pussyConfig = new PussyConf([top,right,height,width])
 
   return (
     <div ref={playAreaRef} className={cn(s.playArea, anm.bordercolors1)}>
