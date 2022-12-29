@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-function Pussy() {
+
+
+
+
+
+
+function Pussy({type}) {
   
   return (
     <div>
-
+        
     </div>
   )
 }

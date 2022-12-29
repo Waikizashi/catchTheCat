@@ -8,7 +8,8 @@ import './css/font.css'
 
 function App() {
   const [hisState, setHisState] = useState(true)
-  const [mode, setMode] = useState('medium')
+  const [mode, setMode] = useState('veryEasy')
+  const [area, setArea] = useState()
 
   const hisHandle = () =>{
     setHisState(!hisState)
