@@ -15,7 +15,9 @@ function Clock() {
   const minutes = time.getMinutes().toString().padStart(2, "0");
   const seconds = time.getSeconds().toString().padStart(2, "0");
 
-  return <div>{`${hours}:${minutes}:${seconds}`}</div>;
+  return (
+    <span>{`${hours}:${minutes}:${seconds}`}</span>
+  )
 }
 
 export default Clock;

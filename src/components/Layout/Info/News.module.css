@@ -7,8 +7,9 @@
 }
 
 .marquee {
-    font-size: 16px;
+    font-size: 12pt;
     white-space: nowrap;
+    margin: 0.5rem 0 1rem 0;
     animation: marquee 15s linear infinite;
 }
   
@@ -20,3 +21,16 @@
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
   }
+
+
+@media (max-width:768px){
+    .marquee{
+        font-size: 10pt;
+    }    
+}
+
+@media (max-width:468px){
+    .marquee{
+        font-size: 8pt;
+    }
+}
