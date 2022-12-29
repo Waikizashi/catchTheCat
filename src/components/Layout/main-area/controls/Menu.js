@@ -20,7 +20,7 @@ function Menu() {
 
       {/* <div className={cn(s.mainBtns)}> */}
         <div className={cn(s.btn)}><div>reboot</div></div>
-        <div className={cn(s.btn)} onClick={onPause}><div>{hiScreenState ? 'pause' : 'start'}</div></div>
+        <div className={cn(s.btn)} onClick={onPause}><div>{hiScreenState ? 'start' : 'pause'}</div></div>
       {/* </div> */}
 
     </div>
