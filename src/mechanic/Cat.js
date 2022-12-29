@@ -1,18 +1,16 @@
 export default class PussyConf {
-    constructor([y,x,Height,Width]){
+    constructor([y,x,Size]){
         
         this.sizeModofier = 50
         this.y = y
         this.x = x
-        this.height = Height
-        this.width = Width
+        this.size = Size
         //this.style = {top: y, right: x, height: Height, width: Width}
     }
     resize(modifier){
-        this.height = modifier
-        this.width = modifier
+        this.size = modifier
     }
-    replace(x,y){
+    replace(y,x){
         this.y = y
         this.x = x
     }

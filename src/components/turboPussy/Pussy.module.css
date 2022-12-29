@@ -34,6 +34,20 @@
     text-shadow:  0 0 10px white;
 }
 
+.img{
+    height: auto;
+}
+
+.cat{
+    height: fit-content;
+    width: fit-content;
+    visibility: hidden;
+    z-index: 0;
+    position: absolute;
+    user-select: none;
+    transition: 0.1s;
+}
+
 
 
 @keyframes render {

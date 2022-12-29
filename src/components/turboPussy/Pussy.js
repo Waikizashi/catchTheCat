@@ -3,6 +3,8 @@ import cn from  'classnames';
 //import PussyConf from "../../mechanic/Pussy";
 import getRandomInt from "../../mechanic/getRandomInt";
 
+import cat from "../../img/CatWithOutline.png"
+import badCat from "../../img/REDCatWithOutline.png"
 import s from './Pussy.module.css'
 import { StateContext } from "../../context/stateContext";
 
@@ -21,7 +23,7 @@ function Pussy({pussyConf, rndrState,params}) {
 
 
   function replace(){
-    let top = getRandomInt(area.height*0.1, area.height-area.height*0.1) + 'px'
+    let top = getRandomInt(area.width*0.1, area.height-area.height*0.1) + 'px'
     let right = getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px'
     pussyConf.replace(top, right)
     setConf(pussyConf)
@@ -31,14 +33,16 @@ function Pussy({pussyConf, rndrState,params}) {
 
 
   if(rndrState){
-   return (<div style={{
+   return (
+   <div style={{
     top: conf.y,
-    right: conf.x,
-    height: pussyConf.height,
-    width: pussyConf.width
-   }} onClick={replace} className={cn(s.pussy,{
+    right: conf.x
+   }} onClick={replace} className={cn(s.cat,{
       [s.render]:rndrState
-   })}>CAT</div>)
+   })}>
+      <img style={{width: conf.size}}
+        className={s.img} src={cat} alt={'cat'}></img>
+   </div>)
   } 
 }
 
