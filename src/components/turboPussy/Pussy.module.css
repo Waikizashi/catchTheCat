@@ -1,12 +1,9 @@
 .pussy{
+    visibility: hidden;
     z-index: 0;
     position: absolute;
-    display: flex;
+    display:flex;
     justify-content: center;
-    top: 50%;
-    right: 50%;
-    width: 100px;
-    height: 100px;
     color: azure;
     font-weight: bold;
     align-items: center;
@@ -37,8 +34,49 @@
     text-shadow:  0 0 10px white;
 }
 
+
+
+@keyframes render {
+    0% {
+        /* opacity: 0; */
+        transform: rotateX(90deg);
+        display: none;
+      
+    }
+    100% {
+        /* opacity: 1; */
+        visibility: visible;
+        transform: rotateX(0);
+    }
+  }
+  
+.render {
+    animation: render .1s ease-in-out;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+}
+
+/* 
+@keyframes hide {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+         display: none;
+         transform: rotateX(90deg);
+    }
+  }
+  
+.hide {
+    animation: hide .1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+ */
+
+
 @media(max-width: 568px) {
-    #redhat{
+    .pussy{
         width: 50px;
         height: 50px;
         font-size: 8pt;

@@ -1,4 +1,6 @@
 import cn from  'classnames';
+import { useContext } from 'react';
+import { StateContext } from '../../../context/stateContext';
 
 
 import anm from '../../../css/Animations.module.css'
@@ -7,10 +9,13 @@ import s from './info.module.css'
 
 function Info() {
 
+    const {score} = useContext(StateContext)
+
+
   return (
     <div className={cn(s.info)}>
         <div className={cn(s.scoreInfo, anm.textColors)}>
-            score: <p className={s.score}>0</p></div>
+            score: <p className={s.score}>{score}</p></div>
         <div className={cn(s.lvlMode, anm.textColors)}>
             mode_level: <p className={s.mode}>easy</p></div>
         <div className={cn(s.timeInfo, anm.textColors)}>
