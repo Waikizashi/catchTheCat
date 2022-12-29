@@ -1,6 +1,6 @@
 
 .hiScreen{
-    z-index: 9;
+    z-index: -11;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@
                     rgb(77, 0, 100));
     transition: .2s ease;
     outline: 10px outset rgb(255, 166, 0);
-    outline-offset: -16px;
+    outline-offset: -12px;
 }
 
 .p{
