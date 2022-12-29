@@ -4,7 +4,7 @@ import cn from  'classnames';
 import getRandomInt from "../../mechanic/getRandomInt";
 
 import cat from "../../img/CatWithOutline.png"
-import badCat from "../../img/REDCatWithOutline.png"
+//import badCat from "../../img/REDCatWithOutline.png"
 import s from './Pussy.module.css'
 import { StateContext } from "../../context/stateContext";
 
