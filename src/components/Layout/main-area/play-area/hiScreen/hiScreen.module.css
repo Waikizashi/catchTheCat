@@ -13,7 +13,7 @@
                     rgb(77, 0, 100),
                     rgb(0, 23, 100),
                     rgb(77, 0, 100));
-    transition: .3s ease;
+    transition: .2s ease;
     outline: 10px outset rgb(255, 166, 0);
     outline-offset: -16px;
 }
@@ -96,9 +96,41 @@
     color: rgb(255, 255, 31);
 }
 
-.close{
-    visibility: collapse;
-    height: 0%;
+  
+@keyframes open-modal {
+    0% {
+        /* opacity: 0; */
+        transform: rotateX(90deg);
+        display: none;
+      
+    }
+    100% {
+        /* opacity: 1; */
+        transform: rotateX(0);
+    }
+  }
+  
+.openModal {
+    animation: open-modal .3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes close-modal {
+    0% {
+        /* opacity: 1; */
+        transform: rotateX(0);
+    }
+    100% {
+         /* opacity: 0; */
+         display: none;
+         transform: rotateX(90deg);
+    }
+  }
+  
+.closeModal {
+    animation: close-modal .3s ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 
