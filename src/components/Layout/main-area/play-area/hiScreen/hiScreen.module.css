@@ -24,6 +24,12 @@
     color: rgb(94, 255, 0)
 }
 
+.span{
+    border-top: 2px solid rgb(255, 253, 153);
+    border-bottom: 2px solid rgb(255, 253, 153);
+    color: rgb(255, 253, 153);
+}
+
 .settings{
     display: flex;
     flex-direction: column;
@@ -90,9 +96,14 @@
 .start{
     text-align: center;
     margin: 20px 15px 0 15px;
+    border-top: 2px solid rgb(255, 196, 0);
+    border-bottom: 2px solid rgb(255, 196, 0);
     color: rgb(255, 196, 0);
 }
 .start:hover{
+    border-top: 2px solid rgb(255, 255, 31);
+    border-bottom: 2px solid rgb(255, 255, 31);
+    border-radius: 15%;
     color: rgb(255, 255, 31);
 }
 

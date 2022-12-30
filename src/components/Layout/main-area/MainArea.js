@@ -7,6 +7,7 @@ import PlayArea from './play-area/PlayArea';
 import Menu from './controls/Menu'
 
 function MainArea() {
+  console.log('Main')
   return (
     <div className={cn(s.mainArea)}>
       <PlayArea/>

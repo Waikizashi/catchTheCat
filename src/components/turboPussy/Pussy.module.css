@@ -39,6 +39,8 @@
 }
 
 .cat{
+    top: 50%;
+    right: 50%;
     height: fit-content;
     width: fit-content;
     visibility: hidden;
@@ -53,14 +55,16 @@
 @keyframes render {
     0% {
         /* opacity: 0; */
-        transform: rotateX(90deg);
+        /* transform: rotateX(90deg); */
+        /* transform: scale(.5); */
         display: none;
       
     }
     100% {
         /* opacity: 1; */
         visibility: visible;
-        transform: rotateX(0);
+        /* transform: scale(1); */
+        /* transform: rotateX(0); */
     }
   }
   

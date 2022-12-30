@@ -16,6 +16,7 @@ function HiScreen() {
   const {
       onSetHisState,
       hiScreenState,
+      onSetStatus,
       onSetMode,
       gameMode,
       onPussyHandle} = useContext(StateContext)
@@ -24,8 +25,10 @@ function HiScreen() {
   
 
   const clickToStart = () => {
-    onPussyHandle()
-    onSetHisState()
+    onPussyHandle(true)
+    onSetHisState(false)
+    onSetStatus(true)
+
   };
 
   function handleChange(event){
@@ -55,7 +58,7 @@ function HiScreen() {
       [s.closeModal]: !hiScreenState,
       [s.openModal]: hiScreenState
     })}>
-            <p className={s.welcome}>Welcome to "Catch tha cat" game</p>
+            <p className={s.welcome}>Welcome to <span className={s.span}>"Catch the cat"</span> game</p>
             <div className={cn(s.settings)
             }>
                 <p className={s.p}>Choose game mode:</p>
