@@ -11,8 +11,7 @@ import { StateContext } from '../../../../context/stateContext';
 function PlayArea() {
   const playAreaRef = useRef(null)
   // const {gameMode, render, area, onSetAreaPlace} = useContext(StateContext)
-  const {render, onSetAreaPlace, area} = useContext(StateContext)
-
+  const {render,status, onSetAreaPlace, area} = useContext(StateContext)
   
   const top = area.height*0.5 + 'px'
   const right = area.width*0.5 + 'px'
@@ -27,8 +26,8 @@ function PlayArea() {
         height: playAreaRef.current.clientHeight,
         width: playAreaRef.current.clientWidth
       })
-      console.log('HEIGHT: ', playAreaRef.current.clientHeight)
-      console.log('WIDTH: ', playAreaRef.current.clientWidth)
+      //console.log('HEIGHT: ', playAreaRef.current.clientHeight)
+      //console.log('WIDTH: ', playAreaRef.current.clientWidth)
       // Do something when the window is resized
     };
 
@@ -37,7 +36,10 @@ function PlayArea() {
       width: playAreaRef.current.clientWidth
     })
 
-    console.log('HEIGHT: ', playAreaRef)
+    
+    
+
+    //console.log('HEIGHT: ', playAreaRef)
     //console.log('WIDTH: ', playAreaRef.clientWidth)
 
     window.addEventListener("resize", handleResize);
@@ -47,13 +49,28 @@ function PlayArea() {
     };
   }, []);
 
+  console.log('PlayArea',render,status, area)
 
-  return (
-    <div ref={playAreaRef} className={cn(s.playArea, anm.bordercolors1)}>
-        <HiScreen/>
-        <Pussy pussyConf={pussyConfig} rndrState={render}/>
-    </div>
-  );
+  if(status){
+    
+    return (
+      <div ref={playAreaRef} className={cn(s.playArea, anm.bordercolors1)}>
+          <HiScreen/>
+          {
+            <Pussy pussyConf={pussyConfig}/>
+          }
+      </div>
+    );
+  }
+  else{
+    return (
+      <div ref={playAreaRef} className={cn(s.playArea, anm.bordercolors1)}>
+          <HiScreen/>
+          {render ? <Pussy pussyConf={pussyConfig}/> : null}
+          
+      </div>
+    );
+  }
 }
 
 export default PlayArea;

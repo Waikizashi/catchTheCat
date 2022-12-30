@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import cn from  'classnames';
 //import PussyConf from "../../mechanic/Pussy";
 import getRandomInt from "../../mechanic/getRandomInt";
 
 import cat from "../../img/CatWithOutline.png"
-import badCat from "../../img/REDCatWithOutline.png"
+//import badCat from "../../img/REDCatWithOutline.png"
 import s from './Pussy.module.css'
 import { StateContext } from "../../context/stateContext";
 
@@ -12,13 +12,16 @@ import { StateContext } from "../../context/stateContext";
 
 
 
-function Pussy({pussyConf, rndrState,params}) {
-  const {onchangeScore, area} = useContext(StateContext)
-  const [conf, setConf] = useState(pussyConf)
+function Pussy({pussyConf}) {
+  const {render,onchangeScore, area} = useContext(StateContext)
+  const [config, setConfig] = useState(pussyConf)
+
 
 
   function scoreUp(){
     onchangeScore(10)
+    replace()
+        
   }
 
 
@@ -26,24 +29,22 @@ function Pussy({pussyConf, rndrState,params}) {
     let top = getRandomInt(area.width*0.1, area.height-area.height*0.1) + 'px'
     let right = getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px'
     pussyConf.replace(top, right)
-    setConf(pussyConf)
-    scoreUp(10)
+    setConfig(pussyConf)
+
+    
   } 
 
+  console.log('Pussy')
 
 
-  if(rndrState){
    return (
    <div style={{
-    top: conf.y,
-    right: conf.x
-   }} onClick={replace} className={cn(s.cat,{
-      [s.render]:rndrState
-   })}>
-      <img style={{width: conf.size}}
+    top: config.y,
+    right: config.x
+   }} onClick={scoreUp} className={cn(s.cat,{[s.render]: render})}>
+      <img style={{width: config.size}}
         className={s.img} src={cat} alt={'cat'}></img>
    </div>)
-  } 
 }
 
 export default Pussy;
