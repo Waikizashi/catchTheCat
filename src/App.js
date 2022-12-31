@@ -9,7 +9,7 @@ import './css/font.css'
 function App() {
   const [pussyRender, setRender] = useState(false)
   const [hisState, setHisState] = useState(true)
-  const [mode, setMode] = useState('veryEasy')
+  const [mode, setMode] = useState('relax')
   const [Area, setArea] = useState({height: 0, width: 0})
   const [Score, setScore] = useState(0)
   const [gameSatus, setStatus] = useState(false)
@@ -18,7 +18,7 @@ function App() {
   
 
 
-  
+
   const setGameStatus = (value) =>{
     if(value !== undefined){
       setStatus(value)
@@ -61,7 +61,7 @@ function App() {
   }
 
 
-  console.log('App')
+  //console.log('App')
 
   return (
     <StateContext.Provider value={{

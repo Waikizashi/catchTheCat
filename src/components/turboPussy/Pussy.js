@@ -12,7 +12,7 @@ import { StateContext } from "../../context/stateContext";
 
 
 
-function Pussy({pussyConf}) {
+function Pussy({pussyConf,onReplace}) {
   const {render,onchangeScore, area} = useContext(StateContext)
   const [config, setConfig] = useState(pussyConf)
 
@@ -20,6 +20,7 @@ function Pussy({pussyConf}) {
 
   function scoreUp(){
     onchangeScore(10)
+    onReplace && onReplace()
     replace()
         
   }

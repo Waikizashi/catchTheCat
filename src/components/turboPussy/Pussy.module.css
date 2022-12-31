@@ -14,7 +14,7 @@
                 inset 0 2px 0 rgba(255, 255, 255, 0.644),
                 0 2px 0 rgba(0,0,0,.1),
                 inset 0 0 20px rgba(0,0,0,.1);
-    transition: 0.1s;
+    /* transition: 0.1s; */
     user-select: none;
 }
 
@@ -47,7 +47,7 @@
     z-index: 0;
     position: absolute;
     user-select: none;
-    transition: 0.1s;
+    /* transition: 0.1s; */
 }
 
 

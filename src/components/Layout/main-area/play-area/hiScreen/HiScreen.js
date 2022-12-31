@@ -9,9 +9,7 @@ function isInteger(value) {
 }
 
 
-function HiScreen() {
-
-  
+function HiScreen({onStart}) {
 
   const {
       onSetHisState,
@@ -25,6 +23,7 @@ function HiScreen() {
   
 
   const clickToStart = () => {
+    onStart && onStart()
     onPussyHandle(true)
     onSetHisState(false)
     onSetStatus(true)
@@ -63,9 +62,9 @@ function HiScreen() {
             }>
                 <p className={s.p}>Choose game mode:</p>
                 <ul className={s.choseMode}>
-                    <li><p id='veryEasy' className={cn(s.menuBtn,{
-                      [s.chosen]: gameMode === 'veryEasy'
-                    })} onClick={onChoseMode}>very_easy</p></li>
+                    <li><p id='relax' className={cn(s.menuBtn,{
+                      [s.chosen]: gameMode === 'relax'
+                    })} onClick={onChoseMode}>relax</p></li>
                     <li><p id='easy' className={cn(s.menuBtn,{
                       [s.chosen]: gameMode === 'easy'
                     })} onClick={onChoseMode}>easy</p></li>
