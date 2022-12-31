@@ -50,20 +50,20 @@ function PlayArea() {
   
   function start(){
     console.log("START")
-    renderPussy()
+    // renderPussy()
   }
   
   console.log('STATUS',status)
 
   
-    const renderPussy = ()=>{
-      const start = setInterval(()=>{
-        console.log('NEW-CAT')
-        let top = getRandomInt(area.width*0.1, area.height-area.height*0.1) + 'px'
-        let right = getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px'
-        pussyConfig.replace(top, right)
-      },1000)
-    }
+    // const renderPussy = ()=>{
+    //   const start = setInterval(()=>{
+    //     console.log('NEW-CAT')
+    //     let top = getRandomInt(area.width*0.1, area.height-area.height*0.1) + 'px'
+    //     let right = getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px'
+    //     pussyConfig.replace(top, right)
+    //   },1000)
+    // }
     return (
       <div ref={playAreaRef} className={cn(s.playArea, anm.bordercolors1)}>
           <HiScreen onStart={start}/>
