@@ -103,8 +103,10 @@
 .start:hover{
     border-top: 2px solid rgb(255, 255, 31);
     border-bottom: 2px solid rgb(255, 255, 31);
-    border-radius: 15%;
     color: rgb(255, 255, 31);
+}
+.start:active{
+    border-radius: 15%;
 }
 
   

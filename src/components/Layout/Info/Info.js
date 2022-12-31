@@ -9,7 +9,7 @@ import s from './info.module.css'
 
 function Info() {
 
-    const {score} = useContext(StateContext)
+    const {score, gameMode} = useContext(StateContext)
 
 
   return (
@@ -17,7 +17,7 @@ function Info() {
         <div className={cn(s.scoreInfo, anm.textColors)}>
             score: <p className={s.score}>{score}</p></div>
         <div className={cn(s.lvlMode, anm.textColors)}>
-            mode_level: <p className={s.mode}>easy</p></div>
+            mode_level: <p className={s.mode}>{gameMode}</p></div>
         <div className={cn(s.timeInfo, anm.textColors)}>
             Now: <p className={s.time}> <Clock/> </p></div>
         <div className={cn(s.timerInfo, anm.textColors)}>
