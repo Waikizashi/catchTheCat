@@ -27,7 +27,7 @@ function Pussy({pussyConf,onReplace}) {
 
 
   function replace(){
-    let top = getRandomInt(area.width*0.1, area.height-area.height*0.1) + 'px'
+    let top = getRandomInt(area.height*0.1, area.height-area.height*0.1) + 'px'
     let right = getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px'
     pussyConf.replace(top, right)
     setConfig(pussyConf)

@@ -5,7 +5,7 @@
 
 .wrap{
     z-index: 9;
-    border: 30px solid #000135;
+    border: 30px solid #0c0d1c;
     margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -30,10 +30,10 @@
 
 @media (max-width:768px) {
     .wrap{
-        border-top: 40px solid #000135;
-        border-right: 10px solid #000135;
-        border-left: 10px solid #000135;
-        border-bottom: 20px solid #000135;
+        border-top: 40px solid #0c0d1c;
+        border-right: 10px solid #0c0d1c;
+        border-left: 10px solid #0c0d1c;
+        border-bottom: 20px solid #0c0d1c;
     }
     .footer{
         font-size: 8pt;
@@ -42,7 +42,7 @@
 }
 @media (max-width:350px) {
     .wrap{
-        border-bottom: 40px solid #000135;
+        border-bottom: 40px solid #0c0d1c;
     }
     .footer{
         font-size: 6pt;

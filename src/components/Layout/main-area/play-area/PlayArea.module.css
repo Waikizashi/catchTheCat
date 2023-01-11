@@ -1,8 +1,21 @@
 .playArea{
-    z-index: 10;
+    z-index: 0;
     margin: 0;
-    background-color:rgb(2, 1, 41);
+    background-color:rgb(0, 2, 20);
     outline-offset: -8px;
     width: inherit;
     height: 100%;
+    border-top: 4px ridge #e6d98c;
+        border-right: 4px ridge #e6d98c;
+        border-left: 4px ridge #e6d98c;
+        border-bottom: 4px solid #e6d98c;
 }
+
+
+/* 
+.field{
+    background-color:rgb(2, 1, 41);
+    position: relative;
+    width: 100%;
+    height: 100%;
+} */

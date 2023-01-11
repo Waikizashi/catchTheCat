@@ -30,16 +30,16 @@
 
 @keyframes Colors1 {
     0%{
-        color: red;
+        color: #DD8484;
     }
     33%{
-        color: magenta;
+        color: #79CB79;
     }
     66%{
-        color: lawngreen;
+        color: #CB79A7;
     }
     100%{
-        color: red;
+        color: #DD8484;
     }
 }
 @keyframes Colors2 {
@@ -59,47 +59,43 @@
 
 @keyframes borders1 {
     0%{
-        border-top: 4px dashed red;
-        border-right: 4px dashed red;
-        border-left: 4px dashed red;
-        border-bottom: 4px solid red;
-        outline: 4px double red;
+        border-top: 4px ridge #d34444;
+        border-right: 4px ridge #d34444;
+        border-left: 4px ridge #d34444;
+        border-bottom: 4px solid #d34444;
     }
     33%{
-        border-top: 4px dashed magenta;
-        border-right: 4px dashed magenta;
-        border-left: 4px dashed magenta;
-        border-bottom: 4px solid magenta;
-        outline: 4px double magenta;
+        border-top: 4px ridge #44c544;
+        border-right: 4px ridge #44c544;
+        border-left: 4px ridge #44c544;
+        border-bottom: 4px solid #44c544;
     }
     66%{
-        border-top: 4px dashed lawngreen;
-        border-right: 4px dashed lawngreen;
-        border-left: 4px dashed lawngreen;
-        border-bottom: 4px solid lawngreen;
-        outline: 4px double lawngreen;
+        border-top: 4px ridge #ca4390;
+        border-right: 4px ridge #ca4390;
+        border-left: 4px ridge #ca4390;
+        border-bottom: 4px solid #ca4390;
     }
     100%{
-        border-top: 4px dashed red;
-        border-right: 4px dashed red;
-        border-left: 4px dashed red;
-        border-bottom: 4px solid red;
-        outline: 4px double red;
+        border-top: 4px ridge #d34444;
+        border-right: 4px ridge #d34444;
+        border-left: 4px ridge #d34444;
+        border-bottom: 4px solid #d34444;
     }
 }
 
 @keyframes borders2 {
     0%{
-        border: 4px outset red;
+        border: 4px outset #d34444;
     }
     33%{
-        border: 4px outset magenta;
+        border: 4px outset #44c544;
     }
     66%{
-        border: 4px outset lawngreen;
+        border: 4px outset #ca4390;
     }
     100%{
         
-        border: 4px outset red;
+        border: 4px outset #d34444;
     }
 }

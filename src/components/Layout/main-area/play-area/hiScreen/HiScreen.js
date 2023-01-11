@@ -74,8 +74,8 @@ function HiScreen({onStart}) {
                     <li><p id='hard' className={cn(s.menuBtn,{
                       [s.chosen]: gameMode === 'hard'
                     })} onClick={onChoseMode}>hard</p></li>
-                    <li><p id='Extreme' className={cn(s.menuBtn,{
-                      [s.chosen]: gameMode === 'Extreme'
+                    <li><p id='extreme' className={cn(s.menuBtn,{
+                      [s.chosen]: gameMode === 'extreme'
                     })} onClick={onChoseMode}>Extreme</p></li>
                 </ul>
                 <p className={s.p} >set the modifier (optional):</p>

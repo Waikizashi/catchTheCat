@@ -1,9 +1,15 @@
 .newsLine{
     display: block;
     position: relative;
-    background-color: #260058;
+    background-color: #161b33;
     overflow: hidden;
     width: 100%;
+
+    border-top: 4px ridge #e6d98c;
+        border-right: 4px ridge #e6d98c;
+        border-left: 4px ridge #e6d98c;
+        border-bottom: 4px solid #e6d98c;
+    color: white;
 }
 
 .marquee {
