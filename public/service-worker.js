@@ -11,10 +11,12 @@ console.log('here i come!')
 // }
 
 
+const cacheKey = "v1.001"
+
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', event => {
     event.waitUntil(
-      caches.open('v1').then(cache => {
+      caches.open(cacheKey).then(cache => {
         return cache.addAll([
           '/'
         ]);
@@ -32,7 +34,7 @@ self.addEventListener('install', event => {
           return response;
         }
         return fetch(event.request).then(response => {
-          return caches.open('v1').then(cache => {
+          return caches.open(cacheKey).then(cache => {
             cache.put(event.request, response.clone());
             return response;
           });
