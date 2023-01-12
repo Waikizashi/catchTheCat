@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import cn from  'classnames';
 //import PussyConf from "../../mechanic/Pussy";
 import getRandomInt from "../../mechanic/getRandomInt";
@@ -15,6 +15,15 @@ import { StateContext } from "../../context/stateContext";
 function Pussy({draggable,pussyConf,onReplace}) {
   const {gameMode, render,onchangeScore, area} = useContext(StateContext)
   const [config, setConfig] = useState(pussyConf)
+
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+    const mobileRegex = /(android|iphone|ipad|mobile)/i;
+    setIsMobile(mobileRegex.test(userAgent));
+  }, []);
 
 
 
@@ -39,26 +48,63 @@ function Pussy({draggable,pussyConf,onReplace}) {
 
   const handleDragStart = (event) => {
     //console.log('taken')
+    console.log('Drag')
     console.log('config:X:', config.x)
     console.log('config:Y:', config.y)
     
     event.target.style.cursor = 'grabbing'
     // code to handle the start of the drag event
   };
+  const touchDragStart = (event) => {
+    //console.log('taken')
+    const { clientX, clientY } = event.touches[0];
+    console.log('Drag')
+    console.log('config:X:', clientX)
+    console.log('config:Y:', clientY)
+    
+    event.target.style.cursor = 'grabbing'
+    // code to handle the start of the drag event
+  };
   const handleDrag = (event) => 
   {
+    event.preventDefault()
+  };
+  const touchDrag = (event) => 
+  {
+    const { clientX, clientY } = event.touches[0];
+    let top = clientY-area.height*0.1 + 'px'
+    let right = clientX-area.width*0.1 + 'px'
+    pussyConf.replace(top, right)
+    setConfig(pussyConf)
+    onchangeScore(10)
+    //console.log('Drag')
+    //console.log('config:X:', clientX)
+    //console.log('config:Y:', clientY)
   };
 
 
   const handleDragEnd = (event) => {
+    event.preventDefault()
     let top = event.clientY-area.height*0.1 + 'px'
     let right = event.clientX-area.width*0.1 + 'px'
     pussyConf.replace(top, right)
     setConfig(pussyConf)
     onchangeScore(10)
     event.target.style.cursor = 'grab'
+    console.log('Drop')
     console.log('config:X:', config.x)
     console.log('config:Y:', config.y)
+    // code to handle the end of the drag event
+  };
+  const touchDragEnd = (event) => {
+    event.preventDefault()
+    // let top = event.clientY-area.height*0.1 + 'px'
+    // let right = event.clientX-area.width*0.1 + 'px'
+    // pussyConf.replace(top, right)
+    // setConfig(pussyConf)
+    //onchangeScore(10)
+    //event.target.style.cursor = 'grab'
+    
     // code to handle the end of the drag event
   };
   //console.log('Pussy')
@@ -81,10 +127,13 @@ function Pussy({draggable,pussyConf,onReplace}) {
    else if(gameMode === 'medium' || gameMode === 'extreme'){
     return (
       <div
+      onTouchStart={isMobile ? touchDragStart : null}
+      onTouchMove={isMobile ? touchDrag : null}
+      onTouchEnd={isMobile ? touchDragEnd : null}
        draggable={draggable}
-       onDragStart={handleDragStart}
-       onDrag={handleDrag} 
-       onDragEnd={handleDragEnd}
+       onDragStart={isMobile ? null : handleDragStart}
+       onDrag={isMobile ? null : handleDrag} 
+       onDragEnd={isMobile ? null : handleDragEnd}
        style={{
        top: config.y,
        left: config.x
