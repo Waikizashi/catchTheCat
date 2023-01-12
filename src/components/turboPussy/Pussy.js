@@ -22,6 +22,8 @@ function Pussy({draggable,pussyConf,onReplace}) {
   useEffect(() => {
     const userAgent = window.navigator.userAgent;
     const mobileRegex = /(android|iphone|ipad|mobile)/i;
+    alert(mobileRegex.test(userAgent) + "####:" + userAgent)
+    console.log(userAgent)
     setIsMobile(mobileRegex.test(userAgent));
   }, []);
 
