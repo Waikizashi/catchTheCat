@@ -1,4 +1,5 @@
 .Logs{
+    font-size: 22pt;
     color: white;
     display: flex;
     flex-direction: row;
@@ -14,6 +15,7 @@
 
 @media (max-width: 768px) {
     .Logs{
+        font-size: 18pt !important;
         height: 75px;
         font-size: 8pt;
     }
@@ -21,6 +23,7 @@
 
 @media (max-width: 468px) {
     .Logs{
+        font-size: 14pt !important;
         height: 50px;
         font-size: 6pt;
     }

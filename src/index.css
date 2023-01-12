@@ -1,7 +1,8 @@
 html{
   height: 100%;
   width: 100%;
-  min-width: 220px;
+  min-width: 240px;
+  letter-spacing: 2pt;
 }
 
 body {

@@ -10,7 +10,7 @@
     justify-content: space-between;
     margin-top: -30px;
     height: 30px;
-    font-size: 12pt;
+    font-size: 24pt;
     width: inherit;
     text-align: center;
     align-items:center;
@@ -72,13 +72,13 @@
         height: 8px;
     }
     .info{
-        margin-top: -35px;
-        font-size: 8pt;
+        margin-top: -40px;
+        font-size: 16pt;
     }
 }
 @media (max-width:468px) {
     .info{
-        font-size: 6pt;
+        font-size: 14pt;
     }
 }
 

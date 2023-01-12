@@ -5,15 +5,12 @@
     overflow: hidden;
     width: 100%;
 
-    border-top: 4px ridge #e6d98c;
-        border-right: 4px ridge #e6d98c;
-        border-left: 4px ridge #e6d98c;
-        border-bottom: 4px solid #e6d98c;
+    border: 2px solid #e6d98c;
     color: white;
 }
 
 .marquee {
-    font-size: 12pt;
+    font-size: 22pt;
     white-space: nowrap;
     margin: 0.5rem 0 1rem 0;
     animation: marquee 15s linear infinite;
@@ -31,12 +28,12 @@
 
 @media (max-width:768px){
     .marquee{
-        font-size: 10pt;
+        font-size: 16pt;
     }    
 }
 
 @media (max-width:468px){
     .marquee{
-        font-size: 8pt;
+        font-size: 10pt;
     }
 }

@@ -19,7 +19,7 @@
     margin-bottom: -30px;
     text-align: center;
     color: white;
-    font-size: 14px;
+    font-size: 18pt;
     width: inherit;
 }
 
@@ -33,10 +33,10 @@
         border-top: 40px solid #0c0d1c;
         border-right: 10px solid #0c0d1c;
         border-left: 10px solid #0c0d1c;
-        border-bottom: 20px solid #0c0d1c;
+        border-bottom: 24px solid #0c0d1c;
     }
     .footer{
-        font-size: 8pt;
+        font-size: 12pt;
         margin-bottom: -20px;
     }
 }
@@ -45,7 +45,7 @@
         border-bottom: 40px solid #0c0d1c;
     }
     .footer{
-        font-size: 6pt;
+        font-size: 10pt;
         margin-bottom: -40px;
     }
 }

@@ -44,7 +44,7 @@ function Field() {
         </div>
       );
 }
-else  if(gameMode === 'easy'){
+else  if(gameMode === 'medium'){
     return (
         <div className={cn({
           [s.field]:render,
@@ -53,7 +53,7 @@ else  if(gameMode === 'easy'){
         
             {
               status ? 
-              <Pussy pussyConf={pussyConfig}/> :
+              <Pussy draggable={true} pussyConf={pussyConfig}/> :
                           render ? <Pussy pussyConf={pussyConfig}/> : null
               
             }
@@ -69,7 +69,7 @@ else if(gameMode === 'hard'){
             [s.render]: render
             })}>
         
-        <svg style={{position: 'absolute'}} >
+        <svg style={{position: 'absolute', width: offset*2}} >
           <defs>
             <clipPath id={clipPathId}>
               <circle cx={mousePosition.x} cy={mousePosition.y} r={offset} />

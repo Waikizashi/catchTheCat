@@ -10,21 +10,23 @@
     color: white;
     /* background-color:rgb(77, 0, 100); */
     background: linear-gradient(180deg, 
-                    #161b33,
-                    #2d2e49,
-                    #161b33);
+        #0D0C1D,
+        #161B33,
+        #0D0C1D);
     transition: .2s ease;
-    outline: 10px outset #e6d98c;
-    outline-offset: -12px;
+    outline: 4px outset #e6d98c;
+    outline-offset: -5px;
 }
 
 .p{
+    font-size: 22pt;
     text-align: center;
     margin: 10px 15px 10px 15px;
     color: #59db6f
 }
 
 .span{
+    padding-top: 10px;
     border-top: 2px solid #e6d98c;
     border-bottom: 2px solid #e6d98c;
     color: #e6d98c;
@@ -38,6 +40,7 @@
 }
 
 .choseMode{
+    text-transform: uppercase;
     list-style: none;
     padding: 0;
     border-top: 6px ridge #e6d98c; 
@@ -49,12 +52,13 @@
 
 .menuBtn{
     text-align: center;
-    font-size: 18pt;
+    font-size: 24pt;
+    
     color: #e6d98c;
     transition: 0.1s;
     border-left: 6px ridge #e6d98c;
     border-right: 6px ridge #e6d98c;
-    padding: 6px;
+    padding: 10px 30px 0px;
     margin: 0;
 }
 .menuBtn:hover{
@@ -79,23 +83,27 @@
 
 .extraOption{
     width: 100px;
+    font-size: 18pt;
     color: white;
     text-align: center;
     border: 6px outset #e6d98c;
     background: linear-gradient(90deg, #8ca4e6, #161b33);
     font-family: "Silver", "Arial", sans-serif;
+    padding-top: 10px;
     outline: none;
 }
 
 .welcome{
-    font-size: 18pt;
+    font-size: 26pt;
     text-align: center;
     margin: 0 15px 0 15px;
 }
 
 .start{
+    font-size: 22pt;
     text-align: center;
     margin: 20px 15px 0 15px;
+    padding-top: 5px;
     border-top: 2px solid #8ce68c;
     border-bottom: 2px solid #8ce68c;
     color: #8ce68c;
@@ -114,7 +122,6 @@
     0% {
         /* opacity: 0; */
         transform: rotateX(90deg);
-        display: none;
       
     }
     100% {
@@ -124,6 +131,7 @@
   }
   
 .openModal {
+    /* display: flex; */
     animation: open-modal .3s ease-in-out;
     animation-fill-mode: forwards;
 }
@@ -137,10 +145,10 @@
     100% {
          /* opacity: 0; */
          height: 0;
-         display: none;
          transform: rotateX(90deg);
     }
   }
+
   
 .closeModal {
     animation: close-modal .3s ease-in-out;
@@ -148,49 +156,96 @@
 }
 
 
-@media (max-width:468px){
+@media (max-width:768px){
     
     .extraOption{
-        font-size: 6pt;
+        font-size: 14pt;
         width: 60px;
-        border: 4px ridge rgb(252, 143, 0);
+        border: 4px outset #e6d98c;
     }
 
 
-    .hiScreen{
-        outline: 6px outset rgb(255, 166, 0);
-        outline-offset: -12px;
-    }
     .welcome{
         font-size: 12pt;
     }
     .menuBtn{
         font-size: 16pt;
-        border-left: 4px ridge rgb(255, 196, 0);
-        border-right: 4px ridge rgb(255, 196, 0);
-        padding: 4px;
+        border-left: 4px ridge #e6d98c;
+        border-right: 4px ridge #e6d98c;
+        padding: 5px 20px 0px;
     }
 
     .menuBtn:hover{
-        color: rgb(255, 255, 31);
-        border-left: 4px ridge rgb(255, 255, 31);
-        border-right: 4px ridge rgb(255, 255, 31);
-        box-shadow: inset 0 0 0px 1px rgb(255, 255, 31);
+        color: #e4aa53;
+        border-left: 4px ridge #e4aa53;
+        border-right: 4px ridge #e4aa53;
+        box-shadow: inset 0 0 0px 1px #e4aa53;
     }
     
     .menuBtn:active{
-        color:rgb(255, 23, 23) !important;
-        border-left: 4px ridge rgb(255, 255, 31);
-        border-right: 4px ridge rgb(255, 255, 31);
-        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+        color:#e45353 !important;
+        border-left: 4px ridge #e4aa53;
+        border-right: 4px ridge #e4aa53;
+        box-shadow: inset 0 0 5px 1px #e4aa53;
     }
     .chosen{
-        color:rgb(255, 23, 23) !important;
-        border-left: 4px ridge rgb(255, 255, 31);
-        border-right: 4px ridge rgb(255, 255, 31);
-        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+        color:rgb(255, 63, 63) !important;
+        border-left: 4px ridge #e4a23f;
+        border-right: 4px ridge #e4a23f;
+        box-shadow: inset 0 0 5px 1px #e4a23f;
     }
-    .start,p{
+    .start{
+        font-size: 18pt;
+    }
+    .p{
+        font-size: 14pt;
+    }
+    .choseMode{
+        margin: 5px;
+    }
+}
+@media (max-width:468px){
+    
+    .extraOption{
+        font-size: 10pt;
+        width: 60px;
+        border: 3px outset #e6d98c;
+    }
+
+    .welcome{
+        font-size: 12pt;
+    }
+    .menuBtn{
+        font-size: 16pt;
+        border-left: 4px ridge #e6d98c;
+        border-right: 4px ridge #e6d98c;
+        padding: 5px 20px 0px;
+    }
+
+    .menuBtn:hover{
+        color: #e4aa53;
+        border-left: 4px ridge #e4aa53;
+        border-right: 4px ridge #e4aa53;
+        box-shadow: inset 0 0 0px 1px #e4aa53;
+    }
+    
+    .menuBtn:active{
+        color:#e45353 !important;
+        border-left: 4px ridge #e4aa53;
+        border-right: 4px ridge #e4aa53;
+        box-shadow: inset 0 0 5px 1px #e4aa53;
+    }
+    .chosen{
+        color:rgb(255, 63, 63) !important;
+        border-left: 4px ridge #e4a23f;
+        border-right: 4px ridge #e4a23f;
+        box-shadow: inset 0 0 5px 1px #e4a23f;
+    }
+    .start{
+         font-size: 14pt;
+        
+    }
+    p{
         font-size: 10pt;
     }
     .choseMode{
@@ -200,46 +255,55 @@
 
 @media (max-width:350px){
     .extraOption{
-        font-size: 4pt;
+        font-size: 8pt;
         width: 40px;
-        border: 3px ridge rgb(252, 143, 0);
+        border: 2px outset #e6d98c;
     }
-
+    .p{
+        font-size: 10pt;
+    }
+    .span{
+        padding-top: 5px;
+        white-space: nowrap
+    }
     .hiScreen{
-        outline: 4px outset rgb(255, 166, 0);
-        outline-offset: -10px;
+        outline: 2px outset #e6d98c;
+        outline-offset: -4px;
     }
     .welcome{
-        font-size: 6pt;
-        margin: 0 15px 0px 15px;
+        font-size: 12pt;
+        margin: 0px 15px 0px 15px;
     }
     .menuBtn{
-        font-size: 14pt;
+        font-size: 10pt;
         border-left: 2px ridge rgb(255, 196, 0);
         border-right: 2px ridge rgb(255, 196, 0);
-        padding: 2px;
+        padding: 5px 20px 0px;
     }
 
     .menuBtn:hover{
-        color: rgb(255, 255, 31);
-        border-left: 2px ridge rgb(255, 255, 31);
-        border-right: 2px ridge rgb(255, 255, 31);
-        box-shadow: inset 0 0 0px 1px rgb(255, 255, 31);
+        color: #e4aa53;
+        border-left: 2px ridge #e4aa53;
+        border-right: 2px ridge #e4aa53;
+        box-shadow: inset 0 0 0px 1px #e4aa53;
     }
     
     .menuBtn:active{
-        color:rgb(255, 23, 23) !important;
-        border-left: 2px ridge rgb(255, 255, 31);
-        border-right: 2px ridge rgb(255, 255, 31);
-        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+        color:#e45353 !important;
+        border-left: 2px ridge #e4aa53;
+        border-right: 2px ridge #e4aa53;
+        box-shadow: inset 0 0 5px 1px #e4aa53;
     }
     .chosen{
-        color:rgb(255, 23, 23) !important;
-        border-left: 2px ridge rgb(255, 255, 31);
-        border-right: 2px ridge rgb(255, 255, 31);
-        box-shadow: inset 0 0 5px 1px rgb(255, 255, 31);
+        color:rgb(255, 63, 63) !important;
+        border-left: 2px ridge #e4a23f;
+        border-right: 2px ridge #e4a23f;
+        box-shadow: inset 0 0 5px 1px #e4a23f;
     }
-    .start,p{
-        font-size: 5pt;
+    .start{
+        font-size: 12pt;
+    }
+    .p{
+        font-size: 8pt;
     }
 }

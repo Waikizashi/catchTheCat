@@ -3,7 +3,6 @@
     font-style: normal;
 
     src: local("Silver"),
-    url("../fonts/Silver.woff") format("woff"),
     url("../fonts/Silver.woff2") format("woff2")
 }
 
