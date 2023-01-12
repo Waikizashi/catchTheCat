@@ -14,13 +14,13 @@ function Info() {
 
   return (
     <div className={cn(s.info)}>
-        <div className={cn(s.scoreInfo, anm.textColors)}>
+        <div className={cn(s.scoreInfo, /*anm.textColors*/)}>
             score: <p className={s.score}>{score}</p></div>
-        <div className={cn(s.lvlMode, anm.textColors)}>
+        <div className={cn(s.lvlMode, /*anm.textColors*/)}>
             mode_level: <p className={s.mode}>{gameMode}</p></div>
-        <div className={cn(s.timeInfo, anm.textColors)}>
+        <div className={cn(s.timeInfo, /*anm.textColors*/)}>
             Now: <p className={s.time}> <Clock/> </p></div>
-        <div className={cn(s.timerInfo, anm.textColors)}>
+        <div className={cn(s.timerInfo, /*anm.textColors*/)}>
             timer: <p className={s.timer}>0:0:0</p></div>
         <section className={cn(s.guls)}>
             <div className={cn(s.gul1)}></div>

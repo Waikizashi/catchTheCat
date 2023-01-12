@@ -1,0 +1,41 @@
+.box{
+    height: fit-content;
+    width: fit-content;
+    visibility: hidden;
+    z-index: 0;
+    position: absolute;
+    user-select: none;
+    transition: .1s;
+}
+
+
+.box:hover{
+    transform: scale(1.05);
+}
+
+.img{
+    width: 150px;
+    height: auto;
+}
+
+@keyframes render {
+    0% {
+        /* opacity: 0; */
+        /* transform: rotateX(90deg); */
+        /* transform: scale(.5); */
+        display: none;
+      
+    }
+    100% {
+        /* opacity: 1; */
+        visibility: visible;
+        /* transform: scale(1); */
+        /* transform: rotateX(0); */
+    }
+  }
+  
+.render {
+    animation: render .1s ease-in-out;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+}

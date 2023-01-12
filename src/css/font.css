@@ -1,15 +1,26 @@
     @font-face {
+    font-family: "Silver";
+    font-style: normal;
+
+    src: local("Silver"),
+    url("../fonts/Silver.woff2") format("woff2")
+}
+
+
+ *{
+    font-family: "Silver", "Arial", sans-serif;
+}
+/* 
+    @font-face {
     font-family: "Silkscreen";
     font-style: normal;
 
-    /* Браузер сначала попробует найти шрифт локально */
     src: local("Silkscreen"),
-        /* Если не получилось, загрузит woff2 */
     url("../fonts/Silkscreen-Regular.woff") format("woff"),
     url("../fonts/Silkscreen-Regular.woff2") format("woff2")
-}
+} 
 
 
-*{
+ *{
     font-family: "Silkscreen", "Arial", sans-serif;
-}
+} */

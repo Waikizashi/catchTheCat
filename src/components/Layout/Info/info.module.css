@@ -10,11 +10,11 @@
     justify-content: space-between;
     margin-top: -30px;
     height: 30px;
-    font-size: 12pt;
+    font-size: 24pt;
     width: inherit;
     text-align: center;
     align-items:center;
-    color: white;
+    color: #ffdf9a;
 }
 
 .guls{
@@ -25,10 +25,10 @@
     display: flex;
     align-items: center;
     text-align: center;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-transform: uppercase;
-    text-shadow: 1px 1px 0px rgb(12, 99, 156),
-                 2px 2px 0px white;
+    /* text-shadow: 1px 1px 0px rgb(12, 99, 156),
+                 2px 2px 0px white; */
     /* textColor */
     margin: 0 15px 0 0;
 }
@@ -39,33 +39,29 @@
 
 
 .gul1, .gul2, .gul3{
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     margin: 2px;
     border-radius:50%;
+    border: 2px solid white;
+    
+    animation-name: gul;
+    animation-duration: 2s;
 }
 
 .gul1{
-    background-color: red;
-    border: 1px solid white;
-    animation-name: gul;
-    animation-duration: 2s;
+    /* background-color: red; */
+    
     animation-iteration-count: infinite;
 }
 .gul2{
-    background-color: greenyellow;
-    border: 1px solid white;
-    animation-name: gul;
-    animation-duration: 2s;
+    /* background-color: greenyellow; */
     animation-iteration-count: infinite;
     animation-delay: 0.5s;
     
 }
 .gul3{
-    background-color: magenta;
-    border: 1px solid white;
-    animation-name: gul;
-    animation-duration: 2s;
+    /* background-color: magenta; */
     animation-iteration-count: infinite;
     animation-delay: 1s;
 }
@@ -76,29 +72,29 @@
         height: 8px;
     }
     .info{
-        margin-top: -35px;
-        font-size: 8pt;
+        margin-top: -40px;
+        font-size: 16pt;
     }
 }
 @media (max-width:468px) {
     .info{
-        font-size: 6pt;
+        font-size: 14pt;
     }
 }
 
 
 @keyframes gul {
     0%{
-        background-color: red;
+        background-color: rgb(255, 70, 70);
     }
     33%{
-        background-color: magenta;
+        background-color: rgb(255, 70, 255);
     }
     66%{
-        background-color: lawngreen;
+        background-color: rgb(178, 255, 70);
     }
     100%{
-        background-color: red;
+        background-color: rgb(255, 70, 70);
     }
 }
 

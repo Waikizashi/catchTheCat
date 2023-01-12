@@ -1,13 +1,16 @@
 .newsLine{
     display: block;
     position: relative;
-    background-color: #260058;
+    background-color: #161b33;
     overflow: hidden;
     width: 100%;
+
+    border: 2px solid #e6d98c;
+    color: white;
 }
 
 .marquee {
-    font-size: 12pt;
+    font-size: 22pt;
     white-space: nowrap;
     margin: 0.5rem 0 1rem 0;
     animation: marquee 15s linear infinite;
@@ -25,12 +28,12 @@
 
 @media (max-width:768px){
     .marquee{
-        font-size: 10pt;
+        font-size: 16pt;
     }    
 }
 
 @media (max-width:468px){
     .marquee{
-        font-size: 8pt;
+        font-size: 10pt;
     }
 }

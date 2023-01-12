@@ -2,12 +2,13 @@
     display: inline-flex;
     justify-content: center;
     flex-wrap: wrap;
-    font-weight: bold;
-    color: white;
+    color: snow;
+    font-size: 20pt;
+    text-transform: uppercase;
     width: 100%;
     column-gap: 30px;
-    border: 4px inset rgb(255, 0, 140);
-    background-color:rgb(61, 0, 77);
+    border: 4px inset #a48ce6;
+    background-color:#161b33;
 }
 
 .mainBtns{
@@ -21,7 +22,7 @@
     flex-direction: column;
     justify-content: center;
     margin: 5px 0 5px 0;
-    border: 20px ridge rgb(175, 14, 103);
+    border: 20px ridge #524570;
     height: 40px;
 }
 
@@ -35,14 +36,14 @@
 
 @media (max-width:768px){
     .menu{
-        font-size: 8pt;
+        font-size: 14pt;
     }
     .btn{
         display: flex;
         flex-direction: column;
         justify-content: center;
         margin: 5px 0 5px 0;
-        border: 10px ridge rgb(175, 14, 103);
+        border: 10px ridge #524570;
         height: 20px;
     }
     
@@ -62,6 +63,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center; */
-        font-size: 6pt;
+        font-size: 10pt;
     }
 }

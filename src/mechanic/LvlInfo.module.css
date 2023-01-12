@@ -1,18 +1,21 @@
 .Logs{
+    font-size: 22pt;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 4px outset rgb(255, 0, 140);
-    background-color:#6300c0;
+    border-right: 4px outset #a48ce6;
+    border-left: 4px outset #a48ce6;
+    background-color:#161e38;
     height: 100px;
     width: 100%;
 }
 
 @media (max-width: 768px) {
     .Logs{
+        font-size: 18pt !important;
         height: 75px;
         font-size: 8pt;
     }
@@ -20,6 +23,7 @@
 
 @media (max-width: 468px) {
     .Logs{
+        font-size: 14pt !important;
         height: 50px;
         font-size: 6pt;
     }

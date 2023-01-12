@@ -18,7 +18,7 @@ function News() {
     `
 
   return (
-    <div className={cn(s.newsLine, anm.bc2)}>
+    <div className={cn(s.newsLine,/* anm.bc2*/)}>
         <p className={cn(s.marquee)}>{newstext}</p>
     </div>    
   );
