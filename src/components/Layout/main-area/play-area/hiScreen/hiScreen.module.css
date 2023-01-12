@@ -22,7 +22,7 @@
     font-size: 22pt;
     text-align: center;
     margin: 10px 15px 10px 15px;
-    color: #59db6f
+    color: #7d86ff
 }
 
 .span{
@@ -259,12 +259,10 @@
         width: 40px;
         border: 2px outset #e6d98c;
     }
-    .p{
-        font-size: 10pt;
-    }
     .span{
         padding-top: 5px;
-        white-space: nowrap
+        white-space: nowrap;
+        letter-spacing: 1pt;
     }
     .hiScreen{
         outline: 2px outset #e6d98c;
@@ -273,6 +271,7 @@
     .welcome{
         font-size: 12pt;
         margin: 0px 15px 0px 15px;
+        letter-spacing: 1pt;
     }
     .menuBtn{
         font-size: 10pt;
@@ -302,8 +301,10 @@
     }
     .start{
         font-size: 12pt;
+        letter-spacing: 1pt;
     }
     .p{
         font-size: 8pt;
+        letter-spacing: 1pt;
     }
 }

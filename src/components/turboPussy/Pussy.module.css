@@ -47,6 +47,7 @@
     z-index: 0;
     position: absolute;
     user-select: none;
+    cursor: grab;
     /* transition: 0.1s; */
 }
 

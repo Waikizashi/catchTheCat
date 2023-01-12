@@ -13,7 +13,7 @@ import { StateContext } from "../../context/stateContext";
 
 
 function Pussy({draggable,pussyConf,onReplace}) {
-  const {render,onchangeScore, area} = useContext(StateContext)
+  const {gameMode, render,onchangeScore, area} = useContext(StateContext)
   const [config, setConfig] = useState(pussyConf)
 
 
@@ -41,44 +41,59 @@ function Pussy({draggable,pussyConf,onReplace}) {
     //console.log('taken')
     console.log('config:X:', config.x)
     console.log('config:Y:', config.y)
+    
+    event.target.style.cursor = 'grabbing'
     // code to handle the start of the drag event
   };
-  const handleDrag = (event) => {
-    // setPosition({
-    //   x: event.clientX,
-    //   y: event.clientY
-    // });
-    //console.log('holding')
-    // code to handle the drag event
+  const handleDrag = (event) => 
+  {
   };
+
+
   const handleDragEnd = (event) => {
-    //console.log('puted')
-    //console.log('x: ',event.clientX)
-    //console.log('y: ',event.clientY)
-    //let top = event.clientY-area.height*0.1 + 'px'
-    //let right = event.clientX-area.width*0.1 + 'px'
-    //pussyConf.replace(top, right)
-    //setConfig(pussyConf)
-    //onchangeScore(10)
+    let top = event.clientY-area.height*0.1 + 'px'
+    let right = event.clientX-area.width*0.1 + 'px'
+    pussyConf.replace(top, right)
+    setConfig(pussyConf)
+    onchangeScore(10)
+    event.target.style.cursor = 'grab'
+    console.log('config:X:', config.x)
+    console.log('config:Y:', config.y)
     // code to handle the end of the drag event
   };
   //console.log('Pussy')
 
 
-   return (
-   <div 
-    onClick={scoreUp}
-    draggable={draggable}
-    onDragStart={handleDragStart}
-    onDrag={handleDrag} 
-    onDragEnd={handleDragEnd}
-    style={{
-    top: config.y,
-    left: config.x
-   }} /*onClick={scoreUp}*/ className={cn(s.cat,{[s.render]: render})}>
-      <img style={{width: config.size}}
-        className={s.img} src={cat} alt={'cat'}></img>
-   </div>)
+   if(gameMode === 'relax' || gameMode === 'easy' || gameMode === 'hard'){
+    return (
+      <div 
+       style={{
+       top: config.y,
+       left: config.x
+      }} 
+      onClick={scoreUp} 
+      className={cn(s.cat,{[s.render]: render})}>
+         <img style={{width: config.size}}
+           className={s.img} src={cat} alt={'cat'}></img>
+      </div>
+      )
+   }
+   else if(gameMode === 'medium' || gameMode === 'extreme'){
+    return (
+      <div
+       draggable={draggable}
+       onDragStart={handleDragStart}
+       onDrag={handleDrag} 
+       onDragEnd={handleDragEnd}
+       style={{
+       top: config.y,
+       left: config.x
+      }} className={cn(s.cat,{[s.render]: render})}>
+         <img style={{width: config.size}}
+           className={s.img} src={cat} alt={'cat'}></img>
+      </div>
+      )
+   }
 }
 
 export default Pussy;
