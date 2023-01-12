@@ -1,25 +1,18 @@
 import cn from  'classnames';
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { StateContext } from '../../../../context/stateContext';
 
 import box from '../../../../img/Box.png'
 import s from './Box.module.css';
 
-function isInteger(value) {
-  return typeof value === "number" && value % 1 === 0;
-}
+// function isInteger(value) {
+//   return typeof value === "number" && value % 1 === 0;
+// }
 
 
 function Box() {
 
-  const {
-    render,
-    onSetHisState,
-    hiScreenState,
-    onSetStatus,
-    onSetMode,
-    gameMode,
-    onPussyHandle} = useContext(StateContext)
+  const {render} = useContext(StateContext)
 
 
   return (

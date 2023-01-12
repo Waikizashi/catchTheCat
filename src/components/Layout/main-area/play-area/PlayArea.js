@@ -1,11 +1,11 @@
 import cn from  'classnames';
 import HiScreen from './hiScreen/HiScreen';
-import { useRef, useEffect, useState,  useContext } from 'react';
-import Pussy from '../../../turboPussy/Pussy';
-import PussyConf from '../../../../mechanic/Cat';
-import getRandomInt from '../../../../mechanic/getRandomInt';
+import { useRef, useEffect,  useContext } from 'react';
+//import Pussy from '../../../turboPussy/Pussy';
+//import PussyConf from '../../../../mechanic/Cat';
+//import getRandomInt from '../../../../mechanic/getRandomInt';
 
-import anm from '../../../../css/Animations.module.css'
+//import anm from '../../../../css/Animations.module.css'
 import s from './PlayArea.module.css';
 import { StateContext } from '../../../../context/stateContext';
 import Field from './Field';
@@ -13,25 +13,25 @@ import Field from './Field';
 function PlayArea() {
   const playAreaRef = useRef(null)
   // const {gameMode, render, area, onSetAreaPlace} = useContext(StateContext)
-  const {render,status, onSetAreaPlace, area} = useContext(StateContext)
+  const {status, onSetAreaPlace} = useContext(StateContext)
   
 
 
-  const top = area.height*0.5 + 'px'
-  const right = area.width*0.5 + 'px'
-  let size = area.width*0.1 + 'px'
-  const offset = area.width*0.1
+  // const top = area.height*0.5 + 'px'
+  // const right = area.width*0.5 + 'px'
+  // let size = area.width*0.1 + 'px'
+  // const offset = area.width*0.1
   
 
-  const clipPathId = 'my-clip-path';
-  const pussyConfig = new PussyConf([top,right,size])
+  //const clipPathId = 'my-clip-path';
+  //const pussyConfig = new PussyConf([top,right,size])
 
-  const [mousePosition, setMousePosition] = useState({ x: top, y: right });
+  // const [mousePosition, setMousePosition] = useState({ x: top, y: right });
 
-  const handleMouseMove = (e) => {
-    setMousePosition({ x: e.clientX-offset/2, y: e.clientY-offset/2 });
-    //console.log({ x: e.clientX, y: e.clientY })
-  };
+  // const handleMouseMove = (e) => {
+  //   setMousePosition({ x: e.clientX-offset/2, y: e.clientY-offset/2 });
+  //   //console.log({ x: e.clientX, y: e.clientY })
+  // };
 
   //---------------------------------useEffect-----------------------------------------
   
@@ -58,6 +58,7 @@ function PlayArea() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   //---------------------------------useEffect-----------------------------------------

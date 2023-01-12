@@ -1,7 +1,7 @@
 import React from "react";
 import cn from  'classnames';
 //import PussyConf from "../../mechanic/Pussy";
-import getRandomInt from "../../mechanic/getRandomInt";
+//import getRandomInt from "../../mechanic/getRandomInt";
 
 import cat from "../../img/CatWithOutline.png"
 //import badCat from "../../img/REDCatWithOutline.png"
