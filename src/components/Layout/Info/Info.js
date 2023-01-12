@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { StateContext } from '../../../context/stateContext';
 
 
-import anm from '../../../css/Animations.module.css'
+//import anm from '../../../css/Animations.module.css'
 import Clock from '../../Time/Clock';
 import s from './info.module.css'
 

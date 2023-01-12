@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import cn from  'classnames';
 //import PussyConf from "../../mechanic/Pussy";
 import getRandomInt from "../../mechanic/getRandomInt";
@@ -55,18 +55,20 @@ function Pussy({draggable,pussyConf,onReplace}) {
     //console.log('puted')
     //console.log('x: ',event.clientX)
     //console.log('y: ',event.clientY)
-    let top = event.clientY-area.height*0.1 + 'px'
-    let right = event.clientX-area.width*0.1 + 'px'
-    pussyConf.replace(top, right)
-    setConfig(pussyConf)
-    onchangeScore(10)
+    //let top = event.clientY-area.height*0.1 + 'px'
+    //let right = event.clientX-area.width*0.1 + 'px'
+    //pussyConf.replace(top, right)
+    //setConfig(pussyConf)
+    //onchangeScore(10)
     // code to handle the end of the drag event
   };
   //console.log('Pussy')
 
 
    return (
-   <div draggable={draggable}
+   <div 
+    onClick={scoreUp}
+    draggable={draggable}
     onDragStart={handleDragStart}
     onDrag={handleDrag} 
     onDragEnd={handleDragEnd}

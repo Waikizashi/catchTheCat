@@ -1,4 +1,5 @@
 .Logs{
+    z-index: 99;
     font-size: 22pt;
     color: white;
     display: flex;

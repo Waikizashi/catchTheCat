@@ -1,6 +1,6 @@
 import cn from  'classnames';
 
-import anm from '../../../css/Animations.module.css'
+//import anm from '../../../css/Animations.module.css'
 import s from './News.module.css';
 
 function News() {
