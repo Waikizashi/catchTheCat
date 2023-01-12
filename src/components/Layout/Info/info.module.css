@@ -32,9 +32,12 @@
     /* textColor */
     margin: 0 15px 0 0;
 }
+.lvlMode{
+    color: #7d86ff;
+}
 
 .score, .mode, .time, .timer{
-    margin: 0 0 0 10%;
+    margin: 0 0 0 5%;
 }
 
 

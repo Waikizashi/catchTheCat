@@ -12,15 +12,15 @@ import s from './Box.module.css';
 
 function Box() {
 
-  const {render} = useContext(StateContext)
-
+  const {render, area} = useContext(StateContext)
+  let size = area.width*0.2 + 'px'
 
   return (
     <div style={{
-        bottom: '10px',
-        right: '10px'
+        bottom: area.width*0.01-5 + 'px',
+        right: area.width*0.01 + 'px'
        }} className={cn(s.box,{[s.render]: render})}>
-          <img style={{}}
+          <img style={{width:size}}
             className={s.img} src={box} alt={'box'}></img>
        </div>
   );

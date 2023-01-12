@@ -1,0 +1,34 @@
+{
+    "modes":{
+        "relax":{
+            "decription":"",
+            "time": 0,
+            "help": "",
+            "needResult":0
+        },
+        "easy":{
+            "decription":"",
+            "time": 0,
+            "help": "",
+            "needResult":0
+        },
+        "medium":{
+            "decription":"",
+            "time": 0,
+            "help": "",
+            "needResult":0
+        },
+        "hard":{
+            "decription":"",
+            "time": 0,
+            "help": "",
+            "needResult":0
+        },
+        "extreme":{
+            "decription":"",
+            "time": 0,
+            "help": "",
+            "needResult":0
+        }
+    }   
+}
