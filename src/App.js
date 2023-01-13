@@ -9,6 +9,7 @@ import './css/font.css'
 function App() {
   const [pussyRender, setRender] = useState(false)
   const [hisState, setHisState] = useState(true)
+  const [finModalState, setFinModalState] = useState(false)
   const [mode, setMode] = useState('relax')
   const [Area, setArea] = useState({height: 0, width: 0})
   const [Score, setScore] = useState(0)
@@ -17,6 +18,7 @@ function App() {
 
   
  
+
 
 
 
@@ -30,6 +32,11 @@ function App() {
     setScore(0)
   }
  
+  const setfinalModalState = (place) =>{
+    //console.log("####:", place)
+    setFinModalState(!finModalState)
+    //console.log("####:", Area)
+  }
   const setAreaPlace = (place) =>{
     //console.log("####:", place)
     setArea(place)
@@ -74,6 +81,8 @@ function App() {
       render:pussyRender,
       area: Area,
       status: gameSatus,
+      finModalState: finModalState,
+      onSetFinModalStat: setfinalModalState,
       onSetStatus: setGameStatus,
       onSetAreaPlace: setAreaPlace,
       onchangeScore:changeScore,
