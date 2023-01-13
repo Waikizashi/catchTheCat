@@ -16,6 +16,7 @@ function App() {
 
 
   
+ 
 
 
 
@@ -30,7 +31,9 @@ function App() {
   }
  
   const setAreaPlace = (place) =>{
+    //console.log("####:", place)
     setArea(place)
+    //console.log("####:", Area)
   }
 
   const changeScore = (value)=>{

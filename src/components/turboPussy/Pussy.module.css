@@ -40,7 +40,7 @@
 
 .cat{
     top: 50%;
-    right: 50%;
+    left: 50%;
     height: fit-content;
     width: fit-content;
     visibility: hidden;
@@ -49,6 +49,10 @@
     user-select: none;
     cursor: grab;
     /* transition: 0.1s; */
+}
+
+.cat:active{
+    cursor: grabbing;
 }
 
 

@@ -15,24 +15,28 @@ import Field from './Field';
 function PlayArea() {
   const playAreaRef = useRef(null)
   const {status, onSetAreaPlace} = useContext(StateContext)
-  
-
 
   //---------------------------------useEffect-----------------------------------------
-  
-  useEffect(() => {
+
+
+  useEffect( () =>{
     const handleResize = () => {
+      const {width, height} = playAreaRef.current.getBoundingClientRect()
       onSetAreaPlace({
-        height: playAreaRef.current.clientHeight,
-        width: playAreaRef.current.clientWidth
+        height: height,
+        width: width
       })
 
     };
-    
+    //console.log("####:" )
+    const {width, height} = playAreaRef.current.getBoundingClientRect()
+    //console.log(playAreaRef.current.clientHeight)
+    //console.log(height)
     onSetAreaPlace({
-      height: playAreaRef.current.clientHeight,
-      width: playAreaRef.current.clientWidth
+      height: height,
+      width: width
     })
+
     window.addEventListener("resize", handleResize);
     
     return () => {
