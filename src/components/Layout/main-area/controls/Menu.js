@@ -4,8 +4,12 @@ import { StateContext } from '../../../../context/stateContext';
 
 import s from './Menu.module.css';
 
-function Menu() {
+function Menu({Modal}) {
   const {status,onSetHisState,onSetStatus, hiScreenState,onPussyHandle} = useContext(StateContext)
+
+  const finModal = ()=>{
+    Modal && Modal()
+  }
 
   const onPause = ()=>{
    
@@ -26,7 +30,7 @@ function Menu() {
       <div className={cn(s.menu)}>
   
         
-      <div className={cn(s.btn)}><div>fuck somebody</div></div>
+      <div onClick={finModal} className={cn(s.btn)}><div>modal test</div></div>
   
         {/* <div className={cn(s.mainBtns)}> */}
           <div className={cn(s.btn)} onClick={onReboot}><div>reboot</div></div>
@@ -42,7 +46,7 @@ function Menu() {
       <div className={cn(s.menu)}>
   
         
-      <div className={cn(s.btn)}><div>fuck somebody</div></div>
+      <div onClick={finModal} className={cn(s.btn)}><div>modal test</div></div>
   
         {/* <div className={cn(s.mainBtns)}> */}
           <div className={cn(s.btn)}><div>...</div></div>

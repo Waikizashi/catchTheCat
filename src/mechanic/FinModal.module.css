@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+
+.modal{
+    visibility: hidden;
+    width: 400px;
+    height: 400px;
+    background-color:bisque;
+    position: absolute;
+    display: flex;
+    top: 20%;
+    left: 30%;
+}
+
+.open{
+    visibility: visible;
+}
