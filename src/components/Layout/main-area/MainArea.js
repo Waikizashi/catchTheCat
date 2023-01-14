@@ -9,9 +9,9 @@ import FinModal from '../../../mechanic/FinModal';
 import { StateContext } from '../../../context/stateContext';
 
 function MainArea() {
-  console.log('Main')
+  //console.log('Main')
   const {finModalState, onSetFinModalStat} = useContext(StateContext)
-  
+
   const Modal = () =>{
     onSetFinModalStat()
   }

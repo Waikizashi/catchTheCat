@@ -1,5 +1,5 @@
 import cn from  'classnames';
-import React, { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { StateContext } from '../../../../../context/stateContext';
 
 import s from './hiScreen.module.css';
@@ -20,18 +20,19 @@ function HiScreen({onStart}) {
       onPussyHandle} = useContext(StateContext)
 
   const [modifier, setModifier] = useState(0)
+  const hiScreenRef = useRef(null);
   
+    
 
   const clickToStart = () => {
     onStart && onStart()
     onPussyHandle(true)
     onSetHisState(false)
     onSetStatus(true)
-
   };
 
   function handleChange(event){
-    console.log('Modifier value: ',event.target.value)
+    //console.log('Modifier value: ',event.target.value)
     if(isInteger(event.target.value)){
       setModifier(0)
     }
@@ -53,7 +54,8 @@ function HiScreen({onStart}) {
 
 
   return (
-    <div className={cn(s.hiScreen,{
+    // <div style={hiScreenState ? {display: 'flex'}:{display: 'none'}} ref={hiScreenRef} className={cn(s.hiScreen,{
+    <div style={hiScreenState ? {display: 'flex'}:null} ref={hiScreenRef} className={cn(s.hiScreen,{
       [s.closeModal]: !hiScreenState,
       [s.openModal]: hiScreenState
     })}>

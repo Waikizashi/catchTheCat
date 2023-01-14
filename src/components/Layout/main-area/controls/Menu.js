@@ -12,16 +12,17 @@ function Menu({Modal}) {
   }
 
   const onPause = ()=>{
-   
     onSetHisState()
     onPussyHandle()
-    console.log(" ScreenState:  ", hiScreenState)
-    console.log(" status:  ", status)
+    
+    //console.log(" ScreenState:  ", hiScreenState)
+    //console.log(" status:  ", status)
   }
   const onReboot = ()=>{
     //console.log("####: ", hiScreenState)
     onPussyHandle(false)
     onSetHisState(true)
+    
     onSetStatus(false)
   }
 

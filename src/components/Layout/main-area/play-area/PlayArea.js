@@ -12,7 +12,7 @@ import Field from './Field';
 
 function PlayArea() {
   const playAreaRef = useRef(null)
-  const {status, onSetAreaPlace} = useContext(StateContext)
+  const {onSetAreaPlace} = useContext(StateContext)
 
   //---------------------------------useEffect-----------------------------------------
 
@@ -50,7 +50,7 @@ function PlayArea() {
     // renderPussy()
   }
   
-  console.log('STATUS',status)
+  //console.log('STATUS',status)
 
 
     return (
