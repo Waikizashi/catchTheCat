@@ -60,7 +60,7 @@ function Field() {
   }
   
   function handleDeviceMotion(event) {
-    alert('acelerometr'+ window.DeviceMotionEvent)
+    //alert('acelerometr'+ window.DeviceMotionEvent)
     console.log(event.rotationRate)
     console.log(event.accelerationIncludingGravity)
     console.log(event.interval)
