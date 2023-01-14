@@ -21,11 +21,6 @@ function Field() {
   const offset = area.width*0.1
   const offsetY = area.height*0.1
   
-  // const num = 0.1000000000000000000000;
-  // const fixedNum = num.toFixed(1);
-  // const fixedNum2 = parseFloat(num.toFixed(1));
-
-  // console.log(fixedNum,fixedNum2)
   
   const config = new PussyConf([top,left,size])
 
@@ -85,6 +80,8 @@ function Field() {
       setTimeout(() => {
         setX(Math.min(newx*2, 1));
         setY(Math.min(newy*2, 1));
+        // setX(Math.min(newx*2, 1));
+        // setY(Math.min(newy*2, 1));
       }, 50);
     }
     
@@ -159,8 +156,8 @@ else if(gameMode === 'hard'){
           <defs>
             <clipPath id={clipPathId}>
               <circle 
-              cx={isMobile ? ac_MOVX+ac_MOVX*x : mousePosition.x} 
-              cy={isMobile ? ac_MOVY+ac_MOVY*y : mousePosition.y} 
+              cx={isMobile ? parseInt(ac_MOVX+ac_MOVX*x) : mousePosition.x} 
+              cy={isMobile ? parseInt(ac_MOVY+ac_MOVY*y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
             </clipPath>
           </defs>
@@ -173,8 +170,8 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(3)} </p>
-            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(3)} </p>
+            <p style={{left:'0%'}} className={cn(s.logs)}> x:{ac_MOVX+ac_MOVX*x.toFixed(0)} </p>
+            <p style={{left:'35%'}} className={cn(s.logs)}> y:{ac_MOVY+ac_MOVY*y.toFixed(0)} </p>
             {/* <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p> */}
             </>
       );
