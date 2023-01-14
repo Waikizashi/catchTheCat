@@ -69,17 +69,9 @@ function Field() {
  
     const newx = event.accelerationIncludingGravity.x*offsetY*(-1)
     const newy = event.accelerationIncludingGravity.y*offsetY
-
-   
-
-      // setX(x+newx);
-      // setY(y+newy);
-      
-      setTimeout(() => {
-     
+ 
         setX(x+newx);
         setY(y+newy);
-      }, 50);
 
   }
 
@@ -136,7 +128,7 @@ else  if(gameMode === 'medium'){
 }
 else if(gameMode === 'hard'){
     return (
-      <>
+     
         <div onMouseMove={isMobile ? null : handleMouseMove} style={render ? {clipPath: 'url(#my-clip-path)'} : null} className={cn( 
             {
             [s.field]: render,
@@ -161,10 +153,8 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(0)} </p>
-            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(0)} </p>
-            {/* <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p> */}
-            </>
+            
+            
       );
 }
 else if(gameMode === 'extreme'){
@@ -180,11 +170,15 @@ else if(gameMode === 'extreme'){
         <svg style={{position: 'absolute', width: offset*2}} >
           <defs>
             <clipPath id={clipPathId}>
-              <circle cx={isMobile ? x : mousePosition.x} cy={isMobile ? y : mousePosition.y} r={offset} />
+              <circle style={{transition:'.1s'}}
+              cx={isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
+              cy={isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
+              r={isMobile ? offset*2 : offset} />
               <rect x={area.width-offset*2.3} y={area.height-offset*1.8} width={offset*2.3+'px'} height={offset*1.8+'px'} />
             </clipPath>
           </defs>
-        </svg>     
+        </svg>
+           
         {
               status ? 
               <Pussy onReplace={Replace} config={config}/> :
