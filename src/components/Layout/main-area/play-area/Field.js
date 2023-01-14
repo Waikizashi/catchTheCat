@@ -76,7 +76,7 @@ function Field() {
     const newx = event.accelerationIncludingGravity.x*offsetY
     const newy = event.accelerationIncludingGravity.y*offsetY
 
-    if((x-newx) > 0.1 && (y-newy) > 0.1){
+   
 
       setX(x+newx);
         setY(y+newy);
@@ -87,7 +87,7 @@ function Field() {
       //   setX(x+newx);
       //   setY(y+newy);
       // }, 50);
-    }
+
     
     // const z = event.accelerationIncludingGravity.z
     
@@ -174,8 +174,8 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(2)} </p>
-            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(2)} </p>
+            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(0)} </p>
+            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(0)} </p>
             {/* <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p> */}
             </>
       );
