@@ -19,11 +19,11 @@ function Field() {
   const offset = area.width*0.1
   const offsetY = area.height*0.1
   
-  const num = 0.1000000000000000000000;
-  const fixedNum = num.toFixed(1);
-  const fixedNum2 = parseFloat(num.toFixed(1));
+  // const num = 0.1000000000000000000000;
+  // const fixedNum = num.toFixed(1);
+  // const fixedNum2 = parseFloat(num.toFixed(1));
 
-  console.log(fixedNum,fixedNum2)
+  // console.log(fixedNum,fixedNum2)
   
   const config = new PussyConf([top,left,size])
 
@@ -72,9 +72,14 @@ function Field() {
     // setX(event.accelerationIncludingGravity.x);
     // setY(event.accelerationIncludingGravity.y);
     // setZ(event.accelerationIncludingGravity.z);
-    setX(event.acceleration.x);
-    setY(event.acceleration.y);
-    setZ(event.acceleration.z);
+    const x = event.acceleration.x
+    const y = event.acceleration.y
+    const z = event.acceleration.z
+
+
+    setX(parseFloat(x.toFixed(3)));
+    setY(parseFloat(y.toFixed(3)));
+    setZ(parseFloat(z.toFixed(3)));
   }
 
   const handleMouseMove = (e) => {
