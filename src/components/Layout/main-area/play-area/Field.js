@@ -24,13 +24,6 @@ function Field() {
   
   const config = new PussyConf([top,left,size])
 
-
-  setTimeout(() => {
-    // setX(Math.min(newx*2, 1));
-    // setY(Math.min(newy*2, 1));
-  }, 5000);
-  
-  console.log('#@###########')
   
   const [rndr, setRndr] = useState(false)
 
