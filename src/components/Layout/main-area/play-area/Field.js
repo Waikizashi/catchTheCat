@@ -66,8 +66,8 @@ function Field() {
     console.log(event.accelerationIncludingGravity)
     console.log(event.interval)
     setX(event.accelerationIncludingGravity.x);
-    // setY(event.acceleration.y);
-    // setZ(event.acceleration.z);
+    setY(event.rotationRate.beta);
+    setZ(event.interval);
   }
 
   const handleMouseMove = (e) => {
@@ -145,7 +145,7 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p className={cn(s.logs)}> x:{x} _______ Y:{y} Z_______ Y:{y}  </p>
+            <p className={cn(s.logs)}> x:{x} _______ Y:{y} Z_______ Y:{z}  </p>
             </>
       );
 }
