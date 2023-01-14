@@ -80,13 +80,12 @@ function Field() {
 
     if((Math.abs(newx-x)>0.02) && (Math.abs(newy-y)>0.02)){
 
-      setX(newx*1.5);
-      setY(newy*1.5);
+      
 
-      // setTimeout(() => {
-      //   setX(newx);
-      //   setY(newy);
-      // }, 100);
+      setTimeout(() => {
+        setX(newx*2);
+        setY(newy*2);
+      }, 50);
     }
     
     // const z = event.accelerationIncludingGravity.z
@@ -156,7 +155,7 @@ else if(gameMode === 'hard'){
             [s.render]: render
             })}>
         
-        <svg style={{position: 'absolute', width: offset*2, transition:'.2s'}} >
+        <svg style={{position: 'absolute', width: isMobile ? offset*4 : offset*2, transition:'.2s'}} >
           <defs>
             <clipPath id={clipPathId}>
               <circle 
