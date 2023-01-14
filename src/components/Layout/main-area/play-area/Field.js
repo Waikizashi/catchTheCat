@@ -76,7 +76,7 @@ function Field() {
     const newx = event.rotationRate.beta
     const newy = event.rotationRate.gamma
 
-    if(newx > 10 && newy > 10){
+    if(newx > 1 && newy > 1){
 
       
       
