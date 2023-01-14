@@ -50,7 +50,7 @@ function Field() {
       
       if (window.DeviceMotionEvent) {
         console.log('DeviceMotionEvent is supported');
-      window.addEventListener('devicemotion', handleDeviceMotion,true);
+      window.addEventListener('devicemotion', handleDeviceMotion,false);
     } else {
       alert('DeviceMotionEvent is not supported')
       console.log('DeviceMotionEvent is not supported');
@@ -75,18 +75,18 @@ function Field() {
     // setX(event.accelerationIncludingGravity.x);
     // setY(event.accelerationIncludingGravity.y);
     // setZ(event.accelerationIncludingGravity.z);
-    const newx = event.accelerationIncludingGravity.x
-    const newy = event.accelerationIncludingGravity.y
+    const newx = event.accelerationIncludingGravity.x.toFixed(3)
+    const newy = event.accelerationIncludingGravity.y.toFixed(3)
 
     if((Math.abs(newx-x)>0.2) && (Math.abs(newy-y)>0.2)){
 
-      // setX(newx.toFixed(3)/10);
-      // setY(newy.toFixed(3)/10);
+      setX(newx/10);
+      setY(newy/10);
 
-      setTimeout(() => {
-        setX(newx.toFixed(3)/10);
-        setY(newy.toFixed(3)/10);
-      }, 100);
+      // setTimeout(() => {
+      //   setX(newx.toFixed(3)/10);
+      //   setY(newy.toFixed(3)/10);
+      // }, 100);
     }
     
     // const z = event.accelerationIncludingGravity.z
