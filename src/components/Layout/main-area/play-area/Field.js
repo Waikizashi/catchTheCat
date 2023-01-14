@@ -70,18 +70,18 @@ function Field() {
     // setX(event.accelerationIncludingGravity.x);
     // setY(event.accelerationIncludingGravity.y);
     // setZ(event.accelerationIncludingGravity.z);
-    const newx = (event.accelerationIncludingGravity.x/10).toFixed(2)
-    const newy = (event.accelerationIncludingGravity.y/10).toFixed(2)
+    const newx = (event.accelerationIncludingGravity.x/10)
+    const newy = (event.accelerationIncludingGravity.y/10)
 
     if((Math.abs(newx-x)>0.01) && (Math.abs(newy-y)>0.01)){
 
       
       
       setTimeout(() => {
-        setX(Math.min(newx*2, 1));
-        setY(Math.min(newy*2, 1));
         // setX(Math.min(newx*2, 1));
         // setY(Math.min(newy*2, 1));
+        setX(event.rotationRate.beta);
+        setY(event.rotationRate.gamma);
       }, 50);
     }
     
@@ -156,8 +156,8 @@ else if(gameMode === 'hard'){
           <defs>
             <clipPath id={clipPathId}>
               <circle 
-              cx={isMobile ? parseInt(ac_MOVX+ac_MOVX*x) : mousePosition.x} 
-              cy={isMobile ? parseInt(ac_MOVY+ac_MOVY*y) : mousePosition.y} 
+              cx={!isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
+              cy={!isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
             </clipPath>
           </defs>
@@ -170,8 +170,8 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p style={{left:'0%'}} className={cn(s.logs)}> x:{ac_MOVX+ac_MOVX*x.toFixed(0)} </p>
-            <p style={{left:'35%'}} className={cn(s.logs)}> y:{ac_MOVY+ac_MOVY*y.toFixed(0)} </p>
+            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(2)} </p>
+            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(0)} </p>
             {/* <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p> */}
             </>
       );
