@@ -19,7 +19,11 @@ function Field() {
   const offset = area.width*0.1
   const offsetY = area.height*0.1
   
+  const num = 0.1000000000000000000000;
+  const fixedNum = num.toFixed(1);
+  const fixedNum2 = parseFloat(num.toFixed(1));
 
+  console.log(fixedNum,fixedNum2)
   
   const config = new PussyConf([top,left,size])
 
@@ -64,10 +68,13 @@ function Field() {
     //alert('acelerometr'+ window.DeviceMotionEvent)
     console.log(event.rotationRate)
     console.log(event.accelerationIncludingGravity)
-    console.log(event.interval)
-    setX(event.accelerationIncludingGravity.x);
-    setY(event.rotationRate.beta);
-    setZ(event.interval);
+    console.log(event.acceleration)
+    // setX(event.accelerationIncludingGravity.x);
+    // setY(event.accelerationIncludingGravity.y);
+    // setZ(event.accelerationIncludingGravity.z);
+    setX(event.acceleration.x);
+    setY(event.acceleration.y);
+    setZ(event.acceleration.z);
   }
 
   const handleMouseMove = (e) => {
