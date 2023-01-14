@@ -77,9 +77,9 @@ function Field() {
     const z = event.acceleration.z
 
 
-    setX(parseFloat(x.toFixed(3)));
-    setY(parseFloat(y.toFixed(3)));
-    setZ(parseFloat(z.toFixed(3)));
+    setX(x.toFixed(3));
+    setY(y.toFixed(3));
+    setZ(z.toFixed(3));
   }
 
   const handleMouseMove = (e) => {
@@ -157,7 +157,9 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p className={cn(s.logs)}> x:{x} _______ Y:{y} Z_______ Y:{z}  </p>
+            <p className={cn(s.logs)}> x:{x} </p>
+            <p className={cn(s.logs)}> x:{y} </p>
+            <p className={cn(s.logs)}> x:{z} </p>
             </>
       );
 }
