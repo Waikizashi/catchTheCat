@@ -72,9 +72,9 @@ function Field() {
     // setX(event.accelerationIncludingGravity.x);
     // setY(event.accelerationIncludingGravity.y);
     // setZ(event.accelerationIncludingGravity.z);
-    const x = event.acceleration.x
-    const y = event.acceleration.y
-    const z = event.acceleration.z
+    const x = event.accelerationIncludingGravity.x
+    const y = event.accelerationIncludingGravity.y
+    const z = event.accelerationIncludingGravity.z
 
 
     setX(x.toFixed(3));
@@ -158,8 +158,8 @@ else if(gameMode === 'hard'){
             
             </div>
             <p style={{left:'0%'}} className={cn(s.logs)}> x:{x} </p>
-            <p style={{left:'40%'}} className={cn(s.logs)}> y:{y} </p>
-            <p style={{left:'80%'}} className={cn(s.logs)}> z:{z} </p>
+            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y} </p>
+            <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p>
             </>
       );
 }
