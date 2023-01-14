@@ -157,9 +157,9 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p className={cn(s.logs)}> x:{x} </p>
-            <p className={cn(s.logs)}> x:{y} </p>
-            <p className={cn(s.logs)}> x:{z} </p>
+            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x} </p>
+            <p style={{left:'40%'}} className={cn(s.logs)}> y:{y} </p>
+            <p style={{left:'80%'}} className={cn(s.logs)}> z:{z} </p>
             </>
       );
 }
