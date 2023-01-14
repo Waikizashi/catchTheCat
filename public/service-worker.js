@@ -11,7 +11,7 @@ console.log('here i come!')
 // }
 
 
-const cacheKey = "v1.13"
+const cacheKey = "v1.14"
 
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', event => {
