@@ -40,15 +40,16 @@ function Field() {
     const mobileRegex = /(android|iphone|ipad|mobile)/i;
     setIsMobile(mobileRegex.test(userAgent));
 
-    if(isMobile){
       
       if (window.DeviceMotionEvent) {
-      window.addEventListener('devicemotion', handleDeviceMotion);
+        console.log('DeviceMotionEvent is supported');
+      window.addEventListener('devicemotion', handleDeviceMotion,true);
     } else {
+      alert('DeviceMotionEvent is not supported')
       console.log('DeviceMotionEvent is not supported');
     }
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
-  }
+  
   }, [isMobile]);
 
   const clipPathId = 'my-clip-path';
@@ -59,8 +60,11 @@ function Field() {
   }
   
   function handleDeviceMotion(event) {
-    alert('MOBILE')
-    setX(event.acceleration.x);
+    alert('acelerometr'+ window.DeviceMotionEvent)
+    console.log(event.rotationRate)
+    console.log(event.accelerationIncludingGravity)
+    console.log(event.interval)
+    setX(event.interva);
     setY(event.acceleration.y);
   }
 
@@ -117,6 +121,7 @@ else  if(gameMode === 'medium'){
 }
 else if(gameMode === 'hard'){
     return (
+      <>
         <div onMouseMove={isMobile ? null : handleMouseMove} style={render ? {clipPath: 'url(#my-clip-path)'} : null} className={cn( 
             {
             [s.field]: render,
@@ -136,7 +141,10 @@ else if(gameMode === 'hard'){
                           render ? <Pussy config={config}/> : null
               
             }
+            
             </div>
+            <p className={cn(s.logs)}> x:{x} _______ Y:{y}  </p>
+            </>
       );
 }
 else if(gameMode === 'extreme'){

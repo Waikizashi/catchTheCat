@@ -7,6 +7,18 @@
     visibility: hidden;
 }
 
+.logs{
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 20px;
+    text-align: center;
+    background-color: blue;
+    color: white;
+
+}
+
 
 @keyframes render {
     0% {
