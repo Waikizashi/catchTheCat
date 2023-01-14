@@ -78,15 +78,15 @@ function Field() {
     const newx = event.accelerationIncludingGravity.x
     const newy = event.accelerationIncludingGravity.y
 
-    if((Math.abs(newx-x)>0.1) && (Math.abs(newy-y)>0.1)){
+    if((Math.abs(newx-x)>0.3) && (Math.abs(newy-y)>0.3)){
 
-      setX(newx.toFixed(3)/10);
-      setY(newy.toFixed(3)/10);
+      // setX(newx.toFixed(3)/10);
+      // setY(newy.toFixed(3)/10);
 
-      // setTimeout(() => {
-      //   setX(newx.toFixed(3)/10);
-      //   setY(newy.toFixed(3)/10);
-      // }, 200);
+      setTimeout(() => {
+        setX(newx.toFixed(3)/10);
+        setY(newy.toFixed(3)/10);
+      }, 400);
     }
     
     // const z = event.accelerationIncludingGravity.z
