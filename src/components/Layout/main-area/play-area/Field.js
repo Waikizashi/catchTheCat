@@ -78,7 +78,7 @@ function Field() {
     const newx = event.accelerationIncludingGravity.x
     const newy = event.accelerationIncludingGravity.y
 
-    if((Math.abs(newx-x)>0.015) && (Math.abs(newy-y)>0.015)){
+    if((Math.abs(newx-x)>0.1) && (Math.abs(newy-y)>0.1)){
 
       setX(newx.toFixed(3)/10);
       setY(newy.toFixed(3)/10);
