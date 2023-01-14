@@ -14,7 +14,9 @@ function Field() {
 
   //console.log(area)
   const top = area.height*0.5 + 'px'
+  const ac_MOVY = area.height*0.5
   const left = area.width*0.5 + 'px'
+  const ac_MOVX = area.width*0.5
   const size = area.width*0.1 + 'px'
   const offset = area.width*0.1
   const offsetY = area.height*0.1
@@ -145,7 +147,10 @@ else if(gameMode === 'hard'){
         <svg style={{position: 'absolute', width: offset*2}} >
           <defs>
             <clipPath id={clipPathId}>
-              <circle cx={mousePosition.x} cy={mousePosition.y} r={offset} />
+              <circle 
+              cx={isMobile ? ac_MOVX+ac_MOVX*x : mousePosition.x} 
+              cy={isMobile ? ac_MOVY+ac_MOVY*x : mousePosition.y} 
+              r={offset} />
             </clipPath>
           </defs>
         </svg>
