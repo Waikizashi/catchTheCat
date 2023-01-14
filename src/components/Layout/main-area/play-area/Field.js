@@ -25,14 +25,21 @@ function Field() {
   const config = new PussyConf([top,left,size])
 
 
+  setTimeout(() => {
+    // setX(Math.min(newx*2, 1));
+    // setY(Math.min(newy*2, 1));
+  }, 5000);
+  
+  console.log('#@###########')
   
   const [rndr, setRndr] = useState(false)
 
 
-
-  const [x, setX] = useState(area.width*0.5);
-  const [y, setY] = useState(area.height*0.5);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
   //const [z, setZ] = useState(0);
+
+
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -58,6 +65,7 @@ function Field() {
   const clipPathId = 'my-clip-path';
   const [mousePosition, setMousePosition] = useState({ x: area.width*0.5, y: area.height*0.5 });
 
+
   const Replace = () =>{
     setRndr(!rndr)
   }
@@ -70,18 +78,20 @@ function Field() {
     // setX(event.accelerationIncludingGravity.x);
     // setY(event.accelerationIncludingGravity.y);
     // setZ(event.accelerationIncludingGravity.z);
-    const newx = (event.accelerationIncludingGravity.x/10)
-    const newy = (event.accelerationIncludingGravity.y/10)
+    
+ 
+    const newx = event.rotationRate.beta
+    const newy = event.rotationRate.gamma
 
-    if((Math.abs(newx-x)>0.01) && (Math.abs(newy-y)>0.01)){
+    if(newx > 10 && newy > 10){
 
       
       
       setTimeout(() => {
         // setX(Math.min(newx*2, 1));
         // setY(Math.min(newy*2, 1));
-        setX(event.rotationRate.beta);
-        setY(event.rotationRate.gamma);
+        setX(x+newx);
+        setY(y+newy);
       }, 50);
     }
     
@@ -152,12 +162,12 @@ else if(gameMode === 'hard'){
             [s.render]: render
             })}>
         
-        <svg style={{position: 'absolute', width: offset*2, transition:'.2s'}} >
+        <svg style={{position: 'absolute', width: offset*2}} >
           <defs>
             <clipPath id={clipPathId}>
-              <circle 
-              cx={!isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
-              cy={!isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
+              <circle style={{transition:'.2s'}}
+              cx={isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
+              cy={isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
             </clipPath>
           </defs>
@@ -171,7 +181,7 @@ else if(gameMode === 'hard'){
             
             </div>
             <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(2)} </p>
-            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(0)} </p>
+            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(2)} </p>
             {/* <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p> */}
             </>
       );
