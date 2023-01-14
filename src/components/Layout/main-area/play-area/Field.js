@@ -86,7 +86,7 @@ function Field() {
       setTimeout(() => {
         setX(newx.toFixed(3)/10);
         setY(newy.toFixed(3)/10);
-      }, 200);
+      }, 100);
     }
     
     // const z = event.accelerationIncludingGravity.z
@@ -156,7 +156,7 @@ else if(gameMode === 'hard'){
             [s.render]: render
             })}>
         
-        <svg style={{position: 'absolute', width: offset*2}} >
+        <svg style={{position: 'absolute', width: offset*2, transition:'.2s'}} >
           <defs>
             <clipPath id={clipPathId}>
               <circle 
