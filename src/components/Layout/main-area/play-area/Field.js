@@ -64,36 +64,23 @@ function Field() {
   }
   
   function handleDeviceMotion(event) {
-    //alert('acelerometr'+ window.DeviceMotionEvent)
-    // console.log(event.rotationRate)
-    // console.log(event.accelerationIncludingGravity)
-    // console.log(event.acceleration)
-    // setX(event.accelerationIncludingGravity.x);
-    // setY(event.accelerationIncludingGravity.y);
-    // setZ(event.accelerationIncludingGravity.z);
+   
     
  
-    const newx = event.accelerationIncludingGravity.x*offsetY
+    const newx = event.accelerationIncludingGravity.x*offsetY*(-1)
     const newy = event.accelerationIncludingGravity.y*offsetY
 
    
 
-      setX(x+newx);
-        setY(y+newy);
+      // setX(x+newx);
+      // setY(y+newy);
       
-      // setTimeout(() => {
-      //   // setX(Math.min(newx*2, 1));
-      //   // setY(Math.min(newy*2, 1));
-      //   setX(x+newx);
-      //   setY(y+newy);
-      // }, 50);
+      setTimeout(() => {
+     
+        setX(x+newx);
+        setY(y+newy);
+      }, 50);
 
-    
-    // const z = event.accelerationIncludingGravity.z
-    
-
-    
-    //setZ(Math.abs(z.toFixed(3));
   }
 
   const handleMouseMove = (e) => {
