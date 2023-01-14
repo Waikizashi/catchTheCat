@@ -83,8 +83,8 @@ function Field() {
       
       
       setTimeout(() => {
-        setX(Math.max(newx*2, 1));
-        setY(Math.max(newy*2, 1));
+        setX(Math.min(newx*2, 1));
+        setY(Math.min(newy*2, 1));
       }, 50);
     }
     
