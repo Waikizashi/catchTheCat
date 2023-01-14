@@ -73,8 +73,8 @@ function Field() {
     // setZ(event.accelerationIncludingGravity.z);
     
  
-    const newx = event.acceleration.x
-    const newy = event.acceleration.y
+    const newx = event.accelerationIncludingGravity.x
+    const newy = event.accelerationIncludingGravity.y
 
     //if(newx > 1 && newy > 1){
 
