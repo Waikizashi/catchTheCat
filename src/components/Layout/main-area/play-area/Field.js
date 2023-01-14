@@ -75,18 +75,18 @@ function Field() {
     // setX(event.accelerationIncludingGravity.x);
     // setY(event.accelerationIncludingGravity.y);
     // setZ(event.accelerationIncludingGravity.z);
-    const newx = event.accelerationIncludingGravity.x.toFixed(3)/10
-    const newy = event.accelerationIncludingGravity.y.toFixed(3)/10
+    const newx = event.accelerationIncludingGravity.x/10
+    const newy = event.accelerationIncludingGravity.y/10
 
-    if((Math.abs(newx-x)>0.1) && (Math.abs(newy-y)>0.1)){
+    if((Math.abs(newx-x)>0.01) && (Math.abs(newy-y)>0.01)){
 
-      setX(newx);
-      setY(newy);
+      // setX(newx);
+      // setY(newy);
 
-      // setTimeout(() => {
-      //   setX(newx.toFixed(3)/10);
-      //   setY(newy.toFixed(3)/10);
-      // }, 100);
+      setTimeout(() => {
+        setX(newx);
+        setY(newy);
+      }, 100);
     }
     
     // const z = event.accelerationIncludingGravity.z
@@ -174,8 +174,8 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x} </p>
-            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y} </p>
+            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(3)} </p>
+            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(3)} </p>
             {/* <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p> */}
             </>
       );
