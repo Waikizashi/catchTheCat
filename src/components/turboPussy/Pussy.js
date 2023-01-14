@@ -23,6 +23,7 @@ function Pussy({draggable,config,onReplace}) {
     const userAgent = window.navigator.userAgent;
     const mobileRegex = /(android|iphone|ipad|mobile)/i;
     setIsMobile(mobileRegex.test(userAgent));
+    //window.addEventListener("touchmove", touchDrag, { passive: false });
   }, []);
 
 
@@ -57,23 +58,26 @@ function Pussy({draggable,config,onReplace}) {
     // code to handle the start of the drag event
   };
   const touchDragStart = (event) => {
+    event.stopPropagation();
     //console.log('taken')
     //const { clientX, clientY } = event.touches[0];
     //console.log('Drag')
     //console.log('config:X:', clientX)
     //console.log('config:Y:', clientY)
-    
+    //window.addEventListener("touchmove", touchDrag, { passive: false });
     event.target.style.cursor = 'grabbing'
     // code to handle the start of the drag event
   };
   const handleDrag = (event) => 
   {
-    event.preventDefault()
+    // event.nativeEvent.preventDefault();
+    //event.preventDefault()
     
   };
   const touchDrag = (event) => 
   {
-    
+    //window.addEventListener("touchmove", touchDrag, { passive: false });
+    //event.stopPropagation();
     const { clientX, clientY } = event.touches[0];
     let top = clientY-area.height*0.1 + 'px'
     let left = clientX-area.width*0.1 + 'px'

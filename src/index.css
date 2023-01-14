@@ -2,7 +2,8 @@ html{
   height: 100%;
   width: 100%;
   min-width: 248px;
-  letter-spacing: 2pt;
+  letter-spacing: 2pt;  
+  overflow: hidden;
 }
 
 body {

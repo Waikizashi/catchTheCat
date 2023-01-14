@@ -1,7 +1,6 @@
 
 .hiScreen{
     z-index: -11;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -131,7 +130,7 @@
   }
   
 .openModal {
-    /* display: flex; */
+    display: flex;
     animation: open-modal .3s ease-in-out;
     animation-fill-mode: forwards;
 }
@@ -144,10 +143,12 @@
     }
     100% {
          /* opacity: 0; */
+         
          height: 0;
          transform: rotateX(90deg);
     }
   }
+
 
   
 .closeModal {

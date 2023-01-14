@@ -4,8 +4,8 @@
 
 .modal{
     visibility: hidden;
-    width: 400px;
-    height: 400px;
+    width: 20%;
+    height: 20%;
     background-color:bisque;
     position: absolute;
     display: flex;
