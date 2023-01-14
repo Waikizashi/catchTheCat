@@ -33,9 +33,9 @@ function Field() {
 
 
 
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [z, setZ] = useState(0);
+  const [x, setX] = useState(area.width*0.5);
+  const [y, setY] = useState(area.height*0.5);
+  //const [z, setZ] = useState(0);
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -58,7 +58,7 @@ function Field() {
   }, [isMobile]);
 
   const clipPathId = 'my-clip-path';
-  const [mousePosition, setMousePosition] = useState({ x: area.height*0.5, y: area.width*0.5 });
+  const [mousePosition, setMousePosition] = useState({ x: area.width*0.5, y: area.height*0.5 });
 
   const Replace = () =>{
     setRndr(!rndr)
@@ -74,12 +74,12 @@ function Field() {
     // setZ(event.accelerationIncludingGravity.z);
     const x = event.accelerationIncludingGravity.x
     const y = event.accelerationIncludingGravity.y
-    const z = event.accelerationIncludingGravity.z
+    // const z = event.accelerationIncludingGravity.z
 
 
-    setX(x.toFixed(3));
-    setY(y.toFixed(3));
-    setZ(z.toFixed(3));
+    setX(Math.abs(x.toFixed(3))/10);
+    setY(Math.abs(y.toFixed(3))/10);
+    //setZ(Math.abs(z.toFixed(3));
   }
 
   const handleMouseMove = (e) => {
@@ -159,7 +159,7 @@ else if(gameMode === 'hard'){
             </div>
             <p style={{left:'0%'}} className={cn(s.logs)}> x:{x} </p>
             <p style={{left:'35%'}} className={cn(s.logs)}> y:{y} </p>
-            <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p>
+            {/* <p style={{left:'70%'}} className={cn(s.logs)}> z:{z} </p> */}
             </>
       );
 }
@@ -180,7 +180,7 @@ else if(gameMode === 'extreme'){
               <rect x={area.width-offset*2.3} y={area.height-offset*1.8} width={offset*2.3+'px'} height={offset*1.8+'px'} />
             </clipPath>
           </defs>
-        </svg>
+        </svg>     
         {
               status ? 
               <Pussy onReplace={Replace} config={config}/> :
