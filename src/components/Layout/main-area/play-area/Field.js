@@ -78,7 +78,7 @@ function Field() {
     const y = event.accelerationIncludingGravity.y
     // const z = event.accelerationIncludingGravity.z
 
-
+    
     setX(Math.abs(x.toFixed(3))/10);
     setY(Math.abs(y.toFixed(3))/10);
     //setZ(Math.abs(z.toFixed(3));
@@ -149,7 +149,7 @@ else if(gameMode === 'hard'){
             <clipPath id={clipPathId}>
               <circle 
               cx={isMobile ? ac_MOVX+ac_MOVX*x : mousePosition.x} 
-              cy={isMobile ? ac_MOVY+ac_MOVY*x : mousePosition.y} 
+              cy={isMobile ? ac_MOVY+ac_MOVY*y : mousePosition.y} 
               r={offset} />
             </clipPath>
           </defs>
