@@ -57,6 +57,7 @@ function Field() {
     }
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   const clipPathId = 'my-clip-path';
