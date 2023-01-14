@@ -73,13 +73,13 @@ function Field() {
     // setZ(event.accelerationIncludingGravity.z);
     
  
-    const newx = event.accelerationIncludingGravity.x*offsetY
-    const newy = event.accelerationIncludingGravity.y*offsetY
+    const newx = event.accelerationIncludingGravity.x
+    const newy = event.accelerationIncludingGravity.y
 
-    //if(newx > 1 && newy > 1){
+    if(newx > 0.1 && newy > 0.1){
 
-      setX(x+newx);
-        setY(y+newy);
+      setX(x+newx*offsetY);
+        setY(y+newy*offsetY);
       
       // setTimeout(() => {
       //   // setX(Math.min(newx*2, 1));
@@ -87,7 +87,7 @@ function Field() {
       //   setX(x+newx);
       //   setY(y+newy);
       // }, 50);
-   // }
+    }
     
     // const z = event.accelerationIncludingGravity.z
     
@@ -159,7 +159,7 @@ else if(gameMode === 'hard'){
         <svg style={{position: 'absolute', width: offset*2}} >
           <defs>
             <clipPath id={clipPathId}>
-              <circle style={{transition:'.2s'}}
+              <circle style={{transition:'.1s'}}
               cx={isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
               cy={isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
