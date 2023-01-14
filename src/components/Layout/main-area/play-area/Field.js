@@ -73,20 +73,21 @@ function Field() {
     // setZ(event.accelerationIncludingGravity.z);
     
  
-    const newx = event.rotationRate.beta
-    const newy = event.rotationRate.gamma
+    const newx = event.acceleration.x
+    const newy = event.acceleration.y
 
-    if(newx > 1 && newy > 1){
+    //if(newx > 1 && newy > 1){
 
-      
-      
-      setTimeout(() => {
-        // setX(Math.min(newx*2, 1));
-        // setY(Math.min(newy*2, 1));
-        setX(x+newx);
+      setX(x+newx);
         setY(y+newy);
-      }, 50);
-    }
+      
+      // setTimeout(() => {
+      //   // setX(Math.min(newx*2, 1));
+      //   // setY(Math.min(newy*2, 1));
+      //   setX(x+newx);
+      //   setY(y+newy);
+      // }, 50);
+   // }
     
     // const z = event.accelerationIncludingGravity.z
     
