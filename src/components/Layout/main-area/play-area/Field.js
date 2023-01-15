@@ -114,7 +114,7 @@ function Field({isMobile,mousePosition}) {
 
 
   if(gameMode === 'relax'){
-    console.log(targets)
+    //console.log(targets)
     return (
         <div className={cn({
           [s.field]:render,
