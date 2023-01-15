@@ -16,12 +16,6 @@ function App() {
   const [gameSatus, setStatus] = useState(false)
 
 
-  
- 
-
-
-
-
   const setGameStatus = (value) =>{
     if(value !== undefined){
       setStatus(value)
@@ -32,7 +26,7 @@ function App() {
     setScore(0)
   }
  
-  const setfinalModalState = (place) =>{
+  const setfinalModalState = () =>{
     //console.log("####:", place)
     setFinModalState(!finModalState)
     //console.log("####:", Area)

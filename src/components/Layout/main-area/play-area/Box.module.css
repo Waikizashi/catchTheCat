@@ -5,11 +5,11 @@
     z-index: 0;
     position: absolute;
     user-select: none;
-    transition: .1s;
+    transition: .2s;
 }
 
 
-.box:hover{
+.hover{
     transform: scale(1.05);
 }
 

@@ -8,7 +8,8 @@ import PussyConf from '../../../../mechanic/Cat';
 import Box from './Box';
 
 
-function Field() {
+function Field({isMobile,mousePosition}) {
+  
   const {render, gameMode, status, area} = useContext(StateContext)
   //console.log("Field")
 
@@ -33,21 +34,13 @@ function Field() {
   //const [z, setZ] = useState(0);
 
 
-
-  const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
 
-    const userAgent = window.navigator.userAgent;
-    const mobileRegex = /(android|iphone|ipad|mobile)/i;
-    setIsMobile(mobileRegex.test(userAgent));
-
-      
       if (window.DeviceMotionEvent) {
-        console.log('DeviceMotionEvent is supported');
+        //console.log('DeviceMotionEvent is supported');
       window.addEventListener('devicemotion', handleDeviceMotion,false);
     } else {
-      alert('DeviceMotionEvent is not supported')
+      //alert('DeviceMotionEvent is not supported')
       console.log('DeviceMotionEvent is not supported');
     }
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
@@ -56,7 +49,7 @@ function Field() {
   }, [isMobile]);
 
   const clipPathId = 'my-clip-path';
-  const [mousePosition, setMousePosition] = useState({ x: area.width*0.5, y: area.height*0.5 });
+  //const [mousePosition, setMousePosition] = useState({ x: area.width*0.5, y: area.height*0.5 });
 
 
   const Replace = () =>{
@@ -75,9 +68,9 @@ function Field() {
 
   }
 
-  const handleMouseMove = (e) => {
-    setMousePosition({ x: e.clientX-offset/2, y: e.clientY-offsetY/2 });
-  };
+  // const handleMouseMove = (e) => {
+  //   setMousePosition({ x: e.clientX-offset/2, y: e.clientY-offsetY/2 });
+  // };
 
     
   if(gameMode === 'relax'){
@@ -119,17 +112,17 @@ else  if(gameMode === 'medium'){
         
             {
               status ? 
-              <Pussy onReplace={Replace} draggable={true} config={config}/> : null
+              <Pussy isMobile={isMobile} onReplace={Replace} draggable={true} config={config}/> : null
               
             }
-            <Box/>
+            <Box isMobile={isMobile}/>
         </div>
       );
 }
 else if(gameMode === 'hard'){
     return (
      
-        <div onMouseMove={isMobile ? null : handleMouseMove} style={render ? {clipPath: 'url(#my-clip-path)'} : null} className={cn( 
+        <div /*onMouseMove={isMobile ? null : handleMouseMove} */style={render ? {clipPath: 'url(#my-clip-path)'} : null} className={cn( 
             {
             [s.field]: render,
             [s.render]: render
@@ -138,7 +131,7 @@ else if(gameMode === 'hard'){
         <svg style={{position: 'absolute', width: offset*2}} >
           <defs>
             <clipPath id={clipPathId}>
-              <circle style={{transition:'.1s'}}
+              <circle style={isMobile? {transition:'.1s'}:null}
               cx={isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
               cy={isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
@@ -147,8 +140,7 @@ else if(gameMode === 'hard'){
         </svg>
         {
               status ? 
-              <Pussy config={config}/> :
-                          render ? <Pussy config={config}/> : null
+              <Pussy isMobile={isMobile} config={config}/> : null
               
             }
             
@@ -159,7 +151,7 @@ else if(gameMode === 'hard'){
 }
 else if(gameMode === 'extreme'){
     return (
-        <div onMouseMove={isMobile ? null : handleMouseMove} 
+        <div /*onMouseMove={isMobile ? null : handleMouseMove} */
         style={render ? {clipPath: 'url(#my-clip-path)'} : null} 
         className={cn( 
             {
@@ -170,22 +162,21 @@ else if(gameMode === 'extreme'){
         <svg style={{position: 'absolute', width: offset*2}} >
           <defs>
             <clipPath id={clipPathId}>
-              <circle style={{transition:'.1s'}}
+              <circle style={isMobile? {transition:'.1s'}:null}
               cx={isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
               cy={isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
-              <rect x={area.width-offset*2.3} y={area.height-offset*1.8} width={offset*2.3+'px'} height={offset*1.8+'px'} />
+              <rect x={area.width-offset*2.2} y={area.height-offset*1.8} width={offset*2.3+'px'} height={offset*1.8+'px'} />
             </clipPath>
           </defs>
         </svg>
            
         {
               status ? 
-              <Pussy onReplace={Replace} config={config}/> :
-                          render ? <Pussy config={config}/> : null
+              <Pussy isMobile={isMobile} onReplace={Replace} config={config}/> : null
               
             }
-            <Box/>
+            <Box isMobile={isMobile}/>
             </div>
       );
 }
