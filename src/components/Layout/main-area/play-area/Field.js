@@ -12,7 +12,7 @@ import Box from './Box';
 
 function Field({isMobile,mousePosition}) {
   
-  const {render, gameMode, area, targets, status} = useContext(StateContext)
+  const {render, gameMode, area, targets} = useContext(StateContext)
   const [dropZone, setDropZone] = useState(0)
   //console.log("Field")
 
@@ -188,12 +188,17 @@ else if(gameMode === 'hard'){
           </defs>
         </svg>
         {
+
+              targets.map((item, index)=>(
+                //console.log(item)
+                <Pussy key={item.id} /*dropZone={isMobile ? dropZone : undefined}*/ isMobile={isMobile} onReplace={Replace} draggable={true} config={item}/>
+              ))
               // targets.map((item, index)=>(
               //   //console.log(item)
               //   <Pussy key={item.id} onReplace={Replace} config={item}/>
               // ))
-              status ? 
-               <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} config={targets[0]}/> : null
+              // status ? 
+              //  <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} config={targets[0]}/> : null
               
             }
             
