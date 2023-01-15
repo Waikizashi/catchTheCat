@@ -141,6 +141,8 @@ else  if(gameMode === 'easy'){
               targets.map((item, index)=>(
                 //console.log(item)
                 <Pussy key={item.id} onReplace={Replace} config={item}/>
+                
+                
               ))
               
             }
@@ -170,7 +172,7 @@ else  if(gameMode === 'medium'){
 }
 else if(gameMode === 'hard'){
     return (
-     <>
+ 
         <div /*onMouseMove={isMobile ? null : handleMouseMove} */style={render ? {clipPath: 'url(#my-clip-path)'} : null} className={cn( 
             {
             [s.field]: render,
@@ -203,9 +205,7 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(0)} </p>
-            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(0)} </p>
-            </>
+           
             
       );
 }

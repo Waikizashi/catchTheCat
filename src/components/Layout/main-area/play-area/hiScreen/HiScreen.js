@@ -21,7 +21,8 @@ function HiScreen({onStart}) {
       Modifier,
       onSetUpModifier,
       onSetTargets,
-      status} = useContext(StateContext)
+      status,
+      onSetLvlTime} = useContext(StateContext)
 
   //const [mod, setMod] = useState(0)
   const hiScreenRef = useRef(null);
@@ -63,7 +64,8 @@ function HiScreen({onStart}) {
   }
 
   function onChoseMode(event){
-      console.log(event.target.id)
+      //console.log(event.target.id)
+      onSetLvlTime(event.target.id)
       onSetMode(event.target.id)
   }
 
