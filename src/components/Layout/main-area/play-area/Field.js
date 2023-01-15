@@ -12,7 +12,7 @@ import Box from './Box';
 
 function Field({isMobile,mousePosition}) {
   
-  const {render, gameMode, area, targets, status} = useContext(StateContext)
+  const {render, gameMode, area, targets} = useContext(StateContext)
   const [dropZone, setDropZone] = useState(0)
   //console.log("Field")
 
