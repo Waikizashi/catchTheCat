@@ -1,10 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import cn from  'classnames';
 //import PussyConf from "../../mechanic/Pussy";
 
 import getRandomInt from "../../mechanic/getRandomInt";
 import cat from "../../img/CatWithOutline.png"
 import badCat from "../../img/REDCatWithOutline.png"
+import redCat from "../../img/BEDCatWithOutline.png"
 //import badCat from "../../img/REDCatWithOutline.png"
 import s from './Pussy.module.css'
 import { StateContext } from "../../context/stateContext";
@@ -18,14 +19,34 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
   const {gameMode, render,onchangeScore, area} = useContext(StateContext)
   const [cfg, setCfg] = useState(config)
   const [over, setOver] = useState(false)
+  const [timeoutId, setTimeoutId] = useState(null);
+  const pussyRef = useRef(null);
 
   //console.log('CONFIG::::', config)
 
 
+
+  useEffect(() => {
+    if (!timeoutId) {
+      const id = setTimeout(() => {
+        replace();
+        setTimeoutId(null);
+      }, 1000)//getRandomInt(800,1300));
+      setTimeoutId(id);
+    }
+    return () => clearTimeout(timeoutId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [timeoutId]);
+
   useEffect(()=>{
-    //console.log('config updated')
-  },[config])
+
+
+  },[isMobile])
   //console.log('ZONE:',dropZone.current.getBoundingClientRect())
+  // jmp[config.id] = setTimeout(() => {
+  //   replace()
+  // }, config.type ? getRandomInt(500,3000) : getRandomInt(400, 800))
+
 
   function scoreUp(value){
     onchangeScore(value)
@@ -36,11 +57,19 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
 
 
   const handleClick = () =>{
-    scoreUp(10)
+    console.log(config.type)
+    if(config.type === true){
+      scoreUp(12)
+    }
+    else{scoreUp(-9)}
   }
+
+
+  
 //area.width*0.2-10
-  // const catJump = setTimeout(() => {
+  // const $config.id = setTimeout(() => {
   //   replace()
+    
   // }, config.type ? getRandomInt(500,3000) : getRandomInt(400, 800))
 
   function replace(){
@@ -107,7 +136,13 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     onReplace && onReplace()
 
     if(event.dataTransfer.dropEffect === 'copy'){
-      scoreUp(50)
+      if(config.type === true){
+        
+      scoreUp(44)
+      }
+      else{
+        scoreUp(-33)
+      }
     }
     event.target.style.cursor = 'grab'
     // code to handle the end of the drag event
@@ -118,7 +153,13 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     onReplace && onReplace()
     if(over){
       dropZone.current.style.transform = 'scale(1)'
-      scoreUp(25)
+      if(config.type === true){
+        
+        scoreUp(27)
+        }
+        else{
+          scoreUp(-19)
+        }
     }
     event.target.style.cursor = 'grab'
     //scoreUp()
@@ -129,6 +170,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
    if(gameMode === 'relax' || gameMode === 'easy' || gameMode === 'hard'){
     return (
       <div 
+      ref={pussyRef}
        style={{
        top: cfg.y,
        left: cfg.x
@@ -136,13 +178,14 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
       onClick={handleClick} 
       className={cn(s.cat,{[s.render]: render})}>
          <img style={{width: cfg.size}}
-           className={s.img} src={config.type ? cat : badCat} alt={'cat'}></img>
+           className={s.img} src={config.type ? cat : redCat} alt={'cat'}></img>
       </div>
       )
    }
    else if(gameMode === 'medium'){
     return (
       <div
+      ref={pussyRef}
       onTouchStart={isMobile ? touchDragStart : null}
       onTouchMove={isMobile ? touchDrag : null}
       onTouchEnd={isMobile ? touchDragEnd : null}
@@ -162,6 +205,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
    else if(gameMode === 'extreme'){
     return (
       <div
+      ref={pussyRef}
       onTouchStart={isMobile ? touchDragStart : null}
       onTouchMove={isMobile ? touchDrag : null}
       onTouchEnd={isMobile ? touchDragEnd : null}

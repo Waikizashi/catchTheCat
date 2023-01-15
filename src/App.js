@@ -4,9 +4,14 @@ import { useState, useEffect, useRef  } from 'react';
 import getRandomInt from './mechanic/getRandomInt.js';
 import PussyConf from './mechanic/Cat.js';
 
+
 import s from './App.module.css';
 
 import './css/font.css'
+
+
+const rules = require('./data/lvlDescr.json');
+
 
 function App() {
   const [pussyRender, setRender] = useState(false)
@@ -18,7 +23,12 @@ function App() {
   const [modifier, setModifier] = useState(1)
   const [targets, setTargets] = useState([])
   const [gameSatus, setStatus] = useState(false)
+  const [jumps, setJumps] = useState([])
+  // eslint-disable-next-line no-unused-vars
+  const [lvlDescr, setLvlDescr] = useState(rules)
+  const [lvlTime, setLvlTime] = useState(45)
 
+  //console.log(lvlDescr)
 
   function generateRandomKey() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -27,7 +37,7 @@ function App() {
   const setTypes = () =>{
     let type = 0
     if(mode === 'relax'|| mode === 'medium'){
-      type = 1
+      type = true
     }
     if(mode === 'easy' || mode === 'hard' || mode === 'extreme'){
       if(getRandomInt(1,2) === 1){
@@ -45,18 +55,36 @@ function App() {
  
     //let targets = []
   const onSetTargets = (value) =>{
-    if(value === true){for (let i = 0; i < modifier; i++) {
-  
+    let badType = 0
+    if(value === true){
+      for (let i = 0; i < modifier; i++) {
+        
       const conf = new PussyConf([
         generateRandomKey(),
         getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px',
         getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px',
         area.width*0.1 + 'px',setTypes()])
-      //console.log(conf)
-  
+      
+      
+      //console.log(jump)
+      if(conf.type === false){
+        badType +=1
+        if((badType > modifier/2) ){
+          conf.type = true
+        }
+      }
+      else if(modifier === 1){
+        conf.type = true
+      }
+
       let tmp = targets
       tmp.push(conf)
       setTargets(tmp)
+
+
+      tmp = jumps
+      tmp[conf.id] = null
+      setJumps(tmp)
       //targets.push(conf)
       //setTargets(targets.push(conf))
     }}
@@ -75,7 +103,9 @@ function App() {
   // min-width: 248px;
   // min-height: 312px;
 
-  
+  useEffect(()=>{
+    setScore(parseInt(localStorage.getItem('score')))
+  },[])
 
   useEffect(() => {
     if(window.innerHeight < window.innerWidth){ 
@@ -90,6 +120,11 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.innerHeight, window.innerWidth])
   
+
+  const resetTimer = (gameMode) =>{
+    setLvlTime(lvlDescr['modes'][gameMode].time)
+    console.log(lvlDescr['modes'][gameMode].time)
+  }
 
   const setUpModifier = (value) =>{
     
@@ -119,7 +154,13 @@ function App() {
   }
 
   const changeScore = (value)=>{
-    setScore(Score + value)
+    if(value === 0){
+      setScore(0)
+      localStorage.setItem('score', Score);
+    }
+    else{
+      setScore(Score + value)
+      localStorage.setItem('score', Score);}
   }
 
   const pussyHandle = (value) =>{
@@ -150,8 +191,11 @@ function App() {
 
   return (
     <StateContext.Provider value={{
+      lvlTime:lvlTime,
+      lvlConf:lvlDescr,
       hiScreenState:hisState,
       gameMode:mode,
+      jmp:jumps,
       score:Score,
       render:pussyRender,
       area: area,
@@ -159,6 +203,7 @@ function App() {
       finModalState: finModalState,
       Modifier:modifier,
       targets:targets,
+      onSetLvlTime:resetTimer,
       onSetTargets:onSetTargets,
       onSetUpModifier: setUpModifier,
       onSetFinModalState: setfinalModalState,

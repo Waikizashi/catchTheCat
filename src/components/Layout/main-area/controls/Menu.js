@@ -10,7 +10,8 @@ function Menu({Modal}) {
     onSetStatus, 
     hiScreenState,
     onPussyHandle,
-    onSetTargets} = useContext(StateContext)
+    onSetTargets,
+    onchangeScore} = useContext(StateContext)
 
   const finModal = ()=>{
     Modal && Modal(true)
@@ -29,6 +30,7 @@ function Menu({Modal}) {
     onSetHisState(true)
     onSetTargets(false)
     onSetStatus(false)
+    onchangeScore(0)
   }
 
   if(status){

@@ -1,33 +1,28 @@
 {
     "modes":{
         "relax":{
-            "decription":"Click the cat to increase the score!",
-            "time": 30,
-            "help": "",
+            "decription":"Just catch the cat to increase the score!",
+            "time": 45,
             "needResult":550
         },
         "easy":{
-            "decription":"",
-            "time": 0,
-            "help": "",
-            "needResult":0
+            "decription":"Just catch the cats, but be careful ^_^",
+            "time": 55,
+            "needResult":650
         },
         "medium":{
             "decription":"Drag the cat to the box!",
             "time": 60,
-            "help": "",
             "needResult":1000
         },
         "hard":{
-            "decription":"Find the cat and click it!",
+            "decription":"Find the cat and catch it! But be careful, there are bad guys lurking there....",
             "time": 60,
-            "help": "",
             "needResult":600
         },
         "extreme":{
-            "decription":"Find the cat and drag him to the box!",
+            "decription":"Find the cat and drag him to the box! But be careful, there are bad guys lurking there....",
             "time": 60,
-            "help": "",
             "needResult":600
         }
     }   
