@@ -135,7 +135,26 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
       </div>
       )
    }
-   else if(gameMode === 'medium' || gameMode === 'extreme'){
+   else if(gameMode === 'medium'){
+    return (
+      <div
+      onTouchStart={isMobile ? touchDragStart : null}
+      onTouchMove={isMobile ? touchDrag : null}
+      onTouchEnd={isMobile ? touchDragEnd : null}
+       draggable={draggable}
+       onDragStart={isMobile ? null : handleDragStart}
+       onDrag={isMobile ? null : handleDrag} 
+       onDragEnd={isMobile ? null : handleDragEnd}
+       style={{
+       top: cfg.y,
+       left: cfg.x
+      }} className={cn(s.cat,{[s.render]: render})}>
+         <img style={{width: cfg.size}}
+           className={s.img} src={cat} alt={'cat'}></img>
+      </div>
+      )
+   }
+   else if(gameMode === 'extreme'){
     return (
       <div
       onTouchStart={isMobile ? touchDragStart : null}
