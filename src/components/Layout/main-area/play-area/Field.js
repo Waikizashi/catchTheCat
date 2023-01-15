@@ -22,28 +22,28 @@ function Field({isMobile,mousePosition}) {
   // const left = getRandomInt(area.height*0.1, area.height-area.height*0.10) + 'px'
    const ac_MOVX =area.width*0.5
   // const size = area.width*0.1 + 'px'
-  // const offset = area.width*0.1
-  // const offsetY = area.height*0.1
+   const offset = area.width*0.1
+   const offsetY = area.height*0.1
   //const [top, setTop] = useState( getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
   //const [ac_MOVY, setACMOVY] = useState(area.height*0.5)
   //const [left, setLeft] = useState(getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px')
   //const [ac_MOVX, setACMOVX] = useState(area.width*0.5)
   //const [size, setSize] = useState(area.width*0.1 + 'px')
-  const [offset, setOffset] = useState(area.width*0.1)
-  const [offsetY, setOffsetY] = useState(area.height*0.1)
+  //const [offset, setOffset] = useState(area.width*0.1)
+  //const [offsetY, setOffsetY] = useState(area.height*0.1)
   
   
 
 
-  useEffect(()=>{
-    //setTop(getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
-    //setACMOVY(area.height*0.5)
-    //setLeft(getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px')
-    //setACMOVX(area.width*0.5)
-    //setSize(area.width*0.1 + 'px')
-    setOffset(area.width*0.1)
-    setOffsetY(area.height*0.1)
-  },[area])
+  // useEffect(()=>{
+  //   //setTop(getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
+  //   //setACMOVY(area.height*0.5)
+  //   //setLeft(getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px')
+  //   //setACMOVX(area.width*0.5)
+  //   //setSize(area.width*0.1 + 'px')
+  //   setOffset(area.width*0.1)
+  //   setOffsetY(area.height*0.1)
+  // },[area])
 
 
 
@@ -81,7 +81,7 @@ function Field({isMobile,mousePosition}) {
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile]);
+  }, []);
 
   const clipPathId = 'my-clip-path';
   //const [mousePosition, setMousePosition] = useState({ x: area.width*0.5, y: area.height*0.5 });
@@ -171,7 +171,7 @@ else  if(gameMode === 'medium'){
 }
 else if(gameMode === 'hard'){
     return (
-     
+     <>
         <div /*onMouseMove={isMobile ? null : handleMouseMove} */style={render ? {clipPath: 'url(#my-clip-path)'} : null} className={cn( 
             {
             [s.field]: render,
@@ -197,7 +197,9 @@ else if(gameMode === 'hard'){
             }
             
             </div>
-            
+            <p style={{left:'0%'}} className={cn(s.logs)}> x:{x.toFixed(0)} </p>
+            <p style={{left:'35%'}} className={cn(s.logs)}> y:{y.toFixed(0)} </p>
+            </>
             
       );
 }

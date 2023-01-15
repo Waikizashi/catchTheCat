@@ -39,12 +39,17 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     scoreUp(10)
   }
 //area.width*0.2-10
+  // const catJump = setTimeout(() => {
+  //   replace()
+  // }, config.type ? getRandomInt(500,3000) : getRandomInt(400, 800))
+
   function replace(){
     let top = getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px'
     let left = getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px'
     config.replace(top, left)
     setCfg(config)
     //scoreUp()
+    //clearTimeout(catJump)
     onReplace && onReplace()
     
   } 
