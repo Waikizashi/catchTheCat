@@ -10,10 +10,10 @@ import { StateContext } from '../../../context/stateContext';
 
 function MainArea() {
   //console.log('Main')
-  const {finModalState, onSetFinModalStat} = useContext(StateContext)
+  const {onSetFinModalState} = useContext(StateContext)
 
-  const Modal = () =>{
-    onSetFinModalStat()
+  const Modal = (value) =>{
+    onSetFinModalState(value)
   }
 
   return (
@@ -22,7 +22,7 @@ function MainArea() {
       <News/>
       <LevelInfo/>
       <Menu Modal={Modal}/>
-      <FinModal isOpen={finModalState}/>
+      <FinModal isOpen={Modal}/>
     </div>
   );
 }

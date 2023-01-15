@@ -8,7 +8,7 @@ function Menu({Modal}) {
   const {status,onSetHisState,onSetStatus, hiScreenState,onPussyHandle} = useContext(StateContext)
 
   const finModal = ()=>{
-    Modal && Modal()
+    Modal && Modal(true)
   }
 
   const onPause = ()=>{

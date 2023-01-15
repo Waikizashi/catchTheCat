@@ -156,6 +156,70 @@
     animation-fill-mode: forwards;
 }
 
+@media (max-height:600px){
+    .hiScreen{
+        flex-direction: row;
+    }
+    .extraOption{
+        font-size: 8pt;
+        height: 25px;
+        width: 40px;
+        border: 2px outset #e6d98c;
+    }
+    .span{
+        padding-top: 5px;
+        white-space: nowrap;
+        letter-spacing: 1pt;
+    }
+    .hiScreen{
+        outline: 2px outset #e6d98c;
+        outline-offset: -4px;
+    }
+    .welcome{
+        font-size: 12pt !important;
+        margin: 0px 15px 0px 15px;
+        letter-spacing: 1pt;
+    }
+    .menuBtn{
+        font-size: 10pt !important;
+        border-left: 2px ridge rgb(255, 196, 0);
+        border-right: 2px ridge rgb(255, 196, 0);
+        padding: 5px 10px 0px;
+    }
+
+    .menuBtn:hover{
+        color: #e4aa53;
+        border-left: 2px ridge #e4aa53;
+        border-right: 2px ridge #e4aa53;
+        box-shadow: inset 0 0 0px 1px #e4aa53;
+    }
+    
+    .menuBtn:active{
+        color:#e45353 !important;
+        border-left: 2px ridge #e4aa53;
+        border-right: 2px ridge #e4aa53;
+        box-shadow: inset 0 0 5px 1px #e4aa53;
+    }
+    .chosen{
+        color:rgb(255, 63, 63) !important;
+        border-left: 2px ridge #e4a23f;
+        border-right: 2px ridge #e4a23f;
+        box-shadow: inset 0 0 5px 1px #e4a23f;
+    }
+    .settings{
+        flex-direction: row;
+    }
+    .start{
+        font-size: 10pt !important;
+        letter-spacing: 1pt;
+    }
+    .p{
+        font-size: 8pt !important;
+        letter-spacing: 1pt;
+    }
+    
+}
+
 
 @media (max-width:768px){
     
@@ -170,7 +234,7 @@
         font-size: 12pt;
     }
     .menuBtn{
-        font-size: 16pt;
+        font-size: 14pt;
         border-left: 4px ridge #e6d98c;
         border-right: 4px ridge #e6d98c;
         padding: 5px 20px 0px;
