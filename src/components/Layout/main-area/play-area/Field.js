@@ -11,6 +11,7 @@ import Box from './Box';
 function Field({isMobile,mousePosition}) {
   
   const {render, gameMode, status, area} = useContext(StateContext)
+  const [dropZone, setDropZone] = useState(0)
   //console.log("Field")
 
   //console.log(area)
@@ -72,7 +73,12 @@ function Field({isMobile,mousePosition}) {
   //   setMousePosition({ x: e.clientX-offset/2, y: e.clientY-offsetY/2 });
   // };
 
-    
+    const hadleSetDropZone = (new_dropZone)=>{
+      // console.log('ZONE:',new_dropZone.current.getBoundingClientRect())
+      setDropZone(new_dropZone)
+    }  
+
+
   if(gameMode === 'relax'){
     return (
         <div className={cn({
@@ -112,10 +118,10 @@ else  if(gameMode === 'medium'){
         
             {
               status ? 
-              <Pussy isMobile={isMobile} onReplace={Replace} draggable={true} config={config}/> : null
+              <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} draggable={true} config={config}/> : null
               
             }
-            <Box isMobile={isMobile}/>
+            <Box dropZone={isMobile ? hadleSetDropZone: undefined} isMobile={isMobile}/>
         </div>
       );
 }
@@ -173,10 +179,10 @@ else if(gameMode === 'extreme'){
            
         {
               status ? 
-              <Pussy isMobile={isMobile} onReplace={Replace} config={config}/> : null
+              <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} config={config}/> : null
               
             }
-            <Box isMobile={isMobile}/>
+            <Box dropZone={isMobile ? hadleSetDropZone: undefined} isMobile={isMobile}/>
             </div>
       );
 }

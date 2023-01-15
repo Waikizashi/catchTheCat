@@ -10,9 +10,9 @@ import s from './Box.module.css';
 // }
 
 
-function Box({isMobile}) {
+function Box({isMobile, dropZone}) {
 
-  const {render, area} = useContext(StateContext)
+  const {render, area, score} = useContext(StateContext)
   const [over, setOver] = useState(false)
   const boxRef = useRef(null)
 
@@ -33,18 +33,26 @@ function Box({isMobile}) {
 
   const handleDragEnter = (event) => {
     // Do something with the event
-    alert("Entered the Drop area")
+    //alert("Entered the Drop area")
     console.log("Entered the Drop area")
   }
 
   useEffect(()=>{
+    setOver(false)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[score])
+
+  useEffect(()=>{
     boxRef.current.addEventListener('dragenter', handleDragEnter);
+    // console.log(boxRef.current.getBoundingClientRect())
+    dropZone && dropZone(boxRef)
         return ()=>{
           if(boxRef.current){
             // eslint-disable-next-line react-hooks/exhaustive-deps
             boxRef.current.removeEventListener('dragenter', handleDragEnter);
           }
         }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[boxRef])
 
   return (

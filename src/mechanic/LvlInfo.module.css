@@ -14,11 +14,16 @@
     width: 100%;
 }
 
+@media (max-height: 600px) {
+    .Logs{
+        font-size: 12pt !important;
+        height: 40px !important;
+    }
+}
 @media (max-width: 768px) {
     .Logs{
-        font-size: 18pt !important;
+        font-size: 18pt;
         height: 75px;
-        font-size: 8pt;
     }
 }
 
@@ -26,6 +31,5 @@
     .Logs{
         font-size: 14pt !important;
         height: 50px;
-        font-size: 6pt;
     }
 }

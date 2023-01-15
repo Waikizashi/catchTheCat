@@ -1,6 +1,6 @@
 import Layout from './components/Layout/Layout.js';
-import { StateContext } from './context/stateContext.js';
-import { useState } from 'react';
+import { StateContext} from './context/stateContext.js';
+import { useState, useEffect, useRef  } from 'react';
 
 import s from './App.module.css';
 
@@ -15,6 +15,27 @@ function App() {
   const [Score, setScore] = useState(0)
   const [gameSatus, setStatus] = useState(false)
 
+  const appRef = useRef(null)
+
+
+  // min-width: 248px;
+  // min-height: 312px;
+
+  useEffect(() => {
+    console.log(window.innerHeight)
+    console.log(window.innerWidth)
+    console.log(appRef.current.style)
+    console.log(appRef.current.style)
+    if(window.innerHeight < window.innerWidth){ 
+      appRef.current.style.minHeight = '312px'
+      appRef.current.style.minWidth = '512px'
+    }
+    else{
+      appRef.current.style.minHeight = '600px'
+      appRef.current.style.minWidth = '248px'
+    }
+  }, [])
+  
 
   const setGameStatus = (value) =>{
     if(value !== undefined){
@@ -26,9 +47,9 @@ function App() {
     setScore(0)
   }
  
-  const setfinalModalState = () =>{
+  const setfinalModalState = (value) =>{
     //console.log("####:", place)
-    setFinModalState(!finModalState)
+    setFinModalState(value)
     //console.log("####:", Area)
   }
   const setAreaPlace = (place) =>{
@@ -76,7 +97,7 @@ function App() {
       area: Area,
       status: gameSatus,
       finModalState: finModalState,
-      onSetFinModalStat: setfinalModalState,
+      onSetFinModalState: setfinalModalState,
       onSetStatus: setGameStatus,
       onSetAreaPlace: setAreaPlace,
       onchangeScore:changeScore,
@@ -84,7 +105,7 @@ function App() {
       onSetMode:modeHandle,
       onSetHisState: hisHandle
     }}>
-      <div className={s.App}>
+      <div ref={appRef} className={s.App}>
         <Layout></Layout>
       </div>
     </StateContext.Provider>

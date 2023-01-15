@@ -10,6 +10,9 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+const html = document.getElementsByTagName('html')
+//console.log(html)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

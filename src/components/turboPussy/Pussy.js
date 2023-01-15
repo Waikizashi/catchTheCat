@@ -12,10 +12,13 @@ import { StateContext } from "../../context/stateContext";
 
 
 
-function Pussy({draggable,config,onReplace, isMobile}) {
+function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
   const {gameMode, render,onchangeScore, area} = useContext(StateContext)
   const [cfg, setCfg] = useState(config)
+  const [over, setOver] = useState(false)
 
+
+  //console.log('ZONE:',dropZone.current.getBoundingClientRect())
 
   function scoreUp(value){
     onchangeScore(value)
@@ -24,6 +27,10 @@ function Pussy({draggable,config,onReplace, isMobile}) {
         
   }
 
+
+  const handleClick = () =>{
+    scoreUp(10)
+  }
 
   function replace(){
     let top = getRandomInt(area.height*0.1, area.height-area.height*0.1) + 'px'
@@ -55,14 +62,26 @@ function Pussy({draggable,config,onReplace, isMobile}) {
   };
   const touchDrag = (event) => 
   {
-    //window.addEventListener("touchmove", touchDrag, { passive: false });
-    //event.stopPropagation();
+
     const { clientX, clientY } = event.touches[0];
+    const zoneCords = dropZone.current.getBoundingClientRect()
     let top = clientY-area.height*0.1 + 'px'
     let left = clientX-area.width*0.1 + 'px'
     config.replace(top, left)
     setCfg(config)
     onReplace && onReplace()
+    if (clientX >= zoneCords.left && 
+      clientX <= zoneCords.right && 
+      clientY >= zoneCords.top && 
+      clientY <= zoneCords.bottom) {
+        dropZone.current.style.transform = 'scale(1.05)'
+      setOver(true);
+    } 
+    else {
+      dropZone.current.style.transform = 'scale(1)'
+      setOver(false);
+    }
+
   };
 
   
@@ -83,8 +102,13 @@ function Pussy({draggable,config,onReplace, isMobile}) {
   };
   const touchDragEnd = (event) => {
     event.preventDefault()
+    //console.log(dropZone.current.style.transform)
     onReplace && onReplace()
-    
+    if(over){
+      dropZone.current.style.transform = 'scale(1)'
+      scoreUp(25)
+    }
+    event.target.style.cursor = 'grab'
     //scoreUp()
     // code to handle the end of the drag event
   };
@@ -97,7 +121,7 @@ function Pussy({draggable,config,onReplace, isMobile}) {
        top: cfg.y,
        left: cfg.x
       }} 
-      onClick={replace} 
+      onClick={handleClick} 
       className={cn(s.cat,{[s.render]: render})}>
          <img style={{width: cfg.size}}
            className={s.img} src={cat} alt={'cat'}></img>
