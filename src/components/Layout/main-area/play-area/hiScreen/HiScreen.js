@@ -1,5 +1,5 @@
 import cn from  'classnames';
-import { useContext, useState, useRef } from "react";
+import { useContext, useRef } from "react";
 import { StateContext } from '../../../../../context/stateContext';
 
 import s from './hiScreen.module.css';
@@ -17,33 +17,48 @@ function HiScreen({onStart}) {
       onSetStatus,
       onSetMode,
       gameMode,
-      onPussyHandle} = useContext(StateContext)
+      onPussyHandle,
+      Modifier,
+      onSetUpModifier,
+      onSetTargets,
+      status} = useContext(StateContext)
 
-  const [modifier, setModifier] = useState(0)
+  //const [mod, setMod] = useState(0)
   const hiScreenRef = useRef(null);
   
-    
+  
 
   const clickToStart = () => {
     onStart && onStart()
     onPussyHandle(true)
     onSetHisState(false)
     onSetStatus(true)
+    if(status === 'true'){
+      onSetTargets(null)
+    }
+    else{
+      onSetTargets(true)
+    }
+    
   };
 
   function handleChange(event){
     //console.log('Modifier value: ',event.target.value)
     if(isInteger(event.target.value)){
-      setModifier(0)
+      //setMod(1)
+      onSetUpModifier(1)
     }
-    else if(event.target.value >99 ){
-      setModifier(99)
+    else if(event.target.value >12 ){
+      //setMod(12)
+      onSetUpModifier(12)
     }
-    else if(event.target.value <0 ){
-      setModifier(0)
+    else if(event.target.value <1 ){
+      //setMod(1)
+      onSetUpModifier(1)
     }
     else{
-      setModifier(event.target.value)
+      //setMod(event.target.value)
+      onSetUpModifier(event.target.value)
     }
   }
 
@@ -81,7 +96,7 @@ function HiScreen({onStart}) {
                     })} onClick={onChoseMode}>Extreme</p></li>
                 </ul>
                 <p className={s.p} >set the modifier (optional):</p>
-                <input className={s.extraOption} value={modifier} onChange={handleChange} type="number"/>
+                <input className={s.extraOption} value={Modifier} onChange={handleChange} type="number"/>
             </div>
             <p className={s.start} onClick={clickToStart}> {'<<'} click here to start game {'>>'} </p>
     </div>

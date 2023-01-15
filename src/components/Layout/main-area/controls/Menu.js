@@ -5,7 +5,12 @@ import { StateContext } from '../../../../context/stateContext';
 import s from './Menu.module.css';
 
 function Menu({Modal}) {
-  const {status,onSetHisState,onSetStatus, hiScreenState,onPussyHandle} = useContext(StateContext)
+  const {status,
+    onSetHisState,
+    onSetStatus, 
+    hiScreenState,
+    onPussyHandle,
+    onSetTargets} = useContext(StateContext)
 
   const finModal = ()=>{
     Modal && Modal(true)
@@ -22,7 +27,7 @@ function Menu({Modal}) {
     //console.log("####: ", hiScreenState)
     onPussyHandle(false)
     onSetHisState(true)
-    
+    onSetTargets(false)
     onSetStatus(false)
   }
 

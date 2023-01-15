@@ -1,12 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import cn from  'classnames';
 //import PussyConf from "../../mechanic/Pussy";
 
 import getRandomInt from "../../mechanic/getRandomInt";
 import cat from "../../img/CatWithOutline.png"
+import badCat from "../../img/REDCatWithOutline.png"
 //import badCat from "../../img/REDCatWithOutline.png"
 import s from './Pussy.module.css'
 import { StateContext } from "../../context/stateContext";
+
 
 
 
@@ -17,7 +19,12 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
   const [cfg, setCfg] = useState(config)
   const [over, setOver] = useState(false)
 
+  //console.log('CONFIG::::', config)
 
+
+  useEffect(()=>{
+    //console.log('config updated')
+  },[config])
   //console.log('ZONE:',dropZone.current.getBoundingClientRect())
 
   function scoreUp(value){
@@ -31,9 +38,9 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
   const handleClick = () =>{
     scoreUp(10)
   }
-
+//area.width*0.2-10
   function replace(){
-    let top = getRandomInt(area.height*0.1, area.height-area.height*0.1) + 'px'
+    let top = getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px'
     let left = getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px'
     config.replace(top, left)
     setCfg(config)
@@ -124,7 +131,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
       onClick={handleClick} 
       className={cn(s.cat,{[s.render]: render})}>
          <img style={{width: cfg.size}}
-           className={s.img} src={cat} alt={'cat'}></img>
+           className={s.img} src={config.type ? cat : badCat} alt={'cat'}></img>
       </div>
       )
    }
@@ -143,7 +150,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
        left: cfg.x
       }} className={cn(s.cat,{[s.render]: render})}>
          <img style={{width: cfg.size}}
-           className={s.img} src={cat} alt={'cat'}></img>
+           className={s.img} src={config.type ? cat : badCat} alt={'cat'}></img>
       </div>
       )
    }

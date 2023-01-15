@@ -28,13 +28,13 @@ function Box({isMobile, dropZone}) {
   const handleDragLeave = (event)=>{
     event.preventDefault();
     setOver(false)
-    console.log("Leaved the Drop area")
+    //console.log("Leaved the Drop area")
   }
 
   const handleDragEnter = (event) => {
     // Do something with the event
     //alert("Entered the Drop area")
-    console.log("Entered the Drop area")
+    //console.log("Entered the Drop area")
   }
 
   useEffect(()=>{
