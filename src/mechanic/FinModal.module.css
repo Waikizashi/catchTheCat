@@ -11,6 +11,15 @@
     height: fit-content;
     min-width: 230px;
     min-height: 60px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.win{
     border-color: #96e096;
     border-radius: 35px;
     border-style: solid;
@@ -18,11 +27,16 @@
     #3d9945,
     #255033,
     #0d1718);
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+
+.lose{
+    border-color: #e09696;
+    border-radius: 35px;
+    border-style: solid;
+    background: linear-gradient(180deg, 
+    #993d3d,
+    #502525,
+    #180d0d);
 }
 
 .modalContent {
@@ -34,6 +48,7 @@
 }
 
 .modalText{
+    margin: 1rem;
     align-self: center;
     text-align: center;
     color: rgb(255, 255, 255);

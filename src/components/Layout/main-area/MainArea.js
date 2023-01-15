@@ -15,7 +15,7 @@ function MainArea() {
   const Modal = (value) =>{
     onSetFinModalState(value)
   }
-
+  
   return (
     <div className={cn(s.mainArea)}>
       <PlayArea/>

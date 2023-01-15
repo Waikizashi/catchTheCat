@@ -2,29 +2,63 @@ import cn from  'classnames';
 import {useState,  useContext, useEffect} from 'react';
 import s from './Field.module.css';
 import { StateContext } from '../../../../context/stateContext';
-
+//import getRandomInt from '../../../../mechanic/getRandomInt';
 import Pussy from '../../../turboPussy/Pussy';
-import PussyConf from '../../../../mechanic/Cat';
+//import PussyConf from '../../../../mechanic/Cat';
 import Box from './Box';
+
+
 
 
 function Field({isMobile,mousePosition}) {
   
-  const {render, gameMode, status, area} = useContext(StateContext)
+  const {render, gameMode, area, targets} = useContext(StateContext)
   const [dropZone, setDropZone] = useState(0)
   //console.log("Field")
 
   //console.log(area)
-  const top = area.height*0.5 + 'px'
-  const ac_MOVY = area.height*0.5
-  const left = area.width*0.5 + 'px'
-  const ac_MOVX = area.width*0.5
-  const size = area.width*0.1 + 'px'
-  const offset = area.width*0.1
-  const offsetY = area.height*0.1
+  // const top = getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px'
+  // const ac_MOVY = area.height*0.5
+  // const left = getRandomInt(area.height*0.1, area.height-area.height*0.10) + 'px'
+  // const ac_MOVX =area.width*0.5
+  // const size = area.width*0.1 + 'px'
+  // const offset = area.width*0.1
+  // const offsetY = area.height*0.1
+  //const [top, setTop] = useState( getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
+  const [ac_MOVY, setACMOVY] = useState(area.height*0.5)
+  //const [left, setLeft] = useState(getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px')
+  const [ac_MOVX, setACMOVX] = useState(area.width*0.5)
+  //const [size, setSize] = useState(area.width*0.1 + 'px')
+  const [offset, setOffset] = useState(area.width*0.1)
+  const [offsetY, setOffsetY] = useState(area.height*0.1)
   
   
-  const config = new PussyConf([top,left,size])
+
+
+  useEffect(()=>{
+    //setTop(getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
+    setACMOVY(area.height*0.5)
+    //setLeft(getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px')
+    setACMOVX(area.width*0.5)
+    //setSize(area.width*0.1 + 'px')
+    setOffset(area.width*0.1)
+    setOffsetY(area.height*0.1)
+  },[area])
+
+
+
+  
+
+
+  
+
+
+  
+ 
+  //const config = new PussyConf([top,left,size,1])
+  //console.log(targets)
+
+
 
   
   const [rndr, setRndr] = useState(false)
@@ -42,7 +76,7 @@ function Field({isMobile,mousePosition}) {
       window.addEventListener('devicemotion', handleDeviceMotion,false);
     } else {
       //alert('DeviceMotionEvent is not supported')
-      console.log('DeviceMotionEvent is not supported');
+      //console.log('DeviceMotionEvent is not supported');
     }
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
   
@@ -80,6 +114,7 @@ function Field({isMobile,mousePosition}) {
 
 
   if(gameMode === 'relax'){
+    console.log(targets)
     return (
         <div className={cn({
           [s.field]:render,
@@ -87,10 +122,14 @@ function Field({isMobile,mousePosition}) {
           })}>
         
             {
-              status ? 
-              <Pussy onReplace={Replace} config={config}/> : null
-              
-            }
+
+              targets.map((item, index)=>(
+                //console.log(item)
+                <Pussy key={item.id} onReplace={Replace} config={item}/>
+              ))
+
+              }
+            
         </div>
       );
 }
@@ -102,8 +141,10 @@ else  if(gameMode === 'easy'){
           })}>
         
             {
-              status ? 
-              <Pussy onReplace={Replace} config={config}/> : null
+              targets.map((item, index)=>(
+                //console.log(item)
+                <Pussy key={item.id} onReplace={Replace} config={item}/>
+              ))
               
             }
         </div>
@@ -117,8 +158,13 @@ else  if(gameMode === 'medium'){
           })}>
         
             {
-              status ? 
-              <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} draggable={true} config={config}/> : null
+
+              targets.map((item, index)=>(
+                //console.log(item)
+                <Pussy key={item.id} dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} draggable={true} config={item}/>
+              ))
+              // status ? 
+              // <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} draggable={true} config={config}/> : null
               
             }
             <Box dropZone={isMobile ? hadleSetDropZone: undefined} isMobile={isMobile}/>
@@ -145,8 +191,10 @@ else if(gameMode === 'hard'){
           </defs>
         </svg>
         {
-              status ? 
-              <Pussy isMobile={isMobile} config={config}/> : null
+              targets.map((item, index)=>(
+                //console.log(item)
+                <Pussy key={item.id} onReplace={Replace} config={item}/>
+              ))
               
             }
             
@@ -178,8 +226,13 @@ else if(gameMode === 'extreme'){
         </svg>
            
         {
-              status ? 
-              <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} config={config}/> : null
+
+            targets.map((item, index)=>(
+                //console.log(item)
+                <Pussy key={item.id} dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} draggable={true} config={item}/>
+              ))
+              // status ? 
+              // <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} config={config}/> : null
               
             }
             <Box dropZone={isMobile ? hadleSetDropZone: undefined} isMobile={isMobile}/>

@@ -1,10 +1,10 @@
 {
     "modes":{
         "relax":{
-            "decription":"",
-            "time": 0,
+            "decription":"Click the cat to increase the score!",
+            "time": 30,
             "help": "",
-            "needResult":0
+            "needResult":550
         },
         "easy":{
             "decription":"",
@@ -13,22 +13,22 @@
             "needResult":0
         },
         "medium":{
-            "decription":"",
-            "time": 0,
+            "decription":"Drag the cat to the box!",
+            "time": 60,
             "help": "",
-            "needResult":0
+            "needResult":1000
         },
         "hard":{
-            "decription":"",
-            "time": 0,
+            "decription":"Find the cat and click it!",
+            "time": 60,
             "help": "",
-            "needResult":0
+            "needResult":600
         },
         "extreme":{
-            "decription":"",
-            "time": 0,
+            "decription":"Find the cat and drag him to the box!",
+            "time": 60,
             "help": "",
-            "needResult":0
+            "needResult":600
         }
     }   
 }
