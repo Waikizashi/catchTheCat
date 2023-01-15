@@ -18,16 +18,16 @@ function Field({isMobile,mousePosition}) {
 
   //console.log(area)
   // const top = getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px'
-  // const ac_MOVY = area.height*0.5
+   const ac_MOVY = area.height*0.5
   // const left = getRandomInt(area.height*0.1, area.height-area.height*0.10) + 'px'
-  // const ac_MOVX =area.width*0.5
+   const ac_MOVX =area.width*0.5
   // const size = area.width*0.1 + 'px'
   // const offset = area.width*0.1
   // const offsetY = area.height*0.1
   //const [top, setTop] = useState( getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
-  const [ac_MOVY, setACMOVY] = useState(area.height*0.5)
+  //const [ac_MOVY, setACMOVY] = useState(area.height*0.5)
   //const [left, setLeft] = useState(getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px')
-  const [ac_MOVX, setACMOVX] = useState(area.width*0.5)
+  //const [ac_MOVX, setACMOVX] = useState(area.width*0.5)
   //const [size, setSize] = useState(area.width*0.1 + 'px')
   const [offset, setOffset] = useState(area.width*0.1)
   const [offsetY, setOffsetY] = useState(area.height*0.1)
@@ -37,9 +37,9 @@ function Field({isMobile,mousePosition}) {
 
   useEffect(()=>{
     //setTop(getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
-    setACMOVY(area.height*0.5)
+    //setACMOVY(area.height*0.5)
     //setLeft(getRandomInt(area.width*0.1, area.width-area.width*0.1) + 'px')
-    setACMOVX(area.width*0.5)
+    //setACMOVX(area.width*0.5)
     //setSize(area.width*0.1 + 'px')
     setOffset(area.width*0.1)
     setOffsetY(area.height*0.1)
@@ -72,11 +72,11 @@ function Field({isMobile,mousePosition}) {
   useEffect(() => {
 
       if (window.DeviceMotionEvent) {
-        //console.log('DeviceMotionEvent is supported');
+        console.log('DeviceMotionEvent is supported');
       window.addEventListener('devicemotion', handleDeviceMotion,false);
     } else {
-      //alert('DeviceMotionEvent is not supported')
-      //console.log('DeviceMotionEvent is not supported');
+      alert('DeviceMotionEvent is not supported')
+      console.log('DeviceMotionEvent is not supported');
     }
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
   
@@ -93,8 +93,6 @@ function Field({isMobile,mousePosition}) {
   
   function handleDeviceMotion(event) {
    
-    
- 
     const newx = event.accelerationIncludingGravity.x*offsetY*(-1)
     const newy = event.accelerationIncludingGravity.y*offsetY
  

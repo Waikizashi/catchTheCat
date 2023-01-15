@@ -29,14 +29,14 @@ function App() {
     if(mode === 'relax'|| mode === 'medium'){
       type = 1
     }
-    if(mode === 'easy' || mode === 'hard' || mode === 'hard'){
+    if(mode === 'easy' || mode === 'hard' || mode === 'extreme'){
       if(getRandomInt(1,2) === 1){
         type = true
-        //console.log(type)
+        console.log(type)
       }
       else{
         type = false
-        //console.log(type)
+        console.log(type)
       }
       
     }
