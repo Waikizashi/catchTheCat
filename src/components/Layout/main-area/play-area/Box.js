@@ -33,7 +33,7 @@ function Box({isMobile}) {
 
   const handleDragEnter = (event) => {
     // Do something with the event
-    
+    alert("Entered the Drop area")
     console.log("Entered the Drop area")
   }
 
@@ -41,6 +41,7 @@ function Box({isMobile}) {
     boxRef.current.addEventListener('dragenter', handleDragEnter);
         return ()=>{
           if(boxRef.current){
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             boxRef.current.removeEventListener('dragenter', handleDragEnter);
           }
         }
