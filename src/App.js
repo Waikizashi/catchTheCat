@@ -32,11 +32,11 @@ function App() {
     if(mode === 'easy' || mode === 'hard' || mode === 'extreme'){
       if(getRandomInt(1,2) === 1){
         type = true
-        console.log(type)
+        //console.log(type)
       }
       else{
         type = false
-        console.log(type)
+        //console.log(type)
       }
       
     }
