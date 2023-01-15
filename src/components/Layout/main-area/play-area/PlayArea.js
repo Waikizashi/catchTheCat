@@ -1,6 +1,6 @@
 import cn from  'classnames';
 import HiScreen from './hiScreen/HiScreen';
-import { useRef, useEffect,  useContext } from 'react';
+import { useRef, useEffect, useState, useContext } from 'react';
 //import Pussy from '../../../turboPussy/Pussy';
 //import PussyConf from '../../../../mechanic/Cat';
 //import getRandomInt from '../../../../mechanic/getRandomInt';
@@ -12,12 +12,29 @@ import Field from './Field';
 
 function PlayArea() {
   const playAreaRef = useRef(null)
-  const {onSetAreaPlace} = useContext(StateContext)
+  const {area, onSetAreaPlace} = useContext(StateContext)
 
   //---------------------------------useEffect-----------------------------------------
 
 
+    
+  const [isMobile, setIsMobile] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: area.width*0.5, y: area.height*0.5 });
+
+
+  const offset = area.width*0.1
+  const offsetY = area.height*0.1
+
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.clientX-offset/2, y: e.clientY-offsetY/2 });
+  };
+
   useEffect( () =>{
+
+    const userAgent = window.navigator.userAgent;
+    const mobileRegex = /(android|iphone|ipad|mobile)/i;
+    setIsMobile(mobileRegex.test(userAgent));
+
     const handleResize = () => {
       const {width, height} = playAreaRef.current.getBoundingClientRect()
       onSetAreaPlace({
@@ -54,9 +71,9 @@ function PlayArea() {
 
 
     return (
-      <div ref={playAreaRef}  className={cn(s.playArea, /*anm.bordercolors1*/)}>
+      <div onMouseMove={isMobile ? null : handleMouseMove}  ref={playAreaRef}  className={cn(s.playArea, /*anm.bordercolors1*/)}>
       <HiScreen onStart={start}/>
-      <Field/>      
+      <Field mousePosition={mousePosition} isMobile={isMobile}/>      
       </div>
     );
   
