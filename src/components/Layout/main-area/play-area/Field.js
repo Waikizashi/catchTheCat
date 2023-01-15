@@ -53,10 +53,10 @@ function Field({isMobile,mousePosition}) {
   const [rndr, setRndr] = useState(false)
 
 
-  // const [x, setX] = useState(0);
-  // const [y, setY] = useState(0);
-  const x = mousePosition.x
-  const y = mousePosition.y
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  // const x = mousePosition.x
+  // const y = mousePosition.y
 
   // const delay =  setTimeout(()=>{
   //   let tmpx = x +2
@@ -95,8 +95,8 @@ function Field({isMobile,mousePosition}) {
     const newx = event.accelerationIncludingGravity.x*offsetY*(-1)
     const newy = event.accelerationIncludingGravity.y*offsetY
  
-        //setX(x+newx);
-        //setY(y+newy);
+        setX(x+newx);
+        setY(y+newy);
 
   }
 
@@ -181,8 +181,8 @@ else if(gameMode === 'hard'){
           <defs>
             <clipPath id={clipPathId}>
               <circle style={isMobile? {transition:'.1s'}:null}
-              cx={!isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
-              cy={!isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
+              cx={isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
+              cy={isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
             </clipPath>
           </defs>
