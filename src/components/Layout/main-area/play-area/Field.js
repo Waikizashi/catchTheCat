@@ -12,7 +12,7 @@ import Box from './Box';
 
 function Field({isMobile,mousePosition}) {
   
-  const {render, gameMode, area, targets} = useContext(StateContext)
+  const {render, gameMode, area, targets, status} = useContext(StateContext)
   const [dropZone, setDropZone] = useState(0)
   //console.log("Field")
 
@@ -33,8 +33,6 @@ function Field({isMobile,mousePosition}) {
   //const [offsetY, setOffsetY] = useState(area.height*0.1)
   
   
-
-
   // useEffect(()=>{
   //   //setTop(getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px')
   //   //setACMOVY(area.height*0.5)
@@ -46,15 +44,6 @@ function Field({isMobile,mousePosition}) {
   // },[area])
 
 
-
-  
-
-
-  
-
-
-  
- 
   //const config = new PussyConf([top,left,size,1])
   //console.log(targets)
 
@@ -64,8 +53,18 @@ function Field({isMobile,mousePosition}) {
   const [rndr, setRndr] = useState(false)
 
 
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+  // const [x, setX] = useState(0);
+  // const [y, setY] = useState(0);
+  const x = mousePosition.x
+  const y = mousePosition.y
+
+  // const delay =  setTimeout(()=>{
+  //   let tmpx = x +2
+  //   let tmpy = y+2
+  //   setX(tmpx)
+  //   setY(tmpy)
+  //   clearTimeout(delay)
+  // },500)
   //const [z, setZ] = useState(0);
 
 
@@ -81,7 +80,7 @@ function Field({isMobile,mousePosition}) {
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isMobile]);
 
   const clipPathId = 'my-clip-path';
   //const [mousePosition, setMousePosition] = useState({ x: area.width*0.5, y: area.height*0.5 });
@@ -96,8 +95,8 @@ function Field({isMobile,mousePosition}) {
     const newx = event.accelerationIncludingGravity.x*offsetY*(-1)
     const newy = event.accelerationIncludingGravity.y*offsetY
  
-        setX(x+newx);
-        setY(y+newy);
+        //setX(x+newx);
+        //setY(y+newy);
 
   }
 
@@ -182,17 +181,19 @@ else if(gameMode === 'hard'){
           <defs>
             <clipPath id={clipPathId}>
               <circle style={isMobile? {transition:'.1s'}:null}
-              cx={isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
-              cy={isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
+              cx={!isMobile ? parseInt(ac_MOVX+x) : mousePosition.x} 
+              cy={!isMobile ? parseInt(ac_MOVY+y) : mousePosition.y} 
               r={isMobile ? offset*2 : offset} />
             </clipPath>
           </defs>
         </svg>
         {
-              targets.map((item, index)=>(
-                //console.log(item)
-                <Pussy key={item.id} onReplace={Replace} config={item}/>
-              ))
+              // targets.map((item, index)=>(
+              //   //console.log(item)
+              //   <Pussy key={item.id} onReplace={Replace} config={item}/>
+              // ))
+              status ? 
+               <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} config={targets[0]}/> : null
               
             }
             
