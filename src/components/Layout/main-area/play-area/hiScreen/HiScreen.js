@@ -70,10 +70,10 @@ function HiScreen({onStart}) {
       onSetUpModifier(event.target.value)
     }
   }
-
+  console.log(status)
   function onChoseMode(event){
       //console.log(event.target.id)
-      if(status === false){
+      if(status === false || status === 'false'){
       onSetLvlTime(event.target.id)
       onSetMode(event.target.id)
       localStorage.setItem('mode', event.target.id);
