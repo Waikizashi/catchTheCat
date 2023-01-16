@@ -62,10 +62,10 @@
         border-top: 4px ridge #d34444;
         border-right: 4px ridge #d34444;
         border-left: 4px ridge #d34444;
-        border-bottom: 4px solid #d34444;
+        border-bottom: 4px solid hsl(0, 62%, 55%);
     }
     33%{
-        border-top: 4px ridge #44c544;
+        border-top: 4px ridge hsl(120, 53%, 52%);
         border-right: 4px ridge #44c544;
         border-left: 4px ridge #44c544;
         border-bottom: 4px solid #44c544;
@@ -89,7 +89,7 @@
         border: 4px outset #d34444;
     }
     33%{
-        border: 4px outset #44c544;
+        border: 4px outset #44c544e1;
     }
     66%{
         border: 4px outset #ca4390;

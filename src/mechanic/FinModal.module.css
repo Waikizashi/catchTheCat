@@ -2,11 +2,26 @@
     box-sizing: border-box;
 }
 
-.modal {
+.ground{
+    display: none;
+    justify-content: center;
+}
+
+.background{
     z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.712);
+
+}
+
+.modal {
+    z-index: 100;
     pointer-events: all;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    visibility: hidden;
     width: fit-content;
     height: fit-content;
     min-width: 230px;
@@ -70,5 +85,5 @@
 }
 
 .open{
-    visibility: visible;
+    display: flex;
 }

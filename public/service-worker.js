@@ -1,5 +1,11 @@
-console.log('here i come!')
+console.log('services works')
 
+const deviceData = {
+  'User Agent': navigator.userAgent,
+  'Language': navigator.language,
+  'Online': navigator.onLine
+};
+console.table(deviceData);
 // const initCache = () =>{
     
 // }
@@ -11,7 +17,7 @@ console.log('here i come!')
 // }
 
 
-const cacheKey = "v1.9"
+const cacheKey = "v3"
 
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', event => {

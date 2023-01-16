@@ -10,14 +10,30 @@ import Box from './Box';
 
 
 
-function Field({isMobile,mousePosition}) {
+// function Field({isMobile = false, mousePosition = {x:0, y:0}}) {
+function Field({isMobile = false, mousePosition}) {
   
-  const {render, gameMode, area, targets} = useContext(StateContext)
+  const {hiScreenState, gameMode, area, targets} = useContext(StateContext)
+  const render = !hiScreenState
   const [dropZone, setDropZone] = useState(0)
-  //console.log("Field")
+  const [rndr, setRndr] = useState(!hiScreenState)
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  
+  
 
-  //console.log(area)
-  // const top = getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px'
+
+  // console.log(isMobile)
+  // console.log(mousePosition)
+  // console.log(render)
+  // console.log(gameMode)
+  // console.log(area)
+  // console.log(targets)
+  // console.log(dropZone)
+  // console.log(rndr)
+  // console.log(x)
+  // console.log(y)
+  // // const top = getRandomInt(area.height*0.1, area.height-area.height*0.15) + 'px'
    const ac_MOVY = area.height*0.5
   // const left = getRandomInt(area.height*0.1, area.height-area.height*0.10) + 'px'
    const ac_MOVX =area.width*0.5
@@ -50,11 +66,6 @@ function Field({isMobile,mousePosition}) {
 
 
   
-  const [rndr, setRndr] = useState(false)
-
-
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
   // const x = mousePosition.x
   // const y = mousePosition.y
 
@@ -71,11 +82,11 @@ function Field({isMobile,mousePosition}) {
   useEffect(() => {
 
       if (window.DeviceMotionEvent) {
-        console.log('DeviceMotionEvent is supported');
+        //console.log('DeviceMotionEvent is supported');
       window.addEventListener('devicemotion', handleDeviceMotion,false);
     } else {
       alert('DeviceMotionEvent is not supported')
-      console.log('DeviceMotionEvent is not supported');
+      //console.log('DeviceMotionEvent is not supported');
     }
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
   

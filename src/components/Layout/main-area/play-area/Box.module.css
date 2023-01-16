@@ -1,8 +1,8 @@
 .box{
+    z-index: -1;
     height: fit-content;
     width: fit-content;
     visibility: hidden;
-    z-index: 0;
     position: absolute;
     user-select: none;
     transition: .2s;
