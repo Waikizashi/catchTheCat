@@ -35,7 +35,7 @@ function Info() {
   return (
     <div className={cn(s.info)}>
         <div className={cn(s.scoreInfo, /*anm.textColors*/)}>
-            score: <p className={s.score}>{score}</p></div>
+            score: <p className={s.score}>{score.toString()}</p></div>
         <div className={cn(s.lvlMode, /*anm.textColors*/)}>
             mode_level: <p className={s.mode}>{gameMode}</p></div>
         <div className={cn(s.timeInfo, /*anm.textColors*/)}>

@@ -49,7 +49,7 @@ function Menu({Modal}) {
     );
   }
   else{
-
+   
     return (
       <div className={cn(s.menu)}>
   
@@ -59,6 +59,7 @@ function Menu({Modal}) {
         {/* <div className={cn(s.mainBtns)}> */}
           <div className={cn(s.btn)}><div>...</div></div>
           <div className={cn(s.btn)}><div>...</div></div>
+          <div className={cn(s.btn)}><div>test</div></div>
         {/* </div> */}
   
       </div>
