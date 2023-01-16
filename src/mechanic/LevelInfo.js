@@ -6,10 +6,11 @@ import s from './LvlInfo.module.css';
 
 function LevelInfo() {
   const {lvlConf, gameMode} = useContext(StateContext)
-  const [descr, setDescr] = useState(lvlConf['modes'][gameMode].description)
-//console.log(descr)
+  const [descr, setDescr] = useState('Hello, today you have to catch cats!')
+//console.log(lvlConf['modes'][gameMode].description)
   
 useEffect(()=>{
+  //console.log(lvlConf['modes'][gameMode].description)
   setDescr(lvlConf['modes'][gameMode].description)
 // eslint-disable-next-line react-hooks/exhaustive-deps
 },[gameMode])
@@ -17,7 +18,7 @@ useEffect(()=>{
 
   return (
     <div className={cn(s.Logs)}>
-       <p>{descr.toString()}</p> 
+       <p>{descr}</p> 
     </div>
   );
 }

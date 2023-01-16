@@ -1,5 +1,5 @@
 import cn from  'classnames';
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import { StateContext } from '../../../../../context/stateContext';
 
 import s from './hiScreen.module.css';
@@ -15,6 +15,7 @@ function HiScreen({onStart}) {
       onSetHisState,
       hiScreenState,
       onSetStatus,
+      onSetPause,
       onSetMode,
       gameMode,
       onPussyHandle,
@@ -22,18 +23,25 @@ function HiScreen({onStart}) {
       onSetUpModifier,
       onSetTargets,
       status,
-      onSetLvlTime} = useContext(StateContext)
+      onSetLvlTime,onchangeScore} = useContext(StateContext)
 
   //const [mod, setMod] = useState(0)
   const hiScreenRef = useRef(null);
+  const [display, setDisplay] = useState(hiScreenState)
   
-  
+
+  useEffect(()=>{
+    //console.log('hisstate', hiScreenState)
+    //console.log('hiScreenRef', hiScreenRef.current.style.display)
+      setDisplay(hiScreenState)
+    }, [hiScreenState])
 
   const clickToStart = () => {
     onStart && onStart()
     onPussyHandle(true)
-    onSetHisState(false)
+    onSetHisState(0)
     onSetStatus(true)
+    onSetPause(false)
     if(status === 'true'){
       onSetTargets(null)
     }
@@ -65,16 +73,34 @@ function HiScreen({onStart}) {
 
   function onChoseMode(event){
       //console.log(event.target.id)
+      if(status === false){
       onSetLvlTime(event.target.id)
       onSetMode(event.target.id)
+      localStorage.setItem('mode', event.target.id);
+      }
+      else{
+        // eslint-disable-next-line no-restricted-globals
+        const userResponse = confirm("If you switch the MODE now, you will LOSE all progress! Do you want to continue?");
+        if(userResponse){
+
+          localStorage.clear();
+          onPussyHandle(false)
+          onSetTargets(false)
+          onSetStatus(false)
+          onchangeScore(0)
+          onSetLvlTime(event.target.id)
+          onSetMode(event.target.id)
+          localStorage.setItem('mode', event.target.id);
+        }
+      }
   }
 
 
   return (
     // <div style={hiScreenState ? {display: 'flex'}:{display: 'none'}} ref={hiScreenRef} className={cn(s.hiScreen,{
-    <div style={hiScreenState ? {display: 'flex'}:null} ref={hiScreenRef} className={cn(s.hiScreen,{
-      [s.closeModal]: !hiScreenState,
-      [s.openModal]: hiScreenState
+    <div style={hiScreenState ? {display: 'flex'}: null} ref={hiScreenRef} className={cn(s.hiScreen,{
+      [s.closeModal]: !display,
+      [s.openModal]: display
     })}>
             <p className={s.welcome}>Welcome to <span className={s.span}>"Catch the cat"</span> game</p>
             <div className={cn(s.settings)

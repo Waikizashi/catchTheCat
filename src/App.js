@@ -7,30 +7,55 @@ import PussyConf from './mechanic/Cat.js';
 
 import s from './App.module.css';
 
-import './css/font.css'
+import './styles/font.css'
 
 
 const rules = require('./data/lvlDescr.json');
 
-const keys = ['score','time']
+const keys = [
+  'pussyRender',
+              'hisState',
+              'mode',
+              'area',
+              'Score',
+              'modifier',
+              'targets',
+              'gameSatus',
+              'pause',
+              'finish',
+              'lvlTime'
+              ]
 
 
 function App() {
+
+  const appRef = useRef(null)
+
   const [pussyRender, setRender] = useState(false)
   const [hisState, setHisState] = useState(true)
-  const [finModalState, setFinModalState] = useState(false)
   const [mode, setMode] = useState('relax')
   const [area, setArea] = useState({height: 0, width: 0})
   const [Score, setScore] = useState(0)
   const [modifier, setModifier] = useState(1)
   const [targets, setTargets] = useState([])
   const [gameSatus, setStatus] = useState(false)
-  const [jumps, setJumps] = useState([])
+  const [pause, setPause] = useState(false)
+  const [finish, setFiish] = useState(false)
+  const [win, setWin] = useState(false)
   // eslint-disable-next-line no-unused-vars
   const [lvlDescr, setLvlDescr] = useState(rules)
   const [lvlTime, setLvlTime] = useState(45)
 
-  //console.log(lvlDescr)
+
+
+  const handleSetWin = (value)=>{
+    setWin(value)
+    localStorage.setItem('win', win);
+  }
+  const handleSetFinish = (value)=>{
+    setFiish(value)
+    localStorage.setItem('finish', finish);
+  }
 
   function generateRandomKey() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -83,34 +108,68 @@ function App() {
       tmp.push(conf)
       setTargets(tmp)
 
-
-      tmp = jumps
-      tmp[conf.id] = null
-      setJumps(tmp)
       //targets.push(conf)
       //setTargets(targets.push(conf))
     }}
     else if (value === null){
-      
+      return
     }
     else{
       setTargets([])
     }
+    localStorage.setItem('targets', JSON.stringify(targets));
+
   }
 
-
-  const appRef = useRef(null)
-
-
-  // min-width: 248px;
-  // min-height: 312px;
-
   useEffect(()=>{
+    
+    //console.log(localStorage)
     keys.forEach(key => {
-      if(localStorage.getItem(key) === null ||
-       localStorage.getItem(key).length === 0)
-        {setScore(parseInt(localStorage.getItem(key)))}
-    });  
+      if(localStorage.getItem(key) !== null)        
+        {
+          switch(key){
+            case 'pussyRender':              
+            setRender(localStorage.getItem(key));
+              break;
+            case 'hisState':
+             // console.log(JSON.parse(localStorage.getItem(key)))              
+            setHisState(JSON.parse(localStorage.getItem(key)));
+              break;
+            case 'mode':              
+            setMode(localStorage.getItem(key));
+              break;
+            case 'area':              
+            setArea(localStorage.getItem(key));
+              break;
+            case 'Score':              
+            setScore(parseInt(localStorage.getItem(key)));
+              break;
+            case 'modifier':              
+            setModifier(parseInt(localStorage.getItem(key)));
+              break;
+            case 'targets': 
+            //console.log(JSON.parse(localStorage.getItem(key)))             
+            setTargets(JSON.parse(localStorage.getItem(key)));
+              break;
+            case 'gameSatus':              
+            setStatus(localStorage.getItem(key));
+              break;
+            case 'pause':              
+            setPause(localStorage.getItem(key));
+              break;
+            case 'win':              
+            setPause(localStorage.getItem(key));
+              break;
+            case 'finish':              
+            setLvlTime(localStorage.getItem(key));
+              break;
+            case 'lvlTime':              
+            setLvlTime(parseInt(localStorage.getItem(key)));
+                break;
+            default: break;
+          }          
+        }
+      });  
    },[])
 
   useEffect(() => {
@@ -127,49 +186,57 @@ function App() {
   }, [window.innerHeight, window.innerWidth])
   
 
-  const resetTimer = (gameMode) =>{
-    setLvlTime(lvlDescr['modes'][gameMode].time)
-    console.log(lvlDescr['modes'][gameMode].time)
+  const setTime = (gameMode) =>{
+    if(gameMode === 0){
+      setLvlTime(45)
+    }
+    else {
+      setLvlTime(lvlDescr['modes'][gameMode].time)
+      //console.log(lvlDescr['modes'][gameMode].time)
+    }
+    localStorage.setItem('lvlTime', lvlTime);
+    //console.log(localStorage)
   }
 
   const setUpModifier = (value) =>{
     
     setModifier(value)
-    console.log(modifier)
+    localStorage.setItem('modifier', modifier);
+    //console.log(modifier)
   }
 
   const setGameStatus = (value) =>{
     if(value !== undefined){
       setStatus(value)
+      localStorage.setItem('gameSatus', value);
     }
     else{
       setStatus(!gameSatus)
-      setScore(0)
+      changeScore(0)
+      localStorage.setItem('gameSatus', gameSatus);
     }
+    
   }
  
-  const setfinalModalState = (value) =>{
-    //console.log("####:", place)
-    setFinModalState(value)
-    //console.log("####:", Area)
-  }
   const setAreaPlace = (place) =>{
     //console.log("set AREA:", place)
     setArea(place)
     //console.log("####:", Area)
   }
 
-  const changeScore = (value)=>{
+  const changeScore = async (value)=>{
     if(value === 0){
-      setScore(0)
-      localStorage.setItem('score', Score);
+      await setScore(0)
+      localStorage.setItem('Score', 0);
     }
     else{
+      localStorage.setItem('Score', Score + value);
       setScore(Score + value)
-      localStorage.setItem('score', Score);}
+      }
+      
   }
 
-  const pussyHandle = (value) =>{
+  const pussyHandle = (value = undefined) =>{
 
     if(value !== undefined){
       setRender(value)
@@ -177,21 +244,41 @@ function App() {
     else{
       setRender(!pussyRender)
     }
+    localStorage.setItem('pussyRender', pussyRender);
   }
 
-  const hisHandle = (value) =>{
-    if(value !== undefined){
+  const hisHandle = async (value) =>{
+    if(value !== 0){
       setHisState(value)
+      localStorage.setItem('hisState', value);
+      //console.log(localStorage.getItem('hisState'))
     }
-    else{
-      setHisState(!hisState)
+    else if(value === 0){
+      await setHisState(!hisState)
+      localStorage.setItem('hisState', `${hisState}`);
+      //console.log('#####',hs)
+      //console.log('%%%%%', localStorage.getItem('hisState'))
+      
     }
+    
   }
   
   const modeHandle = (mode) =>{
     setMode(mode)
+    //console.log(mode)
+    
   }
 
+
+  const setPauseState = (value = undefined)=>{
+    if(value === undefined){
+      setPause(!pause)
+      localStorage.setItem('pause', pause);
+    }else{
+      setPause(value)
+      localStorage.setItem('pause', value);
+    }
+  }
 
   //console.log('App')
 
@@ -201,18 +288,22 @@ function App() {
       lvlConf:lvlDescr,
       hiScreenState:hisState,
       gameMode:mode,
-      jmp:jumps,
       score:Score,
       render:pussyRender,
       area: area,
       status: gameSatus,
-      finModalState: finModalState,
       Modifier:modifier,
       targets:targets,
-      onSetLvlTime:resetTimer,
+      pause: pause,
+      finish:finish,
+      win:win,
+      onSetWin:handleSetWin,
+      onSetFinish:handleSetFinish,
+      onChangeTime: setLvlTime,
+      onSetPause: setPauseState,
+      onSetLvlTime:setTime,
       onSetTargets:onSetTargets,
       onSetUpModifier: setUpModifier,
-      onSetFinModalState: setfinalModalState,
       onSetStatus: setGameStatus,
       onSetAreaPlace: setAreaPlace,
       onchangeScore:changeScore,
