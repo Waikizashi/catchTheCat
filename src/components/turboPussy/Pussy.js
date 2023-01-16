@@ -77,8 +77,22 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
   // }, config.type ? getRandomInt(500,3000) : getRandomInt(400, 800))
 
   function replace(){
+
+
+
     let top = getRandomInt(area.height*0.1, area.height-area.height*0.2) + 'px'
     let left = getRandomInt(area.width*0.1, area.width-area.width*0.2) + 'px'
+
+    if(left > cfg.x){
+      pussyRef.current.style.transition = '.1s'
+      pussyRef.current.style.transform = 'rotateY(180deg)'
+      pussyRef.current.style.transition = '.5s'
+    }
+    else{
+      pussyRef.current.style.transition = '.1s'
+      pussyRef.current.style.transform = 'rotateY(0deg)'
+      pussyRef.current.style.transition = '.5s'
+    }
     //config.replace(top, left)
     config.x = left
     config.y = top
