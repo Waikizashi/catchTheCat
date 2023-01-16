@@ -195,12 +195,6 @@ else if(gameMode === 'hard'){
                 //console.log(item)
                 <Pussy key={item.id} /*dropZone={isMobile ? dropZone : undefined}*/ isMobile={isMobile} onReplace={Replace} draggable={true} config={item}/>
               ))
-              // targets.map((item, index)=>(
-              //   //console.log(item)
-              //   <Pussy key={item.id} onReplace={Replace} config={item}/>
-              // ))
-              // status ? 
-              //  <Pussy dropZone={isMobile ? dropZone : undefined} isMobile={isMobile} onReplace={Replace} config={targets[0]}/> : null
               
             }
             

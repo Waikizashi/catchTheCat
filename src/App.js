@@ -12,6 +12,8 @@ import './css/font.css'
 
 const rules = require('./data/lvlDescr.json');
 
+const keys = ['score','time']
+
 
 function App() {
   const [pussyRender, setRender] = useState(false)
@@ -104,8 +106,12 @@ function App() {
   // min-height: 312px;
 
   useEffect(()=>{
-    setScore(parseInt(localStorage.getItem('score')))
-  },[])
+    keys.forEach(key => {
+      if(localStorage.getItem(key) === null ||
+       localStorage.getItem(key).length === 0)
+        {setScore(parseInt(localStorage.getItem(key)))}
+    });  
+   },[])
 
   useEffect(() => {
     if(window.innerHeight < window.innerWidth){ 

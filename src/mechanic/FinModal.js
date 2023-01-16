@@ -21,8 +21,8 @@ const closeModal = () =>{
       })}
     >
       <div className={s.modalContent}>
-        <p className={s.modalText}>{win ? ` You won! ^_^` : `You lose :(`}</p>
-        <p className={s.modalText}>Total Score: {score}</p>
+        <p className={s.modalText}>{win ? ' You won! ^_^' : 'You lose :('}</p>
+        <p className={s.modalText}>Total Score: {score.toString()}</p>
         <p className={s.modalText}>Total Time: {`00:00`}</p>
         
         <button className={s.closeModalButton} onClick={closeModal}>Close</button>

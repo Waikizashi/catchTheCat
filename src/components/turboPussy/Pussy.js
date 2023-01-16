@@ -27,21 +27,23 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
 
 
   useEffect(() => {
+    
     if (!timeoutId) {
       const id = setTimeout(() => {
+        pussyRef.current.style.transition = '.5s'
         replace();
         setTimeoutId(null);
-      }, 1000)//getRandomInt(800,1300));
+      }, config.type ? getRandomInt(600, 1200) : getRandomInt(500, 800));
       setTimeoutId(id);
     }
     return () => clearTimeout(timeoutId);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeoutId]);
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
 
-  },[isMobile])
+  // },[isMobile])
   //console.log('ZONE:',dropZone.current.getBoundingClientRect())
   // jmp[config.id] = setTimeout(() => {
   //   replace()
@@ -56,8 +58,11 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
   }
 
 
-  const handleClick = () =>{
-    console.log(config.type)
+  const handleClick = (event) =>{
+    //console.log(pussyRef.current)
+    pussyRef.current.style.transition = '0s'
+    //event.current.style.transition = 'none'
+    //console.log(event)
     if(config.type === true){
       scoreUp(12)
     }
@@ -87,7 +92,8 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
 
   const handleDragStart = (event) => {
 
-    
+    pussyRef.current.style.transition = '0s'
+    clearTimeout(timeoutId)
     event.target.style.cursor = 'grabbing'
     // code to handle the start of the drag event
   };
@@ -130,7 +136,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     event.preventDefault()
     let top = event.clientY-area.height*0.1 + 'px'
     let left = event.clientX-area.width*0.1 + 'px'
-    console.log(event.dataTransfer.dropEffect)
+    //console.log(event.dataTransfer.dropEffect)
     config.replace(top, left)
     setCfg(config)
     onReplace && onReplace()
@@ -144,6 +150,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
         scoreUp(-33)
       }
     }
+    setTimeoutId(false)
     event.target.style.cursor = 'grab'
     // code to handle the end of the drag event
   };
@@ -169,8 +176,8 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
 
    if(gameMode === 'relax' || gameMode === 'easy' || gameMode === 'hard'){
     return (
-      <div 
-      ref={pussyRef}
+      <div
+        ref={pussyRef}
        style={{
        top: cfg.y,
        left: cfg.x
