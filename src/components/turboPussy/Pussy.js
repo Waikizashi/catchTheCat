@@ -205,6 +205,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
         }
     }
     event.target.style.cursor = 'grab'
+    setTimeoutId(!timeoutId)
     //scoreUp()
     // code to handle the end of the drag event
   };
