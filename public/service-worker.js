@@ -17,7 +17,7 @@ console.table(deviceData);
 // }
 
 
-const cacheKey = "v3-306"
+const cacheKey = "v3-344"
 
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', event => {

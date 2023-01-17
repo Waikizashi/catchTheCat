@@ -39,6 +39,7 @@
 }
 
 .cat{
+    will-change: transform;
     top: 50%;
     left: 50%;
     height: fit-content;

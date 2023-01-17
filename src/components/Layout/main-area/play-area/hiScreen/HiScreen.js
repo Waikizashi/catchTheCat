@@ -42,7 +42,8 @@ function HiScreen({onStart}) {
     onSetHisState(0)
     onSetStatus(true)
     onSetPause(false)
-    if(status === 'true'){
+    //console.log(status)
+    if(status === 'true' || status === true){
       onSetTargets(null)
     }
     else{
@@ -70,7 +71,7 @@ function HiScreen({onStart}) {
       onSetUpModifier(event.target.value)
     }
   }
-  console.log(status)
+  //console.log(status)
   function onChoseMode(event){
       //console.log(event.target.id)
       if(status === false || status === 'false'){

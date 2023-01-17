@@ -2,14 +2,23 @@ import shh from '../img/shh.png'
 import meow from '../img/meow.png'
 import getRandomInt from '../mechanic/getRandomInt';
 
-export default function pop (e, type, tagetType) {
+export default function pop (e, type, tagetType, count) {
+    let clientX = 0
+    let clientY = 0
+    if(e.type === 'toucheend'){
+        const { clientX:x, clientY:y } = e.touches[0];
+        clientX = x
+        clientY = y
+    }
+    else if(e.type === 'click' || e.type === 'dragend'){
+        clientX = e.clientX;
+        clientY = e.clientY;
+    }
     e.target.dataset.type = `${type}`
     //console.log('pop', e.target.dataset.type)
-    let amount = 10
-    if(type === 'shadow')
-    amount +=10
+    let amount = count
 
-    if (e.clientX === 0 && e.clientY === 0) {
+    if (clientX === 0 && clientY === 0) {
         const bbox = e.target.getBoundingClientRect();
         const x = bbox.left + bbox.width / 2;
         const y = bbox.top + bbox.height / 2;
@@ -18,7 +27,7 @@ export default function pop (e, type, tagetType) {
         }
         } else {
         for (let i = 0; i < amount; i++) {
-            createParticle(e.clientX, e.clientY, e.target.dataset.type, tagetType);
+            createParticle(clientX, clientY, e.target.dataset.type, tagetType);
         }
     }
 }
