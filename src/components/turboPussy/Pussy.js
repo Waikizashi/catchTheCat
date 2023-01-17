@@ -62,8 +62,8 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     //console.log(event)
     
     pussyRef.current.style.transition = '0s'
-    pop(event, config.type,config.type)
-    pop(event, 'shadow',config.type)
+    pop(event, config.type,config.type, 10)
+    pop(event, 'shadow',config.type, 25)
     if(config.type === true){
       scoreUp(12)
     }
@@ -170,8 +170,8 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     onReplace && onReplace()
     
     pussyRef.current.style.transition = '.0s'
-    pop(event, config.type,config.type)
-    pop(event, 'shadow',config.type)
+    pop(event, config.type,config.type, 10)
+    pop(event, 'shadow',config.type, 25)
 
     if(event.dataTransfer.dropEffect === 'copy'){
       if(config.type === true){
@@ -187,15 +187,18 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     // code to handle the end of the drag event
   };
   const touchDragEnd = (event) => {
-    event.preventDefault()
+    //event.preventDefault()
     //console.log(dropZone.current.style.transform)
+      
+
+
     onReplace && onReplace()
 
-    pop(event, config.type,config.type)
-    pop(event, 'shadow',config.type)
 
-    if(over){
+    if(over === true){
       dropZone.current.style.transform = 'scale(1)'
+      pop(event, config.type,config.type, 10)
+      pop(event, 'shadow',config.type, 25)
       if(config.type === true){
         
         scoreUp(27)
@@ -203,6 +206,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
         else{
           scoreUp(-19)
         }
+        setOver(false)
     }
     event.target.style.cursor = 'grab'
     setTimeoutId(!timeoutId)
@@ -230,6 +234,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     return (
       <div
       ref={pussyRef}
+      onClick={null}
       onTouchStart={isMobile ? touchDragStart : null}
       onTouchMove={isMobile ? touchDrag : null}
       onTouchEnd={isMobile ? touchDragEnd : null}
