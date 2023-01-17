@@ -120,6 +120,8 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     // code to handle the start of the drag event
   };
   const touchDragStart = (event) => {
+    pussyRef.current.style.transition = '.0s'
+    
     clearTimeout(timeoutId)
     event.stopPropagation();
     
@@ -132,7 +134,6 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
   };
   const touchDrag = (event) => 
   {
-
     const { clientX, clientY } = event.touches[0];
     const zoneCords = dropZone.current.getBoundingClientRect()
     let top = clientY-area.height*0.1 + 'px'

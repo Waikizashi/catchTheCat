@@ -85,7 +85,7 @@ function Field({isMobile = false, mousePosition}) {
         //console.log('DeviceMotionEvent is supported');
       window.addEventListener('devicemotion', handleDeviceMotion,false);
     } else {
-      alert('DeviceMotionEvent is not supported')
+      //alert('DeviceMotionEvent is not supported')
       //console.log('DeviceMotionEvent is not supported');
     }
     return () => window.removeEventListener('devicemotion', handleDeviceMotion);
