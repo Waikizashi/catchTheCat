@@ -120,6 +120,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     // code to handle the start of the drag event
   };
   const touchDragStart = (event) => {
+    clearTimeout(timeoutId)
     event.stopPropagation();
     
     
