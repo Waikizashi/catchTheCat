@@ -87,3 +87,40 @@
 .open{
     display: flex;
 }
+
+@media (max-width: 768px){
+    .modalText{
+        font-size: 32pt;
+    }
+    
+    .closeModalButton{        
+        font-size: 28px;
+    }
+}
+@media (max-width: 668px){
+    .modalText{
+        font-size: 32pt;
+    }
+    
+    .closeModalButton{        
+        font-size: 26px;
+    }
+}
+@media (max-width: 568px){
+    .modalText{
+        font-size: 26pt;
+    }
+    
+    .closeModalButton{        
+        font-size: 22px;
+    }
+}
+@media (max-width: 568px){
+    .modalText{
+        font-size: 20pt;
+    }
+    
+    .closeModalButton{        
+        font-size: 18px;
+    }
+}
