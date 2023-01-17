@@ -57,15 +57,20 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
 
   const handleClick = (event) =>{
     //console.log(pussyRef.current)
-    pussyRef.current.style.transition = '0s'
+    
     //event.current.style.transition = 'none'
     //console.log(event)
+    
+    pussyRef.current.style.transition = '0s'
     pop(event, config.type,config.type)
     pop(event, 'shadow',config.type)
     if(config.type === true){
       scoreUp(12)
     }
     else{scoreUp(-9)}
+
+    
+   // pussyRef.current.style.transition = '.5s'
   }
 
 
@@ -84,15 +89,17 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     let left = getRandomInt(area.width*0.1, area.width-area.width*0.2) + 'px'
 
     if(left > cfg.x){
-      pussyRef.current.style.transition = '.1s'
+      //pussyRef.current.style.transition = '.1s'
       pussyRef.current.style.transform = 'rotateY(180deg)'
-      pussyRef.current.style.transition = '.5s'
+      //pussyRef.current.style.transition = '.5s'
+      //console.log(pussyRef.current.style.transition)
     }
     else{
-      pussyRef.current.style.transition = '.1s'
+      //pussyRef.current.style.transition = '.1s'
       pussyRef.current.style.transform = 'rotateY(0deg)'
-      pussyRef.current.style.transition = '.5s'
+      //pussyRef.current.style.transition = '.5s'
     }
+    
     //config.replace(top, left)
     config.x = left
     config.y = top
@@ -107,7 +114,7 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
 
   const handleDragStart = (event) => {
 
-    pussyRef.current.style.transition = '0s'
+    
     clearTimeout(timeoutId)
     event.target.style.cursor = 'grabbing'
     // code to handle the start of the drag event
@@ -159,7 +166,8 @@ function Pussy({draggable,config,onReplace, isMobile,dropZone}) {
     config.y = top
     setCfg(config)
     onReplace && onReplace()
-
+    
+    pussyRef.current.style.transition = '.0s'
     pop(event, config.type,config.type)
     pop(event, 'shadow',config.type)
 
