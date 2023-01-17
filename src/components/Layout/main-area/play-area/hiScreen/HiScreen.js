@@ -11,7 +11,7 @@ function isInteger(value) {
 
 function HiScreen({onStart}) {
 
-  const {
+  const {score,
       onSetHisState,
       hiScreenState,
       onSetStatus,
@@ -73,13 +73,13 @@ function HiScreen({onStart}) {
   }
   //console.log(status)
   function onChoseMode(event){
-      //console.log(event.target.id)
-      if(status === false || status === 'false'){
+      //console.log("####:",status,score)
+      if((status === false || status === 'false') && (score === 0 || score === '0')){
       onSetLvlTime(event.target.id)
       onSetMode(event.target.id)
       localStorage.setItem('mode', event.target.id);
       }
-      else{
+      else if((status !== true || status !== 'true') && (score !== 0 || score !== '0')){
         // eslint-disable-next-line no-restricted-globals
         const userResponse = confirm("If you switch the MODE now, you will LOSE all progress! Do you want to continue?");
         if(userResponse){

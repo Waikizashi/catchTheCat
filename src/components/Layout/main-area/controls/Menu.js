@@ -39,6 +39,7 @@ function Menu() {
   }
   const onReset = async ()=>{
     await localStorage.clear();
+    localStorage.setItem('gameSatus', false);
     try {
       const cache = await caches.open('my-cache');
       await cache.delete('/path/to/resource');
@@ -50,7 +51,7 @@ function Menu() {
   }
 
 
-  if(status){
+  if(status === 'true' || status === true){
     return (
       <div className={cn(s.menu)}>
   

@@ -29,6 +29,8 @@ const keys = [
 
 function App() {
 
+
+  //console.log('gameSatus', JSON.parse(localStorage.getItem('gameSatus')))
   const appRef = useRef(null)
 
   const [pussyRender, setRender] = useState(false)
@@ -46,7 +48,11 @@ function App() {
   const [lvlDescr, setLvlDescr] = useState(rules)
   const [lvlTime, setLvlTime] = useState(45)
 
-
+  useEffect(()=>{
+    console.log('Status from local',gameSatus)
+    localStorage.setItem('gameSatus', gameSatus)
+    console.log('Status from storage',JSON.parse(localStorage.getItem('gameSatus')))
+  },[gameSatus])
 
   const handleSetWin = (value)=>{
     setWin(value)
@@ -133,7 +139,7 @@ function App() {
               break;
             case 'hisState':
              // console.log(JSON.parse(localStorage.getItem(key)))              
-            setHisState(JSON.parse(localStorage.getItem(key)));
+            setHisState(true);
               break;
             case 'mode':              
             setMode(localStorage.getItem(key));
@@ -151,11 +157,12 @@ function App() {
             //console.log(JSON.parse(localStorage.getItem(key)))             
             setTargets(JSON.parse(localStorage.getItem(key)));
               break;
-            case 'gameSatus':              
-            setStatus(localStorage.getItem(key));
+            case 'gameSatus':        
+            //console.log(JSON.parse(localStorage.getItem(key)))      
+            setStatus(JSON.parse(localStorage.getItem(key)));
               break;
             case 'pause':              
-            setPause(localStorage.getItem(key));
+            setPause(JSON.parse(localStorage.getItem(key)));
               break;
             case 'win':              
             setPause(localStorage.getItem(key));
@@ -208,12 +215,12 @@ function App() {
   const setGameStatus = (value) =>{
     if(value !== undefined){
       setStatus(value)
-      localStorage.setItem('gameSatus', value);
+      //localStorage.setItem('gameSatus', JSON.parse(value));
     }
     else{
+      //localStorage.setItem('gameSatus', JSON.parse(!gameSatus));
       setStatus(!gameSatus)
       changeScore(0)
-      localStorage.setItem('gameSatus', gameSatus);
     }
     
   }

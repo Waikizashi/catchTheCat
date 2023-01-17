@@ -17,7 +17,7 @@ console.table(deviceData);
 // }
 
 
-const cacheKey = "v3-344"
+const cacheKey = "v4-001"
 
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', event => {
@@ -57,7 +57,7 @@ self.addEventListener('activate', event => {
         }
         return fetch(event.request).then(response => {
           return caches.open(cacheKey).then(cache => {
-            cache.put(event.request, response.clone());
+            cache.add(event.request, response.clone());
             return response;
           });
         });
